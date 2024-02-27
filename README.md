@@ -26,7 +26,16 @@ An overview of all the projects I completed at 42 can be found here: <a href="ht
 
 
 <!-- Links -->
-[CPP00]:				
+[CPP00]:		./CPP00
+[CPP01]:		./CPP01
+[CPP02]:		./CPP02
+[CPP03]:		./CPP03
+[CPP04]:		./CPP04
+[CPP05]:		./CPP05
+[CPP06]:		./CPP06
+[CPP07]:		./CPP07
+[CPP08]:		./CPP08
+[CPP09]:		./CPP09
 
 <!-- ahokcool FOOTER-->
 ---

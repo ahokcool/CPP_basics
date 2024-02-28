@@ -45,7 +45,16 @@ The C++ module is a project-based module that will introduce you to the basics o
 
 
 <!-- Links -->
-[CPP00]:./CPP00/				
+[CPP00]:./CPP00/
+[CPP01]:./CPP01/
+[CPP02]:./CPP02/
+[CPP03]:./CPP03/
+[CPP04]:./CPP04/
+[CPP05]:./CPP05/
+[CPP06]:./CPP06/
+[CPP07]:./CPP07/
+[CPP08]:./CPP08/
+[CPP09]:./CPP09/
 
 <!-- ahokcool FOOTER-->
 ---

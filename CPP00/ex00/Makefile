@@ -55,13 +55,13 @@ MSG_DONE:
 gp: fclean
 	@$(BANNER) $(NAME) "commiting and pushing to git... " "$(ORANGE)"
 	@echo "---"
-	@git status
+	git status
 	@echo "---"
-	@git add .
-	@git commit -m "auto commit:  $(NAME)"
-	@git push
+	git add .
+	git commit -m "auto commit:  $(NAME)"
+	git push
 	@echo "---"
-	@git status
+	git status
 	@echo "---"
 	
 	@$(BANNER) $(NAME) "!GP DONE!"$(ORANGE)"

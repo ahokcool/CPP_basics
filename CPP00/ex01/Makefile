@@ -1,8 +1,8 @@
-NAME=MyAwesomePhoneBook
+NAME=freak_bible
 
 # Compiler options
 CC = c++
-CFLAGS =  -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS =  -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # Colors
@@ -25,7 +25,7 @@ OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # Targets
-.PHONY: all clean fclean re MSG_START MSG_DONE gp
+.PHONY: all clean fclean re MSG_START MSG_DONE gp run val
 
 all: MSG_START $(NAME) MSG_DONE
 
@@ -46,6 +46,12 @@ fclean: clean
 	@$(BANNER) $(NAME) "removed program" "$(RED)"
 
 re: fclean all
+
+run: all
+	@./$(NAME)
+
+val: all
+	@valgrind --leak-check=full ./$(NAME)
 
 MSG_START:
 	@$(BANNER) $(NAME) compiling "$(ORANGE)"

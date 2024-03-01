@@ -16,6 +16,7 @@ OBJ_FOLDER     	= ./obj/
 
 # Files
 BANNER = ../../make_banner.sh
+GITPUSH = ../../git_push.sh
 SRCS = megaphone.cpp
 
 # Object files
@@ -53,15 +54,4 @@ MSG_DONE:
 	@$(BANNER) $(NAME) compiled "$(GREEN)"
 
 gp: fclean
-	@$(BANNER) $(NAME) "commiting and pushing to git... " "$(ORANGE)"
-	@echo "---"
-	git status
-	@echo "---"
-	git add .
-	git commit -m "auto commit:  $(NAME)"
-	git push
-	@echo "---"
-	git status
-	@echo "---"
-	
-	@$(BANNER) $(NAME) "!GP DONE!"$(ORANGE)"
+	$(GITPUSH) $(NAME)

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:06:59 by astein            #+#    #+#             */
-/*   Updated: 2024/03/01 17:48:39 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/01 20:47:11 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,60 @@ void Contact::set_contact(void)
 	this->_darkest_secret = get_input("Darkest secret", true, COLOR_GREEN, 4);
 }
 
+void		Contact::display_contact(int indentation) const
+{
+	format_output("First name: " + get_first_name(), COLOR_CYAN, indentation, true);
+	format_output("Last name: " + get_last_name(), COLOR_CYAN, indentation, true);
+	format_output("Nickname: " + get_nickname(), COLOR_CYAN, indentation, true);
+	format_output("Phone number: " + _phone_number, COLOR_CYAN, indentation, true);
+	format_output("Darkest secret: " + _darkest_secret, COLOR_CYAN, indentation, true);
+}
+
 std::string	Contact::get_first_name(void) const
 {
 	return (this->_first_name);
+}
+
+std::string	Contact::get_last_name(void) const
+{
+	return (this->_last_name);
+}
+
+std::string	Contact::get_nickname(void) const
+{
+	return (this->_nickname);
+}
+
+std::string	Contact::get_phone_number(void) const
+{
+	return (this->_phone_number);
+}
+
+std::string	Contact::get_darkest_secret(void) const
+{
+	return (this->_darkest_secret);
+}
+
+static	void print_column(std::string value)
+{
+	if (value.length() > 10)
+		value = value.substr(0, 9) + ".";
+	else if (value.length() == 0)
+		value = "(empty)";
+	std::cout << std::right << std::setw(10) << value;
+	std::cout << "│";
+}
+
+void	Contact::print_contact_line(std::string color, const int indentation, const int index) const
+{
+	std::string	col_value;
+	
+	for (int i = 0; i < indentation; i++)
+		std::cout << " ";
+	std::cout << color << "├─ │";
+	print_column(int_to_str(index));
+	print_column(get_first_name());
+	print_column(get_last_name());
+	print_column(get_nickname());
+	std::cout << COLOR_RESET << std::endl;
 }

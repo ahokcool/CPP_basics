@@ -6,12 +6,18 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:06:52 by astein            #+#    #+#             */
-/*   Updated: 2024/03/01 17:54:35 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/01 20:11:57 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "my_awesome_phone_book.hpp"
+# include "freak_bible.hpp"
 # include "Phonebook.hpp"
+
+std::string int_to_str(int number) {
+    std::stringstream ss;
+    ss << number;
+    return ss.str();
+}
 
 void	format_output(std::string str, std::string color, int indentation, bool newline)
 {
@@ -36,6 +42,22 @@ std::string get_input(std::string promt, bool mandatory, std::string color, int 
 		getline(std::cin, cur_line);
 	}
 	return (cur_line);
+}
+
+int get_input_index(std::string promt, std::string color, int indentation)
+{
+	char input;
+
+	input = 0;
+	promt = promt + ": ";
+	while(true)
+	{
+		format_output(promt, color, indentation, false);
+		std::cin >> input;
+		std::cout << input << std::endl;
+		break;
+	}
+	return (input);
 }
 
 int main()

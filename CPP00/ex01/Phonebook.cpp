@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:50:48 by astein            #+#    #+#             */
-/*   Updated: 2024/03/01 17:53:22 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/01 20:48:19 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,18 @@ void Phonebook::_add()
 
 void Phonebook::_search() const
 {
-	std::cout << "searching..." << std::endl;
+	std::string	cur_line;
+	int			index;
+	
+	format_output("Searching Contacts...", COLOR_BLUE, 2, true);
+	format_output("┌──────────┬──────────┬──────────┬──────────┐", COLOR_CYAN, 4, true);
+	format_output("│ INDEX    │First Name│ Last Name│ Nickname │", COLOR_CYAN, 4, true);
+	format_output("├──────────┼──────────┼──────────┼──────────┤", COLOR_CYAN, 4, true);
+	for (int i = 0; i < 8; i++)
+	{
+		_contacts[i].print_contact_line(COLOR_CYAN, 4, i);
+	}
+	format_output("└──────────┴──────────┴──────────┴──────────┘", COLOR_CYAN, 4, true);
+	index = get_input_index("Which contact would you like to see? index", COLOR_BLUE, 2);
+	_contacts[index].display_contact(4);
 }

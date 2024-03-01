@@ -16,6 +16,7 @@ OBJ_FOLDER     	= ./obj/
 
 # Files
 BANNER = ../../make_banner.sh
+GITPUSH = ../../git_push.sh
 SRCS = main.cpp Phonebook.cpp Contact.cpp 
 
 # Object files
@@ -24,7 +25,7 @@ OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # Targets
-.PHONY: all clean fclean re MSG_START MSG_DONE
+.PHONY: all clean fclean re MSG_START MSG_DONE gp
 
 all: MSG_START $(NAME) MSG_DONE
 
@@ -51,3 +52,6 @@ MSG_START:
 
 MSG_DONE:
 	@$(BANNER) $(NAME) compiled "$(GREEN)"
+
+gp: fclean
+	$(GITPUSH) $(NAME)

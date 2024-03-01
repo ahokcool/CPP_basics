@@ -1,4 +1,4 @@
-NAME=megaphone
+NAME=MyAwesomePhoneBook
 
 # Compiler options
 CC = c++
@@ -16,7 +16,7 @@ OBJ_FOLDER     	= ./obj/
 
 # Files
 BANNER = ../../make_banner.sh
-SRCS = megaphone.cpp
+SRCS = main.cpp Phonebook.cpp Contact.cpp 
 
 # Object files
 OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)
@@ -24,7 +24,7 @@ OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # Targets
-.PHONY: all clean fclean re MSG_START MSG_DONE gp
+.PHONY: all clean fclean re MSG_START MSG_DONE
 
 all: MSG_START $(NAME) MSG_DONE
 
@@ -51,10 +51,3 @@ MSG_START:
 
 MSG_DONE:
 	@$(BANNER) $(NAME) compiled "$(GREEN)"
-
-gp: fclean
-	@$(BANNER) $(NAME) commiting and pushing to git... "$(ORANGE)"
-	@git add .
-	@git commit -m "auto commit:  $(NAME)"
-	@git push
-	@$(BANNER) $(NAME) !GP DONE!"$(ORANGE)"

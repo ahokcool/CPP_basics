@@ -25,12 +25,14 @@
     <img src="../images/CPP06.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP06</h1>
+  Deep dive into different types of C++ casts
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Understanding different types of casts in C++: static_cast, dynamic_cast, reinterpret_cast, and const_cast.
+- Best practices and use cases for each type of cast.
 
 <!-- ahokcool FOOTER-->
 ---

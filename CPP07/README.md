@@ -25,12 +25,15 @@
     <img src="../images/CPP07.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP07</h1>
+  Introduction to templates and template programming
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Introduction to template programming.
+- Understanding function templates and class templates.
+- Template specialization and instantiation.
 
 <!-- ahokcool FOOTER-->
 ---

@@ -25,12 +25,16 @@
     <img src="../images/CPP09.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP09</h1>
+  Advanced namespaces, exception handling, and STL usage
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Advanced use of namespaces to organize code.
+- In-depth exploration of exception handling and ensuring exception safety.
+- Comprehensive use of the STL, including understanding the complexity and performance of different operations.
+
 
 <!-- ahokcool FOOTER-->
 ---

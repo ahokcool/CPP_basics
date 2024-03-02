@@ -25,12 +25,15 @@
     <img src="../images/CPP03.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP03</h1>
+  Basics of class inheritance and virtual functions
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Basics of class inheritance and access specifiers.
+- Understanding the concept of base and derived classes.
+- Introduction to virtual functions and polymorphism.
 
 <!-- ahokcool FOOTER-->
 ---

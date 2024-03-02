@@ -25,12 +25,15 @@
     <img src="../images/CPP08.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP08</h1>
+  Exploring STL containers, iterators, and algorithms
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Deep dive into the Standard Template Library (STL).
+- Working with various templated containers like vector, list, map, etc.
+- Introduction to iterators and algorithms provided by the STL.
 
 <!-- ahokcool FOOTER-->
 ---

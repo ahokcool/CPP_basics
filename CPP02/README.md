@@ -25,12 +25,15 @@
     <img src="../images/CPP02.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP02</h1>
+  Ad-hoc polymorphism, operator overloading, and Orthodox Canonical classes
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Introduction to operator overloading.
+- Understanding ad-hoc polymorphism.
+- Implementing the Orthodox Canonical Form in classes.
 
 <!-- ahokcool FOOTER-->
 ---

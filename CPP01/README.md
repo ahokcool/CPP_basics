@@ -25,12 +25,15 @@
     <img src="../images/CPP01.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP01</h1>
+  Memory management, References, Pointers to members, File streams
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Dynamic memory allocation and deallocation using ```new``` and ```delete```.
+- Understanding references and pointers, including pointers to members.
+- Working with file streams for input and output operations.
 
 <!-- ahokcool FOOTER-->
 ---

@@ -25,12 +25,15 @@
     <img src="../images/CPP04.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP04</h1>
+  Subtype polymorphism, abstract classes, and interfaces
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Deep dive into polymorphism and virtual functions.
+- Working with abstract classes and pure virtual functions.
+- Understanding interfaces and their implementation in C++.
 
 <!-- ahokcool FOOTER-->
 ---

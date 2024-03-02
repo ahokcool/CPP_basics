@@ -25,6 +25,7 @@
     <img src="../images/CPP00.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP00</h1>
+  Introduction to C++ syntax and structure
 </div>
 <br>
 <!-- PROJECT HEADER END -->

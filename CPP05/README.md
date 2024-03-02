@@ -25,12 +25,15 @@
     <img src="../images/CPP05.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP05</h1>
+	Exception handling fundamentals
 </div>
 <br>
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Basics of exception handling using try, catch, and throw.
+- Creating custom exception classes.
+- Exception safety and stack unwinding.
 
 <!-- ahokcool FOOTER-->
 ---

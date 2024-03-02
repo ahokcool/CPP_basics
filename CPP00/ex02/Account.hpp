@@ -18,7 +18,6 @@
 
 class Account {
 
-
 public:
 
 	typedef Account		t;
@@ -36,7 +35,6 @@ public:
 	bool	makeWithdrawal( int withdrawal );
 	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
-
 
 private:
 

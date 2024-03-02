@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:51:42 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:44:48 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 22:22:27 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "freak_bible.hpp"
 # include "Contact.hpp"
+# include <string>
+# include <iostream>
+# include <sstream>
+# include <iomanip>
 
 class Phonebook
 {

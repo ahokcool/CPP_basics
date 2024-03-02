@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:51:42 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:25:32 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 22:22:37 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define CONTACT_HPP
 
 # include "freak_bible.hpp"
+# include <string>
+# include <iostream>
+# include <sstream>
 # include <iomanip>
 
 class	Contact

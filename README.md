@@ -17,7 +17,7 @@
 <!-- PROJECT HEADER START -->
 <br />
 <div align="center">
-  <img src="images/CPPlogo.png" alt="Logo" width="300">
+  <img src="images/CPPlogo.png" alt="project_logo" width="300">
   <h1 align="center">CPP Basics</h1>
 <p align="center">
 The C++ module is a project-based module that will introduce you to the basics of C++ programming.   
@@ -28,18 +28,69 @@ The C++ module is a project-based module that will introduce you to the basics o
 
 # CPPs
 
-|Project|Status|Description|
-|:---|:---:|---|
-|[CPP00][CPP00]|:building_construction:|tba.|
-|[CPP01][CPP01]|:building_construction:|tba.|
-|[CPP02][CPP02]|:building_construction:|tba.|
-|[CPP03][CPP03]|:building_construction:|tba.|
-|[CPP04][CPP04]|:building_construction:|tba.|
-|[CPP05][CPP05]|:building_construction:|tba.|
-|[CPP06][CPP06]|:building_construction:|tba.|
-|[CPP07][CPP07]|:building_construction:|tba.|
-|[CPP08][CPP08]|:building_construction:|tba.|
-|[CPP09][CPP09]|:building_construction:|tba.|
+| Project        | Status |                 Description |
+|:---------------|:-----------------------:|:------------------------------------------------------------------------------|
+| [CPP00][CPP00] | :building_construction: | Introduction to C++ syntax and structure. |
+| [CPP01][CPP01] | :building_construction: | Memory management, References, Pointers to members, File streams. |
+| [CPP02][CPP02] | :building_construction: | Ad-hoc polymorphism, operator overloading, and Orthodox Canonical classes. |
+| [CPP03][CPP03] | :building_construction: | Basics of class inheritance and virtual functions. |
+| [CPP04][CPP04] | :building_construction: | Subtype polymorphism, abstract classes, and interfaces. |
+| [CPP05][CPP05] | :building_construction: | Exception handling fundamentals. |
+| [CPP06][CPP06] | :building_construction: | Deep dive into different types of C++ casts. |
+| [CPP07][CPP07] | :building_construction: | Introduction to templates and template programming. |
+| [CPP08][CPP08] | :building_construction: | Exploring STL containers, iterators, and algorithms. |
+| [CPP09][CPP09] | :building_construction: | Advanced namespaces, exception handling, and STL usage. |
+
+
+CPP00: Introduction to C++
+
+
+
+
+CPP01: Memory management, References, Pointers to members, File streams
+
+Dynamic memory allocation and deallocation using new and delete.
+Understanding references and pointers, including pointers to members.
+Working with file streams for input and output operations.
+CPP02: Ad-hoc polymorphism, operators overload and Orthodox Canonical classes
+
+Introduction to operator overloading.
+Understanding ad-hoc polymorphism.
+Implementing the Orthodox Canonical Form in classes.
+CPP03: Inheritance
+
+Basics of class inheritance and access specifiers.
+Understanding the concept of base and derived classes.
+Introduction to virtual functions and polymorphism.
+CPP04: Subtype polymorphism, abstract classes, interfaces
+
+Deep dive into polymorphism and virtual functions.
+Working with abstract classes and pure virtual functions.
+Understanding interfaces and their implementation in C++.
+CPP05: Exceptions
+
+Basics of exception handling using try, catch, and throw.
+Creating custom exception classes.
+Exception safety and stack unwinding.
+CPP06: C++ Casts
+
+Understanding different types of casts in C++: static_cast, dynamic_cast, reinterpret_cast, and const_cast.
+Best practices and use cases for each type of cast.
+CPP07: Templates
+
+Introduction to template programming.
+Understanding function templates and class templates.
+Template specialization and instantiation.
+CPP08: Templated containers, iterators, algorithms
+
+Deep dive into the Standard Template Library (STL).
+Working with various templated containers like vector, list, map, etc.
+Introduction to iterators and algorithms provided by the STL.
+CPP09: Namespaces, exceptions, and STL
+
+Advanced use of namespaces to organize code.
+In-depth exploration of exception handling and ensuring exception safety.
+Comprehensive use of the STL, including understanding the complexity and performance of different operations.
 
 
 <!-- Links -->

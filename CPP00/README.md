@@ -22,7 +22,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/o-reo/push_swap_visualizer">
-    <img src="../images/CPP00.png" alt="Logo" width="400">
+    <img src="../images/CPP00.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP00</h1>
 </div>
@@ -30,7 +30,11 @@
 <!-- PROJECT HEADER END -->
 
 ## :bulb: Lessons learned
-- tba.
+- Basics of C++ syntax and structure.
+- Introduction to Object Oriented Programming (OOP)
+- Introduction to namespaces, preprocessor directives, and the main function.
+- Basic I/O operations using ```cout``` and ```cin```.
+
 
 <!-- ahokcool FOOTER-->
 ---

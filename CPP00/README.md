@@ -22,7 +22,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/o-reo/push_swap_visualizer">
-    <img src="../images/CPP00.png" alt="Logo" heigth="600">
+    <img src="../images/CPP00.png" alt="Logo" width="400">
   </a><br>
   <h1 align="center">CPP00</h1>
 </div>

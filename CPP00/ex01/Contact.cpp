@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:06:59 by astein            #+#    #+#             */
-/*   Updated: 2024/03/01 20:47:11 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 15:15:25 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,25 @@ Contact::Contact(void) : _first_name(""), _last_name(""), _nickname(""), _phone_
 
 void Contact::set_contact(void)
 {	
-	this->_first_name = get_input("First name", true, COLOR_GREEN, 4);
-	this->_last_name = get_input("Last name", true, COLOR_GREEN, 4);
-	this->_nickname = get_input("Nickname", true, COLOR_GREEN, 4);
-	this->_phone_number = get_input("Phone number", true, COLOR_GREEN, 4);
-	this->_darkest_secret = get_input("Darkest secret", true, COLOR_GREEN, 4);
+	this->_first_name = get_input("First name", true, COLOR_GREEN, 4, 20);
+	this->_last_name = get_input("Last name", true, COLOR_GREEN, 4, 20);
+	this->_nickname = get_input("Nickname", true, COLOR_GREEN, 4, 20);
+	this->_phone_number = get_input("Phone number", true, COLOR_GREEN, 4, 20);
+	this->_darkest_secret = get_input("Darkest secret", true, COLOR_GREEN, 4, 20);
 }
 
 void		Contact::display_contact(int indentation) const
 {
-	format_output("First name: " + get_first_name(), COLOR_CYAN, indentation, true);
-	format_output("Last name: " + get_last_name(), COLOR_CYAN, indentation, true);
-	format_output("Nickname: " + get_nickname(), COLOR_CYAN, indentation, true);
-	format_output("Phone number: " + _phone_number, COLOR_CYAN, indentation, true);
-	format_output("Darkest secret: " + _darkest_secret, COLOR_CYAN, indentation, true);
+	format_output("First name: ", COLOR_CYAN, indentation, false, 20);
+	std::cout << COLOR_CYAN << get_first_name() << COLOR_RESET << std::endl;
+	format_output("Last name: ", COLOR_CYAN, indentation, false, 20);
+	std::cout << COLOR_CYAN << get_last_name() << COLOR_RESET << std::endl;
+	format_output("Nickname: ", COLOR_CYAN, indentation, false, 20);
+	std::cout << COLOR_CYAN << get_nickname() << COLOR_RESET << std::endl;
+	format_output("Phone number: ", COLOR_CYAN, indentation, false, 20);
+	std::cout << COLOR_CYAN << get_phone_number() << COLOR_RESET << std::endl;
+	format_output("Darkest secret: ", COLOR_CYAN, indentation, false, 20);
+	std::cout << COLOR_CYAN << get_darkest_secret() << COLOR_RESET << std::endl;
 }
 
 std::string	Contact::get_first_name(void) const

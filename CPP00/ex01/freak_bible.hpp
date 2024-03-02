@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:15:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/01 20:11:57 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 15:03:41 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <string>
 # include <iostream>
-#include <sstream>
+# include <sstream>
+# include <iomanip>
+
 
 // Escape sequences for terminal colors
 #define COLOR_RESET  "\x1b[0m"
@@ -27,8 +29,8 @@
 #define COLOR_CYAN   "\x1b[36m"
 
 std::string	int_to_str(int number);
-std::string	get_input(std::string promt, bool mandatory, std::string color, int indentation);
+std::string get_input(std::string promt, bool mandatory, std::string color, int indentation, int setw);
 int			get_input_index(std::string promt, std::string color, int indentation);
-void		format_output(std::string str, std::string color, int indentation, bool newline);
+void		format_output(std::string str, std::string color, int indentation, bool newline, int setw);
 
 #endif

@@ -11,7 +11,7 @@
   </a><br>
   This project was created as part of my studies at: <a href="https://www.42lisboa.com" target="_blank">42 Lisboa</a><br><br>
   <a href="https://github.com/ahokcool/CPPs/blob/main/README.md">
-    <img src="../images/CCPlogo.png" alt="CPPs" width="100">
+    <img src="../images/CPPlogo.png" alt="CPPs" width="100">
   </a><br>
   This project is part of a series of smaller C++ projects. An overview can be found here: <a href="https://github.com/ahokcool/CPPs/blob/main/README.md" target="_blank">CPPs</a><br>
 </div>

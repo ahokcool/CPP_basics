@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:18:56 by astein            #+#    #+#             */
-/*   Updated: 2024/02/29 16:40:51 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 22:28:31 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	main (int argc, char **argv)
 				std::cout << (char)std::toupper(argv[i][j]);
 		std::cout << std::endl;
 	}
-	return (0);
+	return 0;
 }

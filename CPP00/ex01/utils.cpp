@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:43:40 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:41:53 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 22:29:33 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ std::string	get_input(const std::string promt, const bool mandatory, const std::
 		format_output(lng_promt, color, indentation, false, setw);
 		getline(std::cin, cur_line);
 	}
-	return (cur_line);
+	return cur_line;
 }
 
 int 		get_input_index(const std::string promt, const std::string color, const int indentation)
@@ -66,7 +66,7 @@ int 		get_input_index(const std::string promt, const std::string color, const in
     	else
 		{
 			if (index >= 0 && index < 8)
-				return (index);
+				return index;
 			else
 				format_output("Invalid index! try again!", COLOR_RED, indentation + 2, true, -1);
     	}

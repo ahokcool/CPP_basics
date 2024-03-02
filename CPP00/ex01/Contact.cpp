@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:06:59 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:26:01 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 22:29:06 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void		Contact::set_contact(void)
 	this->_darkest_secret = get_input("Darkest secret", true, COLOR_GREEN, 4, 20);
 }
 
-std::string	Contact::get_first_name(void) const		{ return (this->_first_name); 		}
-std::string	Contact::get_last_name(void) const		{ return (this->_last_name);		}
-std::string	Contact::get_nickname(void) const		{ return (this->_nickname);			}
-std::string	Contact::get_phone_number(void) const	{ return (this->_phone_number); 	}
-std::string	Contact::get_darkest_secret(void) const	{ return (this->_darkest_secret);	}
+std::string	Contact::get_first_name(void) const		{ return this->_first_name; 	}
+std::string	Contact::get_last_name(void) const		{ return this->_last_name;		}
+std::string	Contact::get_nickname(void) const		{ return this->_nickname;		}
+std::string	Contact::get_phone_number(void) const	{ return this->_phone_number; 	}
+std::string	Contact::get_darkest_secret(void) const	{ return this->_darkest_secret;	}
 
 void		Contact::display_contact(const int indentation) const
 {

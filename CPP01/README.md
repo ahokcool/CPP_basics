@@ -25,7 +25,7 @@
     <img src="../images/CPP01.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP01</h1>
-  Memory management, References, Pointers to members, File streams
+  memory allocation, pointers to members, references, switch statement
 </div>
 <br>
 <!-- PROJECT HEADER END -->

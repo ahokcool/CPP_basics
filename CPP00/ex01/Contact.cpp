@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:06:59 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:21:49 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 15:26:01 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Contact::Contact(void) : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret(""){}
 
-void	Contact::set_contact(void)
+void		Contact::set_contact(void)
 {	
 	this->_first_name = get_input("First name", true, COLOR_GREEN, 4, 20);
 	this->_last_name = get_input("Last name", true, COLOR_GREEN, 4, 20);
@@ -23,7 +23,13 @@ void	Contact::set_contact(void)
 	this->_darkest_secret = get_input("Darkest secret", true, COLOR_GREEN, 4, 20);
 }
 
-void	Contact::display_contact(const int indentation) const
+std::string	Contact::get_first_name(void) const		{ return (this->_first_name); 		}
+std::string	Contact::get_last_name(void) const		{ return (this->_last_name);		}
+std::string	Contact::get_nickname(void) const		{ return (this->_nickname);			}
+std::string	Contact::get_phone_number(void) const	{ return (this->_phone_number); 	}
+std::string	Contact::get_darkest_secret(void) const	{ return (this->_darkest_secret);	}
+
+void		Contact::display_contact(const int indentation) const
 {
 	format_output("First name: ", COLOR_CYAN, indentation, false, 20);
 	std::cout << COLOR_CYAN << get_first_name() << COLOR_RESET << std::endl;
@@ -37,32 +43,8 @@ void	Contact::display_contact(const int indentation) const
 	std::cout << COLOR_CYAN << get_darkest_secret() << COLOR_RESET << std::endl;
 }
 
-std::string	Contact::get_first_name(void) const
-{
-	return (this->_first_name);
-}
 
-std::string	Contact::get_last_name(void) const
-{
-	return (this->_last_name);
-}
-
-std::string	Contact::get_nickname(void) const
-{
-	return (this->_nickname);
-}
-
-std::string	Contact::get_phone_number(void) const
-{
-	return (this->_phone_number);
-}
-
-std::string	Contact::get_darkest_secret(void) const
-{
-	return (this->_darkest_secret);
-}
-
-static	void print_column(std::string value)
+static		void print_column(std::string value)
 {
 	if (value.length() > 10)
 		value = value.substr(0, 9) + ".";
@@ -72,7 +54,7 @@ static	void print_column(std::string value)
 	std::cout << "│";
 }
 
-void	Contact::print_contact_line(std::string color, const int indentation, const int index) const
+void		Contact::print_contact_line(std::string color, const int indentation, const int index) const
 {
 	std::string	col_value;
 	

@@ -6,20 +6,30 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:50:48 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:06:14 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 15:43:48 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook() : _cur_contact(-1){}
+Phonebook::Phonebook(void) : _cur_contact(-1){}
 
-int Phonebook::get_contact_count(void) const
+int		Phonebook::get_contact_count(void) const { return (_cur_contact); }
+
+int		Phonebook::_get_contact_count(void) const
 {
-	return (_cur_contact);
+	int count;
+
+	count = 0;	
+	for (int i = 0; i < 8; i++)
+	{
+		if (_contacts[i].get_first_name() != "")
+			count++;
+	}
+	return (count);
 }
 
-void Phonebook::run()
+void	Phonebook::run(void)
 {
 	std::string cur_line;
 
@@ -39,37 +49,26 @@ void Phonebook::run()
 		else if (cur_line == "SEARCH" || cur_line == "s")
 			_search();
 		else
-			format_output("Invalid command! use: ADD, SEARCH or EXIT", COLOR_RED, 2, true, -1);
+			format_output("Invalid command! use: ADD (a), SEARCH (s) or EXIT (e)", COLOR_RED, 2, true, -1);
 	}
 }
 
-int	Phonebook::_get_contact_count(void) const
-{
-	int count;
-
-	count = 0;	
-	for (int i = 0; i < 8; i++)
-	{
-		if (_contacts[i].get_first_name() != "")
-			count++;
-	}
-	return (count);
-}
-
-void Phonebook::_add()
+void	Phonebook::_add(void)
 {
 	_cur_contact++;
-	if (_cur_contact >= 8 || _get_contact_count() == 8)
+	if (_cur_contact >= 8)
 	{
 		format_output("Phonebook is full! An old contact will be overwritten!", COLOR_YELLOW, 2, true, -1);
 		_cur_contact = 0;
 	}
+	else if (_get_contact_count() == 8)
+		format_output("Phonebook is full! An old contact will be overwritten!", COLOR_YELLOW, 2, true, -1);
 	format_output("Adding contact...", COLOR_GREEN, 2, true, -1);
 	_contacts[_cur_contact].set_contact();
 	format_output("Added contact successfully!", COLOR_GREEN, 2, true, -1);
 }
 
-void Phonebook::_search() const
+void	Phonebook::_search() const
 {
 	std::string	cur_line;
 	int			index;

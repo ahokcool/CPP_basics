@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:15:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:03:41 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 15:39:50 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@
 #define COLOR_YELLOW "\x1b[33m"
 #define COLOR_CYAN   "\x1b[36m"
 
-std::string	int_to_str(int number);
-std::string get_input(std::string promt, bool mandatory, std::string color, int indentation, int setw);
-int			get_input_index(std::string promt, std::string color, int indentation);
-void		format_output(std::string str, std::string color, int indentation, bool newline, int setw);
+std::string	int_to_str(const int number);
+std::string get_input(const std::string promt, const bool mandatory, const std::string color, const int indentation, const int setw);
+int			get_input_index(const std::string promt, const std::string color, const int indentation);
+void		format_output(const std::string str, const std::string color, const int indentation, const bool newline, const int setw);
 
 #endif

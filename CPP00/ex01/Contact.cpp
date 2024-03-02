@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:06:59 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 15:15:25 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 15:21:49 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Contact::Contact(void) : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret(""){}
 
-void Contact::set_contact(void)
+void	Contact::set_contact(void)
 {	
 	this->_first_name = get_input("First name", true, COLOR_GREEN, 4, 20);
 	this->_last_name = get_input("Last name", true, COLOR_GREEN, 4, 20);
@@ -23,7 +23,7 @@ void Contact::set_contact(void)
 	this->_darkest_secret = get_input("Darkest secret", true, COLOR_GREEN, 4, 20);
 }
 
-void		Contact::display_contact(int indentation) const
+void	Contact::display_contact(const int indentation) const
 {
 	format_output("First name: ", COLOR_CYAN, indentation, false, 20);
 	std::cout << COLOR_CYAN << get_first_name() << COLOR_RESET << std::endl;

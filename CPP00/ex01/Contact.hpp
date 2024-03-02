@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:51:42 by astein            #+#    #+#             */
-/*   Updated: 2024/03/01 20:02:20 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/02 15:22:02 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Contact
 	public:
 		Contact(void);
 		void		set_contact(void);
-		void		display_contact(int indentation) const;
+		void		display_contact(const int indentation) const;
 		void		print_contact_line(std::string color, const int indentation, const int index) const;
 		std::string	get_first_name(void) const;
 		std::string	get_last_name(void) const;

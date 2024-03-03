@@ -63,6 +63,6 @@ MSG_DONE:
 	@$(BANNER) $(NAME) compiled "$(GREEN)"
 
 gp: fclean
-	@echo -n "Enter a commit message: $(NAME): "; \
-	read COMMIT_MSG; \
-	$(GITPUSH) "$(NAME): $(COMMIT_MSG)"
+	@echo -n "Enter a commit message: $(NAME): " && \
+	read COMMIT_MSG && \
+	$(GITPUSH) "$(NAME): $$COMMIT_MSG"

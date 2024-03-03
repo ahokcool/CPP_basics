@@ -6,16 +6,17 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:18:14 by astein            #+#    #+#             */
-/*   Updated: 2024/03/03 00:37:52 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/03 01:56:25 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie*	newZombie( std::string name );
-void	randomChump( std::string name );
+Zombie*	newZombie(const std::string &name);
+void	randomChump(const std::string &name);
 
-int main(void) {
+int main()
+{
 
 	// Allocation on the stack
 	Zombie zombie1 = Zombie("Zombie 1");

@@ -6,25 +6,25 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:41:42 by astein            #+#    #+#             */
-/*   Updated: 2024/03/03 00:55:09 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/03 02:00:37 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-Zombie*	zombieHorde( int N, std::string name );
+Zombie*	zombieHorde(const int N, const std::string& name);
 
-int main(void) {
-
+int main()
+{
 	// Create a horde of 5 zombies all named "Zombie xy"
 	std::cout << std::endl << "Creating a horde of 5 zombies all named Zombie xy" << std::endl;
 	Zombie* horde = zombieHorde(5, "Zombie xy");
 
 	// Announce each zombie
 	std::cout << std::endl << "Announcing the horde" << std::endl;
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 5; i++)
 		horde[i].announce();
-	}		
 
 	// Delete the horde
 	std::cout << std::endl << "Deleting the horde" << std::endl;

@@ -6,13 +6,13 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:57:46 by astein            #+#    #+#             */
-/*   Updated: 2024/03/03 01:01:06 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/03 02:01:21 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int	main(void)
+int	main()
 {
 	// Setup the string, the pointer and the reference
 	std::string str = "HI THIS IS BRAIN";

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:16:12 by astein            #+#    #+#             */
-/*   Updated: 2024/03/03 00:00:21 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/03 00:33:53 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class Zombie
 		~Zombie( void );
 		
 		void	announce( void ) const;
-		static	Zombie*	newZombie( std::string name );
-		static	void randomChump( std::string name );
 };
 
 #endif

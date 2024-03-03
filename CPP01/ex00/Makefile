@@ -18,7 +18,7 @@ OBJ_FOLDER     	= ./obj/
 # Files
 BANNER = ../../make_banner.sh
 GITPUSH = ../../git_push.sh
-SRCS = main.cpp Zombie.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 # Object files
 OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)

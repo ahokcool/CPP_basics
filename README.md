@@ -31,8 +31,8 @@ The C++ module is a project-based module that will introduce you to the basics o
 | Project        | Status |                 Description |
 |:---------------|:-----------------------:|:------------------------------------------------------------------------------|
 | [CPP00][CPP00] | :orange_circle: 		   | Introduction to C++ syntax and structure. |
-| [CPP01][CPP01] | :building_construction: | Memory allocation, pointers to members, references, switch statement. |
-| [CPP02][CPP02] | :building_construction: | Ad-hoc polymorphism, operator overloading, and Orthodox Canonical classes. |
+| [CPP01][CPP01] | :orange_circle: | Memory allocation, pointers to members, references, switch statement. |
+| [CPP02][CPP02] | :orange_circle: | Ad-hoc polymorphism, operator overloading, and Orthodox Canonical classes. |
 | [CPP03][CPP03] | :building_construction: | Basics of class inheritance and virtual functions. |
 | [CPP04][CPP04] | :building_construction: | Subtype polymorphism, abstract classes, and interfaces. |
 | [CPP05][CPP05] | :building_construction: | Exception handling fundamentals. |

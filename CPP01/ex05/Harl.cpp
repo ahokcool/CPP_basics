@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 16:33:08 by astein            #+#    #+#             */
-/*   Updated: 2024/03/09 18:09:31 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/09 18:14:48 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 // Constructor
 Harl::Harl()
 {
-	std::cerr << "Harl is here" << std::endl;
+	std::cerr << "Constructor: Harl is here" << std::endl;
 }
 
 // Destructor
 Harl::~Harl()
 {
-	std::cerr << "Harl is gone" << std::endl;
+	std::cerr << "Destructor: Harl is gone" << std::endl;
 }
 
 void Harl::_debug() const
 {
-    std::cerr << "Debug" << std::endl;
+    std::cerr << "Debug Message goes like bla bla bla..." << std::endl;
 }
 
 void Harl::_info() const
 {
-	std::cerr << "Info" << std::endl;
+	std::cerr << "Info Message goes like bla bla bla..." << std::endl;
 }
 
 void Harl::_warning() const
 {
-    std::cerr << "Warning" << std::endl;
+    std::cerr << "Warning Message goes like bla bla bla..." << std::endl;
 }
 
 void Harl::_error() const
 {
-	std::cerr << "Error" << std::endl;
+	std::cerr << "Error Message goes like bla bla bla..." << std::endl;
 }
 
 void Harl::complain(const std::string level) const

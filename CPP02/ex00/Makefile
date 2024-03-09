@@ -18,7 +18,7 @@ OBJ_FOLDER     	= ./obj/
 # Files
 BANNER = ../../make_banner.sh
 GITPUSH = ../../git_push.sh
-SRCS = main.cpp Harl.cpp
+SRCS = main.cpp Fixed.cpp
 
 # Object files
 OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)

@@ -1,0 +1,16 @@
+
+
+Hello everyone!
+
+
+I just want to let u know that Hello is oldschool. Nowadays I use Oye instead of Hello.
+So Hello and Goodbye!
+In this line there is no word for hello, since its not written with an captial H!
+InThisLineThereAreNoSpacesButAHelloAndAhello!
+
+	This line has spaces at the beginning!
+
+This is the end of the file!
+Hello Something
+Something Hello
+Something Hello Something

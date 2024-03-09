@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 16:33:08 by astein            #+#    #+#             */
-/*   Updated: 2024/03/09 17:13:37 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/09 18:09:31 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 // Constructor
 Harl::Harl()
 {
-	std::cout << "Harl is here" << std::endl;
+	std::cerr << "Harl is here" << std::endl;
 }
 
 // Destructor
 Harl::~Harl()
 {
-	std::cout << "Harl is gone" << std::endl;
+	std::cerr << "Harl is gone" << std::endl;
 }
 
 void Harl::_debug() const
 {
-    std::cout << "Debug" << std::endl;
+    std::cerr << "Debug" << std::endl;
 }
 
 void Harl::_info() const
 {
-	std::cout << "Info" << std::endl;
+	std::cerr << "Info" << std::endl;
 }
 
 void Harl::_warning() const
 {
-    std::cout << "Warning" << std::endl;
+    std::cerr << "Warning" << std::endl;
 }
 
 void Harl::_error() const
 {
-	std::cout << "Error" << std::endl;
+	std::cerr << "Error" << std::endl;
 }
 
 void Harl::complain(const std::string level) const

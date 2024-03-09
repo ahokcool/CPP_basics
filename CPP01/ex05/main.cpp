@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 16:32:34 by astein            #+#    #+#             */
-/*   Updated: 2024/03/09 16:42:40 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/09 18:09:42 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Usage: ./harl [level]" << std::endl;
+		std::cerr << "Usage: ./harl [level]" << std::endl;
 		return 1;
 	}
 	

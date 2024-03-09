@@ -40,6 +40,7 @@ $(OBJ_FOLDER)%.o: %.cpp
 
 clean:
 	@$(RM) $(OBJ_FOLDER)
+	@$(RM)  ./files/*.replace
 	@$(BANNER) $(NAME) "removed object files" "$(RED)"
 
 fclean: clean

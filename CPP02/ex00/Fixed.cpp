@@ -6,12 +6,15 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 20:25:19 by astein            #+#    #+#             */
-/*   Updated: 2024/03/09 21:20:06 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/13 16:25:26 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+
+	// Set static const member
+	const int Fixed::_fractionalBits = 8;
 
 // Constructor
 Fixed::Fixed()

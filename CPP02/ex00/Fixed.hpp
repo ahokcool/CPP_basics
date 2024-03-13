@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:46:11 by astein            #+#    #+#             */
-/*   Updated: 2024/03/09 21:13:46 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/13 16:24:46 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Fixed
 		
 	private:
 		int					_value;
-		static const int	_fractionalBits = 8;		
+		static const int	_fractionalBits;		
 
 };
 

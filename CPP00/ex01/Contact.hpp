@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:51:42 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 22:22:37 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/14 17:45:25 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Contact
 	public:
 		Contact(void);
 		
-		void		set_contact(void);
+		bool		set_contact(void);
 		std::string	get_first_name(void) const;
 		std::string	get_last_name(void) const;
 		std::string	get_nickname(void) const;

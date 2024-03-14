@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:06:59 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 22:29:06 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/14 17:46:43 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 Contact::Contact(void) : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret(""){}
 
-void		Contact::set_contact(void)
+bool		Contact::set_contact(void)
 {	
 	this->_first_name = get_input("First name", true, COLOR_GREEN, 4, 20);
 	this->_last_name = get_input("Last name", true, COLOR_GREEN, 4, 20);
 	this->_nickname = get_input("Nickname", true, COLOR_GREEN, 4, 20);
 	this->_phone_number = get_input("Phone number", true, COLOR_GREEN, 4, 20);
 	this->_darkest_secret = get_input("Darkest secret", true, COLOR_GREEN, 4, 20);
+	if (this->_first_name == "EXIT" || this->_last_name == "EXIT" || this->_nickname == "EXIT" || this->_phone_number == "EXIT" || this->_darkest_secret == "EXIT")
+		return  false;
+	return true;
 }
 
 std::string	Contact::get_first_name(void) const		{ return this->_first_name; 	}

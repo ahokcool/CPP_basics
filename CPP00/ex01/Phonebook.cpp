@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:50:48 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 22:29:19 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/14 17:48:48 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,13 @@ void	Phonebook::_add(void)
 	else if (_get_contact_count() == 8)
 		format_output("Phonebook is full! An old contact will be overwritten!", COLOR_YELLOW, 2, true, -1);
 	format_output("Adding contact...", COLOR_GREEN, 2, true, -1);
-	_contacts[_cur_contact].set_contact();
-	format_output("Added contact successfully!", COLOR_GREEN, 2, true, -1);
+	if (_contacts[_cur_contact].set_contact())
+		format_output("Added contact successfully!", COLOR_GREEN, 2, true, -1);
+	else
+	{
+		std::cout << std::endl;
+		format_output("Contact not added!", COLOR_RED, 2, true, -1);
+	}
 }
 
 void	Phonebook::_search() const
@@ -83,5 +88,7 @@ void	Phonebook::_search() const
 	}
 	format_output("└──────────┴──────────┴──────────┴──────────┘", COLOR_CYAN, 4, true, -1);
 	index = get_input_index("Which contact would you like to see? index", COLOR_BLUE, 2);
+	if (index == -1)
+		return;
 	_contacts[index].display_contact(4);
 }

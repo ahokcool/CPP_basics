@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:43:40 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 22:29:33 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/14 17:41:34 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,22 @@ std::string	get_input(const std::string promt, const bool mandatory, const std::
 	std::string cur_line;
 	std::string lng_promt;
 
+	if (std::cin.eof() || std::cin.fail())
+			return "EXIT";
 	lng_promt = promt + ": ";
 	format_output(lng_promt, color, indentation, false, setw);
 	getline(std::cin, cur_line);
+	if (std::cin.eof() || std::cin.fail())
+		return "EXIT";
 	while (cur_line == "" && mandatory)
 	{
+		if (std::cin.eof() || std::cin.fail())
+			return "EXIT";
 		format_output("Please enter a value!", COLOR_RED, indentation + 2, true, -1);
 		format_output(lng_promt, color, indentation, false, setw);
 		getline(std::cin, cur_line);
+		if (std::cin.eof() || std::cin.fail())
+			return "EXIT";
 	}
 	return cur_line;
 }
@@ -60,6 +68,8 @@ int 		get_input_index(const std::string promt, const std::string color, const in
 	{
 		format_output(lng_promt, color, indentation, false, -1);
 		getline(std::cin, cur_line);
+		if (std::cin.eof() || std::cin.fail())
+			return -1;
 		std::istringstream iss(cur_line);
 		if (!(iss >> index))
      	   format_output("non numeric input - try again!", COLOR_RED, indentation + 2, true, -1);

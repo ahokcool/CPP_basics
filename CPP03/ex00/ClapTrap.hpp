@@ -6,14 +6,13 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/14 18:06:15 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/16 18:23:45 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 # include <iostream>
-# include "clapTrapUtils.hpp"
 
 class ClapTrap
 {
@@ -43,7 +42,7 @@ class ClapTrap
 		unsigned int		_energyPoints;
 		unsigned int		_attackDamage;
 		ClapTrap			*_next;
-		static ClapTrap		*_head;		
+		static ClapTrap		*_head;
 };
 
 #endif

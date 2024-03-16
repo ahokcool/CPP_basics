@@ -6,15 +6,18 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/03/14 18:13:39 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/16 18:35:10 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "clapTrapUtils.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap	*ClapTrap::_head = NULL;
+
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0), _next(NULL)
 {
-	std::cout << "ClapTrap constructor called (" << i << " ClapTraps created)" << std::endl;
+	std::cout << "ClapTrap constructor called..." << std::endl;
 	addClapTrap(this);
 }
 

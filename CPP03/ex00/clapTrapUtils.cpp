@@ -6,11 +6,11 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:38 by astein            #+#    #+#             */
-/*   Updated: 2024/03/14 18:10:26 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/16 18:37:13 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "clapTrapUtils.hpp"
 
 void		print_status(const ClapTrap &c)
 {
@@ -20,31 +20,38 @@ void		print_status(const ClapTrap &c)
 	c.getAttackDamage() << " attack damage!" << std::endl;
 }
 
-ClapTrap	*getClapTrap(const std::string &name)
+ClapTrap	*getClapTrap(const ClapTrap &c, const std::string &name)
 {
-	ClapTrap *tmp = ClapTrap::getHead();
-	while (tmp)
-	{
-		if (tmp->getName() == name)
-			return (tmp);
-		tmp = tmp->getNext();
-	}
+	(void)c;
+	(void)name;
+	// ClapTrap *tmp = c.getHead();
+	// while (tmp)
+	// {
+	// 	if (tmp->getName() == name)
+	// 		return (tmp);
+	// 	tmp = tmp->getNext();
+	// }
 	return (NULL);
 }
 
 void		deleteClapTrap(const ClapTrap *c)
 {
+	(void)c;
 	// TODO
 }
 
-void		addClapTrap(const ClapTrap *c)
+void		addClapTrap(ClapTrap *c)
 {
 	int i = 1;
 	
 	if (!c->getHead())
-		c.setHead(c);
+	{
+		std::cout << "Adding ClapTrap " << c->getName() << " to the HEAD of the list (n=" << getClapTrapCount(c) << ")" << std::endl;
+		c->setHead(c);
+	}
 	else
 	{
+		std::cout << "Adding ClapTrap " << c->getName() << " to the list (n=" << getClapTrapCount(c) << ")" << std::endl;
 		ClapTrap *tmp = c->getHead();
 		while (tmp->getNext())
 		{
@@ -52,4 +59,17 @@ void		addClapTrap(const ClapTrap *c)
 			i++;
 		}
 	}	
+}
+
+int			getClapTrapCount(ClapTrap *c)
+{
+	int i = 0;
+	ClapTrap *tmp = c->getHead();
+	while (tmp)
+	{
+		// print_status(*tmp);
+		tmp = tmp->getNext();
+		i++;
+	}
+	return (i);
 }

@@ -6,14 +6,18 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:17:14 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:09:09 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 22:16:49 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 // Constructor
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_cn"), ScavTrap(name), FragTrap(name), _name(name)
+DiamondTrap::DiamondTrap(std::string name) :
+	ClapTrap(name + "_cn"),
+	ScavTrap(name),
+	FragTrap(name),
+	_name(name)
 {
 	std::cout << 
 		COLOR_GREEN <<

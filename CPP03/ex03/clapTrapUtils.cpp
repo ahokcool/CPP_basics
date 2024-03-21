@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:38 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 21:52:53 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 22:15:44 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void		print_all_status(const ClapTrap &c)
 {
 	ClapTrap *tmp = c.getHead();
 
-	std::cout << COLOR_BLUE << std::endl << "Status of all objects:" << COLOR_RESET << std::endl;
-	std::cout << COLOR_BLUE << "Type\t\tName\tHit\tEnergy\tAttack\tHead\tNext\t[DiamondTrap Name]" << COLOR_RESET << std::endl;
+	std::cout << COLOR_BLUE << std::endl <<
+		"Status of all objects:" << std::endl <<
+		"Type\t\tName\tHit\tEnergy\tAttack\tHead\tNext\t[DiamondTrap Name]" <<
+		COLOR_RESET << std::endl;
 	while (tmp)
 	{
 		tmp->print_status();
@@ -47,12 +49,18 @@ void		addCT(ClapTrap *c)
 	
 	if (!c->getHead())
 	{
-		std::cout << "Adding ClapTrap " << c->getName() << " to the HEAD of the list (n=" << getCTCount(c) << ")" << std::endl;
+		std::cout <<
+			"Adding ClapTrap " <<
+			c->getName() <<
+			" to the HEAD of the list (n=" << getCTCount(c) << ")" << std::endl;
 		c->setHead(c);
 	}
 	else
 	{
-		std::cout << "Adding ClapTrap " << c->getName() << " to the list (n=" << getCTCount(c) << ")" << std::endl;
+		std::cout <<
+			"Adding ClapTrap " <<
+			c->getName() <<
+			" to the list (n=" << getCTCount(c) << ")" << std::endl;
 		ClapTrap *tmp = c->getHead();
 		while (tmp->getNext())
 		{

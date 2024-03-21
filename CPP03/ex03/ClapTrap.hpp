@@ -6,17 +6,17 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:04:43 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 22:20:28 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
+
 # include <iostream>
 
 class ClapTrap
 {
-
 	public:
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:17:20 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:08:03 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 22:22:03 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,5 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap();	// private default constructor
 		std::string	_name;
 };
-
-
-
 
 #endif

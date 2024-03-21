@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/03/16 18:35:10 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 14:37:40 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap	*ClapTrap::_head = NULL;
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0), _next(NULL)
 {
-	std::cout << "ClapTrap constructor called..." << std::endl;
+	std::cout << COLOR_CYAN << "ClapTrap constructor called..." << COLOR_RESET << std::endl;
 	addClapTrap(this);
 }
 
@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) : _name(other._name), _hitPoints(other
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &other)
 {
-	std::cout << "ClapTrap assignation operator called" << std::endl;
+	std::cout << COLOR_PURPLE << "Deep copy from " << other.getName() << " to " << this->getName() << COLOR_RESET << std::endl;
 	if (this != &other)
 	{
 		this->_hitPoints = other._hitPoints;
@@ -40,24 +40,31 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << COLOR_CYAN << "ClapTrap destructor called" << COLOR_RESET << std::endl;
 }
 
 void	ClapTrap::attack(const std::string &target)
 {
+	ClapTrap *targetClapTrap = getClapTrap(*this, target);
+	
+	std::cout << COLOR_RED << this ->getName() << " tries to attack " << target << COLOR_RESET  << std::endl;
 	if (this->_hitPoints  == 0)
 	{
-		std::cout << "ClapTrap " << this->_name << " has no hit points left to attack <target>!" << std::endl;
+		std::cout << COLOR_RED << "ClapTrap " << this->_name << " has no hit points left to attack <target>!" << COLOR_RESET << std::endl;
 		return ;
 	}
 	if (this->_energyPoints == 0)
-		std::cout << "ClapTrap " << this->_name << " has no energy points left to attack <target>!" << std::endl;
+		std::cout << COLOR_RED << "ClapTrap " << this->_name << " has no energy points left to attack <target>!" << COLOR_RESET << std::endl;
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " attacks <target>, causing " << _attackDamage << " points of damage!" << std::endl;
-		this->_energyPoints -= 1;
-		//TODO
-		(void)target;
+		if (targetClapTrap)
+		{
+			std::cout << COLOR_RED << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage!" << COLOR_RESET << std::endl;
+			targetClapTrap->takeDamage(this->getAttackDamage());
+			this->_energyPoints -= 1;
+		}
+		else
+			std::cout << COLOR_RED << "ClapTrap " << this->_name << " cannot attack " << target << " because it does not exist!" << COLOR_RESET << std::endl;
 	}
 }
 
@@ -65,17 +72,17 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPoints  == 0)
 	{
-		std::cout << "ClapTrap " << this->_name << " has no hit points left to take damage!" << std::endl;
+		std::cout << COLOR_YELLOW << "ClapTrap " << this->_name << " has no hit points left to take damage!" << COLOR_RESET << std::endl;
 		return ;
 	}
 	if (this->_hitPoints - amount > 0)
 	{
-		std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl;
+		std::cout << COLOR_YELLOW << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << COLOR_RESET << std::endl;
 		this->_hitPoints -= amount;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " takes only " << this->_hitPoints << "of the " << amount << " points of damage!" << std::endl;
+		std::cout << COLOR_YELLOW << "ClapTrap " << this->_name << " takes only " << this->_hitPoints << "of the " << amount << " points of damage!" << COLOR_RESET << std::endl;
 		this->_hitPoints = 0;
 	}
 }
@@ -132,3 +139,5 @@ ClapTrap	*ClapTrap::getNext() const
 {
 	return (this->_next);
 }
+
+// Print 

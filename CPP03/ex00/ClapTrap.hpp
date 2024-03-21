@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/16 18:23:45 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 14:27:00 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class ClapTrap
 
 	private:
 		ClapTrap(); // private default constructor
-		const std::string	_name;
-		unsigned int		_hitPoints;
-		unsigned int		_energyPoints;
-		unsigned int		_attackDamage;
+		const std::string	_name;				// Unique name of the ClapTrap
+		unsigned int		_hitPoints;			// Health points
+		unsigned int		_energyPoints;		// Energy is needed to attack and repair
+		unsigned int		_attackDamage;		// How strong the hit is
 		ClapTrap			*_next;
 		static ClapTrap		*_head;
 };

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:09:36 by astein            #+#    #+#             */
-/*   Updated: 2024/03/16 18:36:29 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 14:28:59 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,15 @@ int	main()
 	ClapTrap	c1("c1");
 	ClapTrap	c2("c2");
 	ClapTrap	c3("c3");
-	ClapTrap	c4("c3");
-	ClapTrap	c5("c3");
 
-
-	// Print status of each object
-	std::cout << std::endl << "Initial status of each object:" << std::endl;
-	print_status(c1);
-	print_status(c2);
-	print_status(c3);
-
-	// c1 attacks c2
-	std::cout << std::endl << "c1 attacks c2:" << std::endl;
+	print_all_status(c1);
 	c1.attack("c2");
-	
-	// Print status of each object
-	std::cout << std::endl << "Status of each object" << std::endl;
-	print_status(c1);
-	print_status(c2);
-	print_status(c3);
-
-	// Assign c1 to c2
-	std::cout << std::endl << "Assign c1 to c2:" << std::endl;
+	print_all_status(c1);
 	c2 = c1;
-
-	// Print status of each object
-	std::cout << std::endl << "Status of each object" << std::endl;
-	print_status(c1);
-	print_status(c2);
-	print_status(c3);
+	print_all_status(c1);
+	c1.attack("c2");
+	print_all_status(c1);
+	c1.attack("c3");
+	print_all_status(c1);
 	return (0);
 }

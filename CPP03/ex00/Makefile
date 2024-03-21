@@ -6,17 +6,16 @@ CFLAGS =  -g -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # Colors
-RED    = 	\033[0;31m
-GREEN  = 	\033[0;32m
-ORANGE = 	\033[0;33m
-BLUE   = 	\033[0;34m
-RESET  = 	\033[0m
+RED    = 	"\033[0;31m"
+GREEN  = 	"\033[0;32m"
+ORANGE = 	"\033[0;33m"
+BLUE   = 	"\033[0;34m"
+RESET  = 	"\033[0m"
 
 # Folders
 OBJ_FOLDER     	= ./obj/
 
 # Files
-BANNER = ../../make_banner.sh
 GITPUSH = ../../git_push.sh
 SRCS = main.cpp ClapTrap.cpp clapTrapUtils.cpp
 
@@ -35,32 +34,32 @@ $(NAME): $(OBJS)
 
 $(OBJ_FOLDER)%.o: %.cpp
 	@mkdir -p $(@D)
-	@echo -n "$(GREEN).$(RESET)"
+	@echo -n $(GREEN)"."$(RESET)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ_FOLDER)
-	@$(BANNER) $(NAME) "removed object files" "$(RED)"
+	@echo $(RED) $(NAME) "removed object files" $(RESET)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(BANNER) $(NAME) "removed program" "$(RED)"
+	@echo $(RED) $(NAME) "removed program" $(RESET)
 
 re: fclean all
 
 run: re
-	@$(BANNER) $(NAME) starting... "$(BLUE)"
+	@echo $(BLUE) $(NAME) "starting..." $(RESET)
 	@./$(NAME)
 
 val: re
-	@$(BANNER) $(NAME) "starting with valgrind..." "$(BLUE)"
+	@echo $(BLUE) $(NAME) "starting with valgrind..." $(RESET)
 	@valgrind --leak-check=full ./$(NAME)
 
 MSG_START:
-	@$(BANNER) $(NAME) compiling "$(ORANGE)"
+	@echo $(ORANGE) $(NAME) "compiling" $(RESET)
 
 MSG_DONE:
-	@$(BANNER) $(NAME) compiled "$(GREEN)"
+	@echo $(GREEN) $(NAME) "compiled" $(RESET)
 
 gp: fclean
 	@echo -n "Enter a commit message: $(NAME): " && \

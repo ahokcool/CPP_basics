@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:29 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 16:17:56 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 17:10:44 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ ScavTrap::~ScavTrap()
 }
 
 // Member functions
+void	ScavTrap::attack(std::string const &target)
+{
+	std::cout << COLOR_RED <<
+		"ScavTrap " << this ->getName() << " tries to attack " << target <<
+		COLOR_RESET  << std::endl;
+	ClapTrap::attack(target);
+}
+
 void	ScavTrap::guardGate()
 {
 	std::cout << COLOR_YELLOW <<

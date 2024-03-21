@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:40 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 16:13:41 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 17:07:42 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 		
 		// Member functions
+		void	attack(const std::string &target);
 		void	guardGate();
 		
 	private:

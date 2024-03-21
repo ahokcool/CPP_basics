@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:09:36 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 14:28:59 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 14:55:36 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main()
 	c1.attack("c2");
 	print_all_status(c1);
 	c2 = c1;
+	print_all_status(c1);
+	c1 = c1;
 	print_all_status(c1);
 	c1.attack("c2");
 	print_all_status(c1);

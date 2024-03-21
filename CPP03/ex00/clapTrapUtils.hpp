@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:57 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 14:31:45 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 15:21:16 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,16 @@
 # define COLOR_YELLOW "\x1b[33m"
 # define COLOR_CYAN   "\x1b[36m"
 
+// Print Functions
 void		print_status(const ClapTrap &c);
 void		print_all_status(const ClapTrap &c);
-ClapTrap	*getClapTrap(const ClapTrap &c, const std::string &name);
-void		deleteClapTrap(const ClapTrap *c);
-void		addClapTrap(ClapTrap *c);
-int			getClapTrapCount(ClapTrap *c);
+
+// Linked List Functions
+void		addCT(ClapTrap *c);
+void		deleteCT(ClapTrap *c);
+
+// Utils
+ClapTrap	*getCTbyName(const ClapTrap &c, const std::string &name);
+int			getCTCount(ClapTrap *c);
 
 #endif

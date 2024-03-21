@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:51:42 by astein            #+#    #+#             */
-/*   Updated: 2024/03/02 22:22:27 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 13:50:43 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Phonebook
 	public:
 		Phonebook(void);
 		
-		int 		get_contact_count(void) const;
+		int 		get_contact_index(void) const;
 		void 		run(void);
 		
 	private:

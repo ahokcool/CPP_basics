@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:50:48 by astein            #+#    #+#             */
-/*   Updated: 2024/03/14 17:48:48 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/21 13:50:43 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Phonebook::Phonebook(void) : _cur_contact(-1){}
 
-int		Phonebook::get_contact_count(void) const { return (_cur_contact); }
+int		Phonebook::get_contact_index(void) const { return (_cur_contact); }
 
 int		Phonebook::_get_contact_count(void) const
 {

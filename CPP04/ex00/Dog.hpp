@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:06:49 by astein            #+#    #+#             */
-/*   Updated: 2024/03/26 18:28:30 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/27 00:07:11 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class Dog : public Animal
 {
-
 	public:
 		Dog();
 		Dog(const Dog &other);
@@ -26,10 +25,6 @@ class Dog : public Animal
 
 		// Member functions override
 		virtual void makeSound() const;
-
-	private:
-		
-
 };
 
 #endif

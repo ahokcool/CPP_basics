@@ -36,7 +36,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_FOLDER)%.o: %.cpp
 	@mkdir -p $(@D)
-	@echo -n "$(GREEN).$(RESET)"
+	@echo -n $(GREEN).$(RESET)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -81,7 +81,7 @@ test: re
 
 
 MSG_START:
-	@echco $(ORANGE) $(NAME) "compiling" $(RESET)
+	@echo $(ORANGE) $(NAME) "compiling" $(RESET)
 
 MSG_DONE:
 	@echo $(GREEN) $(NAME) "compiled" $(RESET)

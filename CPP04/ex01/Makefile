@@ -34,7 +34,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_FOLDER)%.o: %.cpp
 	@mkdir -p $(@D)
-	@echo -n $(GREEN)"."$(RESET)
+	@echo -n $(GREEN) "." $(RESET)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

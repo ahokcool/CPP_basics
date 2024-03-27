@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:18 by astein            #+#    #+#             */
-/*   Updated: 2024/03/27 15:58:54 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:56:21 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ Animal &Animal::operator=(const Animal &other)
 	if (this != &other)
 	{
         this->_type = other._type;
-		delete this->_brain;
+		if(this->_brain)
+			delete this->_brain;
 		this->_brain = new Brain(*other._brain);	
 	}
     return *this;
@@ -49,7 +50,8 @@ Animal &Animal::operator=(const Animal &other)
 Animal::~Animal()
 {
 	std::cout << "Animal destructor called" << std::endl;
-	delete this->_brain;
+	if(this->_brain)
+		delete this->_brain;
 }
 
 std::string	Animal::getType() const
@@ -59,6 +61,7 @@ std::string	Animal::getType() const
 
 void 		Animal::setType(std::string type)
 {
+	std::cout << "Setting type to " << type << std::endl;
 	_type = type;
 }
 
@@ -71,6 +74,7 @@ void 		Animal::makeSound() const
 // Brain functions
 void		Animal::setIdea(int i, std::string idea)
 {
+	std::cout << "Setting idea " << i << " to " << idea << std::endl;
 	this->_brain->setIdea(i, idea);
 }
 

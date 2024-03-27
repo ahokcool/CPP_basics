@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:15 by astein            #+#    #+#             */
-/*   Updated: 2024/03/27 16:07:27 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:55:29 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-	int arr_size = 4;
+	int arr_size = 2;
 
 	std::cout << std::endl << "MY TEST MAIN" << std::endl << "---" << std::endl;
     Animal* arr[arr_size];
@@ -40,8 +40,8 @@ int main()
 	arr[1]->setIdea(20, "Let's go annoy the dog");
 	arr[1]->makeSound();
 
-	std::cout << std::endl << "The dog sleeps and the cat copies her brain to him..." << std::endl << "---" << std::endl;
-	arr[0] = arr[1];
+	std::cout << std::endl << "The dog sleeps and the cat copies herself to him..." << std::endl << "---" << std::endl;
+	*arr[0] = *arr[1];
 	arr[0]->makeSound();
 
 	std::cout << std::endl << "The dog awakes and restores its brain and type..." << std::endl << "---" << std::endl;

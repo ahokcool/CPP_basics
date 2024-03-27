@@ -6,17 +6,16 @@ CFLAGS =  -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # Colors
-RED    = 	\033[0;31m
-GREEN  = 	\033[0;32m
-ORANGE = 	\033[0;33m
-BLUE   = 	\033[0;34m
-RESET  = 	\033[0m
+RED    = 	"\033[0;31m"
+GREEN  = 	"\033[0;32m"
+ORANGE = 	"\033[0;33m"
+BLUE   = 	"\033[0;34m"
+RESET  = 	"\033[0m"
 
 # Folders
 OBJ_FOLDER     	= ./obj/
 
 # Files
-BANNER = ../../make_banner.sh
 GITPUSH = ../../git_push.sh
 SRCS = tests.cpp Account.cpp
 ORIGINAL_LOG = 19920104_091532.log
@@ -42,48 +41,50 @@ $(OBJ_FOLDER)%.o: %.cpp
 
 clean:
 	@$(RM) $(OBJ_FOLDER)
-	@$(BANNER) $(NAME) "removed object files" "$(RED)"
+	@echo $(RED) $(NAME) "removed object files" $(RESET)
 	@$(RM) $(TEST_FILES)
-	@$(BANNER) $(NAME) "removed test files" "$(RED)"
+	@echo $(RED) $(NAME) "removed test files" $(RESET)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(BANNER) $(NAME) "removed program" "$(RED)"
+	@echo $(RED) $(NAME) "removed program" $(RESET)
 
 re: fclean all
 
-run: all
+run: re
+	@echo $(BLUE) $(NAME) "starting..." $(RESET)
 	@./$(NAME)
 
-val: all
+val: re
+	@echo $(BLUE) $(NAME) "starting with valgrind..." $(RESET)
 	@valgrind --leak-check=full ./$(NAME)
 
 test: re
-	@$(BANNER) $(NAME) "creating log file..." "$(ORANGE)"
+	@echo $(ORANGE) $(NAME) "creating log file..." $(RESET)
 	@./$(NAME) > test.log
 	@cat test.log
-	@$(BANNER) $(NAME) "removing timestamps in log files..." "$(BLUE)"
-	@$(BANNER) $(NAME) "original log..." "$(ORANGE)"
+	@echo $(ORANGE) $(NAME) "removing timestamps in log files..." $(RESET)
+	@echo $(ORANGE) $(NAME) "original log..." "$(ORANGE)"
 	@sed 's/\[[0-9]\{8\}_[0-9]\{6\}\] //' $(ORIGINAL_LOG) > original_no_stamps.log
 	@cat original_no_stamps.log
-	@$(BANNER) $(NAME) "my log..." "$(ORANGE)"
+	@echo $(ORANGE) $(NAME) "my log..." "$(ORANGE)"
 	@sed 's/\[[0-9]\{8\}_[0-9]\{6\}\] //' test.log > mine_no_stamps.log
 	@cat mine_no_stamps.log
 	@diff_output=$$(diff mine_no_stamps.log original_no_stamps.log); \
 	if [ -z "$$diff_output" ]; then \
-	    $(BANNER) $(NAME) "running diff..." "$(GREEN)"; \
+		echo $(ORANGE) $(NAME) "running diff..." "$(ORANGE)"; \
 	    echo "$(GREEN) The two files are (besides the timestamp) identical! $(RESET)"; \
 	else \
-	    $(BANNER) $(NAME) "running diff..." "$(ORANGE)"; \
+		echo $(ORANGE) $(NAME) "running diff..." "$(ORANGE)"; \
 	    echo "$$diff_output"; \
 	fi
 
 
 MSG_START:
-	@$(BANNER) $(NAME) compiling "$(ORANGE)"
+	@echco $(ORANGE) $(NAME) "compiling" $(RESET)
 
 MSG_DONE:
-	@$(BANNER) $(NAME) compiled "$(GREEN)"
+	@echo $(GREEN) $(NAME) "compiled" $(RESET)
 
 gp: fclean
 	$(GITPUSH) $(NAME)

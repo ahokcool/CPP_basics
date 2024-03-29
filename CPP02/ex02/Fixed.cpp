@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 21:22:26 by astein            #+#    #+#             */
-/*   Updated: 2024/03/13 17:28:04 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 23:18:22 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,10 @@ Fixed::~Fixed()
 }
 
 // Copy assignment operator
-// -----------------------------------------------------------------------------
-
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	_value = other.getRawBits();
+	if (this != &other)
+		_value = other.getRawBits();
 	return *this;
 }
 
@@ -85,7 +84,6 @@ Fixed		Fixed::operator/(const Fixed &other) const
 
 // Increment and decrement operators overloads
 // -----------------------------------------------------------------------------
-
 Fixed		Fixed::operator++()
 {
 	this->setRawBits(this->getRawBits() + 1);
@@ -114,7 +112,6 @@ Fixed		Fixed::operator--(int)
 
 // Comparison operators overloads
 // -----------------------------------------------------------------------------
-
 bool		Fixed::operator>(const Fixed &other) const
 {
 	return this->getRawBits() > other.getRawBits();
@@ -137,7 +134,6 @@ bool		Fixed::operator<=(const Fixed &other) const
 
 // Additional comparison operators overloads
 // -----------------------------------------------------------------------------
-
 Fixed		&Fixed::min(Fixed &a, Fixed &b)
 {
 	return a < b ? a : b;
@@ -160,7 +156,6 @@ const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
 
 // Getters and Setters
 // -----------------------------------------------------------------------------
-
 int Fixed::getRawBits() const
 {
 	return _value;

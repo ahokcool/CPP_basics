@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 21:22:36 by astein            #+#    #+#             */
-/*   Updated: 2024/03/13 17:24:03 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 23:15:18 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class Fixed
 {
-
 	public:
 		// Constructors and destructor
 		Fixed();

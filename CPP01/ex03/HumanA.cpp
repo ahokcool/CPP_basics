@@ -6,15 +6,14 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 01:05:46 by astein            #+#    #+#             */
-/*   Updated: 2024/03/03 03:05:17 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 21:47:08 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-#include "Weapon.hpp"
 
 // Constructor
-HumanA::HumanA(const std::string& name, Weapon &weapon) : _name(name), _weapon(weapon)
+HumanA::HumanA(const std::string &name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
 	// Constructor - nothing to do
 }

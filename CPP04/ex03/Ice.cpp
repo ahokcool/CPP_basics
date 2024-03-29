@@ -1,45 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 19:17:13 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:09:01 by astein           ###   ########.fr       */
+/*   Created: 2024/03/29 01:12:31 by astein            #+#    #+#             */
+/*   Updated: 2024/03/29 01:14:59 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
 // Constructor
-AMateria::AMateria(const std::string & type) : _type(type)
+Ice::Ice() : AMateria("ice")
 {
 	// Nothing to do here
 }
 
 // Copy Constructor
-AMateria::AMateria(const AMateria & other)
+Ice::Ice(const Ice &other) : AMateria(other)
 {
-	*this = other;
+	// Nothing to do here
 }
 
 // Copy Assignment Operator
-AMateria & AMateria::operator=(const AMateria & other)
+Ice &Ice::operator=(const Ice &other)
 {
 	if (this != &other)
-		this->_type = other._type;
+		AMateria::operator=(other);
 	return (*this);
 }
 
 // Destructor
-AMateria::~AMateria()
+Ice::~Ice()
 {
 	// Nothing to do here
 }
 
 // Member functions
-const std::string	&AMateria::getType() const
+AMateria	*Ice::clone() const
 {
-	return (this->_type);
+	return (new Ice(*this));
+}
+
+void		Ice::use(ICharacter &target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

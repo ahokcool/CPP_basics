@@ -6,20 +6,19 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 20:25:19 by astein            #+#    #+#             */
-/*   Updated: 2024/03/13 16:25:26 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 23:09:51 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-	// Set static const member
-	const int Fixed::_fractionalBits = 8;
+// Set static const member
+const int Fixed::_fractionalBits = 8;
 
 // Constructor
-Fixed::Fixed()
+Fixed::Fixed() : _value(0)
 {
-	_value = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -34,7 +33,10 @@ Fixed::Fixed(const Fixed &other)
 Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	_value = other.getRawBits();
+	if(this != &other)
+	{
+		_value = other.getRawBits();
+	}
 	return *this;
 }
 

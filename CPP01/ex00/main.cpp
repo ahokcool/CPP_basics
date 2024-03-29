@@ -6,13 +6,13 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:18:14 by astein            #+#    #+#             */
-/*   Updated: 2024/03/03 01:56:25 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 21:30:17 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie*	newZombie(const std::string &name);
+Zombie	*newZombie(const std::string &name);
 void	randomChump(const std::string &name);
 
 int main()

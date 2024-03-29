@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:16:12 by astein            #+#    #+#             */
-/*   Updated: 2024/03/03 01:55:44 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 21:26:54 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@
 
 class Zombie
 {
-	private:
-		std::string _name;
-
 	public:
-		Zombie(const std::string& name);
+		Zombie(const std::string &name);
 		~Zombie();
 		
+		// Member function
 		void	announce() const;
+		
+	private:
+		std::string	_name;
 };
 
 #endif

@@ -25,7 +25,7 @@ OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # Targets
-.PHONY: all clean fclean re MSG_START MSG_DONE gp run val test
+.PHONY: all clean fclean re MSG_START MSG_DONE gp run1 run2 run3 run4 val test
 
 all: MSG_START $(NAME) MSG_DONE
 
@@ -48,9 +48,21 @@ fclean: clean
 
 re: fclean all
 
-run: re
+run1: re
 	@echo $(BLUE) $(NAME) "starting..." $(RESET)
 	@./$(NAME) ./files/test1.txt "Hello" "Oye"
+
+run2: re
+	@echo $(BLUE) $(NAME) "starting with empty replace string..." $(RESET)
+	@./$(NAME) ./files/test1.txt "" "Oye"
+
+run3: re
+	@echo $(BLUE) $(NAME) "starting with empty replace string..." $(RESET)
+	@./$(NAME) ./files/testDOESNTexists.txt "Hello" "Oye"
+
+run4: re
+	@echo $(BLUE) $(NAME) "starting with wrong arguments..." $(RESET)
+	@./$(NAME) ./files/testDOESNTexists.txt "Hello"
 
 val: re
 	@echo $(BLUE) $(NAME) "starting with valgrind..." $(RESET)

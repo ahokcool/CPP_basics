@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 15:10:30 by astein            #+#    #+#             */
-/*   Updated: 2024/03/09 16:16:43 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 22:04:05 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void replace(std::ifstream *fd_in, std::ofstream *fd_out, std::string s1,
 
 		// Replace all occurences of s1 by s2
 		line_replaces = 0;
-		while (found != std::string::npos)
+		while (found != std::string::npos) //In the context of string searching, std::string::npos is used to indicate that no matches were found.
 		{
 			line_replaces++;
 			*fd_out << line.substr(0, found);

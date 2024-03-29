@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 21:22:36 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 23:15:18 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 23:35:16 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed
 		Fixed(const int value);
 		Fixed(const float value);
 		~Fixed();
-		
+
 		// Copy assignment operator
 		Fixed 		&operator=(const Fixed &other);
 		

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:17:13 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:09:01 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 01:38:10 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,10 @@ AMateria::~AMateria()
 const std::string	&AMateria::getType() const
 {
 	return (this->_type);
+}
+
+void				AMateria::use(ICharacter & target)
+{
+	(void)target;
+	// Not sure why I couldn't make this pure virtual
 }

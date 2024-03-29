@@ -6,13 +6,14 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:45:34 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 00:46:49 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 01:39:15 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
+# include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource

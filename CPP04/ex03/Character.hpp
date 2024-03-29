@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:37:05 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 00:26:30 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 01:46:37 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,24 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
+# include <iostream>
+
+// Forward declaration
+class AMateria;
 
 class Character : public ICharacter
 {
 	public:
 		Character();
-		Character(std::string const name);
-		Character(Character const & src);
- 		Character & operator=(Character const & rhs);
+		Character(const std::string name);
+		Character(const Character &other);
+ 		Character & operator=(const Character &other);
 		virtual ~Character();
 
-		std::string const & getName() const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+		const std::string 	&getName() const;
+		void 				equip(AMateria *m);
+		void				unequip(int idx);
+		void 				use(int idx, ICharacter &target);
 
 	private:
 		std::string	_name;

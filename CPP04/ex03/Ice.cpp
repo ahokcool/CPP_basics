@@ -6,11 +6,12 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:12:31 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:14:59 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 01:52:02 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 // Constructor
 Ice::Ice() : AMateria("ice")

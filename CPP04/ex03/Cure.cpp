@@ -6,11 +6,12 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:15:07 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:16:44 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 01:51:11 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 
 // Constructor
 Cure::Cure() : AMateria("cure")

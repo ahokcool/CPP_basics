@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:20:55 by astein            #+#    #+#             */
-/*   Updated: 2024/03/13 23:26:14 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/29 23:39:05 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main()
 	Point b(4.0f, 1.0f);
 	Point c(1.0f, 4.0f);
 	Point p1(1.03125f, 1.1f);	// Inside the triangle
-	Point p2(5.0f, 5.0f);	// Outside the triangle
-	Point p3(1.0f, 3.0f);	// On the edge of the triangle
-	Point p4(1.0f, 1.0f);	// On the vertex of the triangle
+	Point p2(5.0f, 5.0f);		// Outside the triangle
+	Point p3(1.0f, 3.0f);		// On the edge of the triangle
+	Point p4(1.0f, 1.0f);		// On the vertex of the triangle
 	Point a2(1.0f, 2.0f);
 	Point a3(1.0f, 3.0f);
 	Point p5(1.0f, 15.0f);

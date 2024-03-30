@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:06:44 by astein            #+#    #+#             */
-/*   Updated: 2024/03/27 15:36:21 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/28 22:49:21 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Animal
 		std::string	_type;
 
 	private:
-		Brain* _brain;	
+		Brain		*_brain;	
 };
 
 #endif

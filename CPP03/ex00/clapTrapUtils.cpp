@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:38 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 15:29:09 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 17:40:03 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void		print_all_status(const ClapTrap &c)
 {
 	ClapTrap *tmp = c.getHead();
 
-	std::cout << COLOR_BLUE << std::endl << "Status of all objects:" << COLOR_RESET << std::endl;
+	std::cout << COLOR_BLUE << std::endl << 
+		"Status of all objects:" << 
+		COLOR_RESET << std::endl;
 	while (tmp)
 	{
 		print_status(*tmp);
@@ -61,12 +63,18 @@ void		addCT(ClapTrap *c)
 	
 	if (!c->getHead())
 	{
-		std::cout << "Adding ClapTrap " << c->getName() << " to the HEAD of the list (n=" << getCTCount(c) << ")" << std::endl;
+		std::cout <<
+			"Adding ClapTrap " << c->getName() <<
+			" to the HEAD of the list (n=" << getCTCount(c) << ")" << 
+			std::endl;
 		c->setHead(c);
 	}
 	else
 	{
-		std::cout << "Adding ClapTrap " << c->getName() << " to the list (n=" << getCTCount(c) << ")" << std::endl;
+		std::cout << 
+			"Adding ClapTrap " << c->getName() <<
+			" to the list (n=" << getCTCount(c) << ")" <<
+			std::endl;
 		ClapTrap *tmp = c->getHead();
 		while (tmp->getNext())
 		{

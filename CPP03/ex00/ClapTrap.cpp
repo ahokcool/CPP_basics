@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 15:16:36 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 17:38:00 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,21 @@
 // Static variables for the linked list
 ClapTrap	*ClapTrap::_head = NULL;
 
-// Constructor
+// Private default constructor
+ClapTrap::ClapTrap() :
+	_name(""),
+	_hitPoints(0),
+	_energyPoints(0),
+	_attackDamage(0),
+	_next(NULL)
+{
+	std::cout << 
+		COLOR_GREEN <<
+		"ClapTrap default constructor called..." <<
+		COLOR_RESET << std::endl;
+}
+
+// Parameterized constructor
 ClapTrap::ClapTrap(std::string name) :
 	_name(name),
 	_hitPoints(10),
@@ -26,7 +40,7 @@ ClapTrap::ClapTrap(std::string name) :
 {
 	std::cout << 
 		COLOR_GREEN <<
-		"ClapTrap constructor called..." <<
+		"ClapTrap parameterized constructor called..." <<
 		COLOR_RESET << std::endl;
 	addCT(this);
 }

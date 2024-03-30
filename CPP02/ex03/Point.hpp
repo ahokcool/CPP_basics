@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:20:26 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 23:37:25 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 16:22:49 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,18 @@ class Point
 		Point();
 		Point(const float x, const float y);
 		Point(const Point &other);
+		Point& operator=(const Point& other);
 		~Point();
 
-		float	get_x() const;
-		float	get_y() const;
+		float		get_x() const;
+		float		get_y() const;
 
 	private:
 		Fixed const _x;
 		Fixed const _y;		
 		
-		// Copy assignment operator is private to prevent copy
-		Point& operator=(const Point& other);
 };
 
-std::ostream 	&operator<<(std::ostream &os, const Point &point);
+std::ostream 		&operator<<(std::ostream &os, const Point &point);
 
 #endif

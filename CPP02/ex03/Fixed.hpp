@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:20:57 by astein            #+#    #+#             */
-/*   Updated: 2024/03/13 21:21:19 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 16:22:33 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,25 @@ class Fixed
 		~Fixed();
 		
 		// Copy assignment operator
-		Fixed 		&operator=(const Fixed &other);
+		Fixed 				&operator=(const Fixed &other);
 		
 		// Basic arithmetic operator overloads
-		Fixed		operator+(const Fixed &other) const;
-		Fixed		operator-(const Fixed &other) const;
-		Fixed		operator*(const Fixed &other) const;
-		Fixed		operator/(const Fixed &other) const;
+		Fixed				operator+(const Fixed &other) const;
+		Fixed				operator-(const Fixed &other) const;
+		Fixed				operator*(const Fixed &other) const;
+		Fixed				operator/(const Fixed &other) const;
 
 		// Increment and decrement operators overloads
-		Fixed		operator++();		// prefix
-		Fixed		operator--();		// prefix
-		Fixed		operator++(int);	// int is a dummy parameter to differentiate from the prefix version
-		Fixed		operator--(int);	// int is a dummy parameter to differentiate from the prefix version
+		Fixed				operator++();		// prefix
+		Fixed				operator--();		// prefix
+		Fixed				operator++(int);	// int is a dummy parameter to differentiate from the prefix version
+		Fixed				operator--(int);	// int is a dummy parameter to differentiate from the prefix version
 		
 		// Comparison operators overloads
-		bool		operator>(const Fixed &other) const;
-		bool		operator<(const Fixed &other) const;
-		bool		operator>=(const Fixed &other) const;
-		bool		operator<=(const Fixed &other) const;
+		bool				operator>(const Fixed &other) const;
+		bool				operator<(const Fixed &other) const;
+		bool				operator>=(const Fixed &other) const;
+		bool				operator<=(const Fixed &other) const;
 		
 		// Additional comparison operators overloads
 		static Fixed		&min(Fixed &a, Fixed &b);
@@ -54,15 +54,15 @@ class Fixed
 		static const Fixed	&max(const Fixed &a, const Fixed &b);
 		
 		// Getters and Setters
-		int						getRawBits() const;
-		void					setRawBits(const int raw);
-		float					toFloat() const;
-		int						toInt() const;
+		int					getRawBits() const;
+		void				setRawBits(const int raw);
+		float				toFloat() const;
+		int					toInt() const;
 		
 	private:
 		int					_value;
 		static const int	_fractionalBits;
 };
 
-	std::ostream 	&operator<<(std::ostream &os, const Fixed &fixed);
+	std::ostream 			&operator<<(std::ostream &os, const Fixed &fixed);
 #endif

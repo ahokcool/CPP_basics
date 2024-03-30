@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:46:21 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 23:35:34 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 23:33:21 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main( void )
 	std::cout << "c < d: " << (c < d) << std::endl;
 	std::cout << "c >= d: " << (c >= d) << std::endl;
 	std::cout << "c <= d: " << (c <= d) << std::endl;
+	std::cout << "c == d: " << (c == d) << std::endl;
+	std::cout << "c != d: " << (c != d) << std::endl;
 	
 	// Min and Max
 	std::cout << "min(c, d) = " << Fixed::min(c, d) << std::endl;

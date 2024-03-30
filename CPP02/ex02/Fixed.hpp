@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 21:22:36 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 23:35:16 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 23:32:25 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ class Fixed
 		bool		operator<(const Fixed &other) const;
 		bool		operator>=(const Fixed &other) const;
 		bool		operator<=(const Fixed &other) const;
+		bool		operator==(const Fixed &other) const;
+		bool		operator!=(const Fixed &other) const;
 		
 		// Additional comparison operators overloads
 		static Fixed		&min(Fixed &a, Fixed &b);

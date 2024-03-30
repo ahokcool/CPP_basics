@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:20:59 by astein            #+#    #+#             */
-/*   Updated: 2024/03/13 21:21:12 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 23:34:10 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,16 @@ bool		Fixed::operator>=(const Fixed &other) const
 bool		Fixed::operator<=(const Fixed &other) const
 {
 	return this->getRawBits() <= other.getRawBits();
+}
+
+bool		Fixed::operator==(const Fixed &other) const
+{
+	return this->getRawBits() == other.getRawBits();
+}
+
+bool		Fixed::operator!=(const Fixed &other) const
+{
+	return this->getRawBits() != other.getRawBits();
 }
 
 // Additional comparison operators overloads

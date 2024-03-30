@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:57 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 15:21:16 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 15:44:47 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CLAPTRAPUTILS_HPP
 
 # include "ClapTrap.hpp"
-# include <iostream>
 
 // Escape sequences for terminal colors
 # define COLOR_RESET  "\x1b[0m"

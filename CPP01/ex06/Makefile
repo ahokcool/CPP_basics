@@ -3,6 +3,8 @@ NAME=harlFilter
 # Compiler options
 CC = c++
 CFLAGS =  -g -Wall -Wextra -Werror -Werror=implicit-fallthrough=0 -std=c++98
+# For 42 School compiler use the second line
+# CFLAGS = -g -Wall -Wextra -Werror -Wno-error=implicit-fallthrough -std=c++98
 RM = rm -rf
 
 # Colors

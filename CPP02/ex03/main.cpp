@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:20:55 by astein            #+#    #+#             */
-/*   Updated: 2024/03/30 16:21:12 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 17:45:39 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool bsp(const Point a, const Point b, const Point c, const Point point);
 int	main()
 {
 	{
-		std::cout << "First test the OCCF functions fo point" << std::endl;
+		std::cout << "First test the OCCF functions for point" << std::endl;
 		Point p1(1.25f, 1.25f);
 		// Dest test the parameterized constructor
 		Point *p2 = new Point(2.75f, 2.75f);

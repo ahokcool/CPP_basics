@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:40 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 00:50:24 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 17:43:45 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ScavTrap : public ClapTrap
 	public:
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap &other);
-		missing the = operator?
+		ScavTrap &operator=(const ScavTrap &other);
 		~ScavTrap();
 		
 		// Member functions

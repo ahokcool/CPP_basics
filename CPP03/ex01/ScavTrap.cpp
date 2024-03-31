@@ -6,14 +6,23 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:29 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 17:10:44 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 17:44:16 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "clapTrapUtils.hpp"
 
-// Constructor
+// Default constructor
+// ScavTrap::ScavTrap() : ClapTrap("nameless ScavTrap")
+// {
+// 	std::cout << 
+// 		COLOR_GREEN <<
+// 		"ScavTrap default constructor called..." <<
+// 		COLOR_RESET << std::endl;
+// }
+
+// Parametric Constructor
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << 
@@ -32,6 +41,18 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 		COLOR_PURPLE <<
 		"ScavTrap copy constructor called" <<
 		COLOR_RESET << std::endl;
+}
+
+// Equal assignment operator
+ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
+{
+	std::cout <<
+		COLOR_PURPLE <<
+		"ScavTrap equal assignment operator called" <<
+		COLOR_RESET << std::endl;
+	if (this != &other)
+		ClapTrap::operator=(other);
+	return (*this);
 }
 
 // Destructor

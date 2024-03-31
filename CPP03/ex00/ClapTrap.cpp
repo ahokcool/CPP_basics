@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/03/30 17:38:00 by astein           ###   ########.fr       */
+/*   Updated: 2024/03/30 18:07:24 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ ClapTrap::ClapTrap() :
 		COLOR_GREEN <<
 		"ClapTrap default constructor called..." <<
 		COLOR_RESET << std::endl;
+	addCT(this);
 }
 
 // Parameterized constructor
@@ -56,6 +57,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) :
 		COLOR_PURPLE <<
 		"ClapTrap copy constructor called" <<
 		COLOR_RESET << std::endl;
+	addCT(this);
 }
 
 // Assignment Operator Overload

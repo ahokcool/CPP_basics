@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 17:43:33 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:49:56 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ ClapTrap::ClapTrap(std::string name) :
 
 // Copy constructor
 ClapTrap::ClapTrap(const ClapTrap &other) :
-	_name(other.getName()),
+	_name(other._name),
 	_hitPoints(other._hitPoints),
 	_energyPoints(other._energyPoints),
 	_attackDamage(other._attackDamage),

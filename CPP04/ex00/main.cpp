@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:15 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:16:30 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 22:22:52 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,11 +144,11 @@ int main()
 		Dog d3(d);
 		d3.makeSound();
 	
-		// std::cout << std::endl << "WRONG ANIMALS" << std::endl << "---" << std::endl;
-    	// const WrongAnimal* wc = new WrongCat();
-    	// std::cout << wc->getType() << " " << std::endl;
-    	// wc->makeSound();
-		// delete wc;
+		std::cout << std::endl << "WRONG ANIMALS" << std::endl << "---" << std::endl;
+    	const WrongAnimal *wc = new WrongCat();
+    	std::cout << wc->getType() << " " << std::endl;
+    	wc->makeSound();
+		delete wc;
 		std::cout << std::endl << "END OF MY MAIN" << std::endl << "---" << std::endl;
 	}
 		std::cout << std::endl << "END OF MAIN" << std::endl;

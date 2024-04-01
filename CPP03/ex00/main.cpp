@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:09:36 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 13:49:03 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:00:38 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	main()
 		ClapTrap c1("Clappy 1");
 		print_all_status();
 		std::cout << std::endl;
+		
+		// This is not allowed
+		// c1 = c1;
 		
 		// Test the parameterized constructor
 		ClapTrap *c2 = new ClapTrap("Clappy 2");
@@ -55,16 +58,30 @@ int	main()
 	
 		print_all_status();
 		c1.attack("c2");
+		print_all_status();
 		c1.attack("c42");
 		print_all_status();
 		c2 = c1;
 		print_all_status();
-		// This is not allowed
-		// c1 = c1;
+		
 		print_all_status();
 		c1.attack("c2");
 		print_all_status();
 		c1.attack("c3");
+		print_all_status();
+		c1.attack("c3");
+		c1.attack("c3");
+		c1.attack("c3");
+		c1.attack("c3");
+		c1.attack("c3");
+		c1.attack("c3");
+		c1.attack("c3");
+		print_all_status();
+		c1.attack("c3");
+		print_all_status();
+		c3.beRepaired(5);
+		print_all_status();
+		c1.beRepaired(5);
 		print_all_status();
 	}
 	return (0);

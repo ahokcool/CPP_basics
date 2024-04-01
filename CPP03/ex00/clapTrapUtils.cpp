@@ -6,19 +6,22 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:38 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 13:49:46 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 13:57:13 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "clapTrapUtils.hpp"
+#include <iostream>
+#include <iomanip>
+
 
 // Print the status of a single ClapTrap object
 void		print_status(const ClapTrap &c)
 {
-	std::cout << COLOR_BLUE << "ClapTrap " << c.getName() << " has " <<
-	c.getHitPoints() << " hit points, " << 
-	c.getEnergyPoints() << " energy points and " <<
-	c.getAttackDamage() << " attack damage! | " << 
+	std::cout << COLOR_BLUE << "ClapTrap " << c.getName() << "\t" <<
+	"hit p.:" << std::setw(2) << std::setfill('0') << c.getHitPoints() << "\t" <<
+	"energy p.:" << std::setw(2) << std::setfill('0') << c.getEnergyPoints() << "\t" <<
+	"attack damage:" << std::setw(2) << std::setfill('0') << c.getAttackDamage() << "\t" <<
 	"Head: " << ClapTrap::getHead()->getName() << " | ";
 	if (c.getNext())
 		std::cout << "Next: " << c.getNext()->getName();	

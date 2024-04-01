@@ -6,43 +6,46 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:20:28 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:59:13 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
-
 # include <iostream>
 
 class ClapTrap
 {
 	public:
+		// Constructors and Destructor
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);
-		ClapTrap &operator=(const ClapTrap &other);
-		~ClapTrap();
+		virtual ~ClapTrap();	// NOW IT IS VIRTUAL!
 
-		// Getter
-		const std::string	getName() const;
+		// Operator overloads
+		ClapTrap 			&operator=(const ClapTrap &other);
+		
+		// Public Member functions - NOW THEY ARE VITUAL!
+		virtual void		attack(const std::string &target);
+		virtual void		takeDamage(unsigned int amount);
+		virtual void		beRepaired(unsigned int amount);
+		
+		// Accessors (Getters)
+		std::string			getName() const;
 		unsigned int		getHitPoints() const;
 		unsigned int		getEnergyPoints() const;
 		unsigned int		getAttackDamage() const;
-		ClapTrap			*getHead() const;
 		ClapTrap			*getNext() const;
 
-		// Setter
-		void				set_hitPoints(unsigned int hitPoints);
-		void				set_energyPoints(unsigned int energyPoints);
-		void				set_attackDamage(unsigned int attackDamage);
-		void				setHead(ClapTrap *head);
+		// Mutators (Setters)
+		void				setHitPoints(unsigned int hitPoints);
+		void				setEnergyPoints(unsigned int energyPoints);
+		void				setAttackDamage(unsigned int attackDamage);
 		void				setNext(ClapTrap *next);
 
-		// Member functions
-		virtual void		print_status() const;
-		void				attack(const std::string &target);
-		void				takeDamage(unsigned int amount);
-		void				beRepaired(unsigned int amount);
+		// Static functions
+		static ClapTrap		*getHead();
+		static void			setHead(ClapTrap *head);
 
 	private:
 		ClapTrap(); 							// private default constructor

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 21:44:58 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:39:45 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,22 @@
 // Static variables for the linked list
 ClapTrap	*ClapTrap::_head = NULL;
 
-// Constructor
+// Private default constructor
+ClapTrap::ClapTrap() :
+	_name(""),
+	_hitPoints(0),
+	_energyPoints(0),
+	_attackDamage(0),
+	_next(NULL)
+{
+	std::cout << 
+		COLOR_GREEN <<
+		"ClapTrap default constructor called..." <<
+		COLOR_RESET << std::endl;
+	addCT(this);
+}
+
+// Parameterized constructor
 ClapTrap::ClapTrap(std::string name) :
 	_name(name),
 	_hitPoints(10),
@@ -26,7 +41,7 @@ ClapTrap::ClapTrap(std::string name) :
 {
 	std::cout << 
 		COLOR_GREEN <<
-		"ClapTrap constructor called..." <<
+		"ClapTrap parameterized constructor called..." <<
 		COLOR_RESET << std::endl;
 	addCT(this);
 }
@@ -34,14 +49,25 @@ ClapTrap::ClapTrap(std::string name) :
 // Copy constructor
 ClapTrap::ClapTrap(const ClapTrap &other) :
 	_name(other.getName()),
-	_hitPoints(other.getHitPoints()),
-	_energyPoints(other.getEnergyPoints()),
-	_attackDamage(other.getAttackDamage())
+	_hitPoints(other._hitPoints),
+	_energyPoints(other._energyPoints),
+	_attackDamage(other._attackDamage),
+	_next(NULL)
 {
 	std::cout <<
 		COLOR_PURPLE <<
 		"ClapTrap copy constructor called" <<
 		COLOR_RESET << std::endl;
+	addCT(this);
+}
+
+// Destructor
+ClapTrap::~ClapTrap()
+{
+	std::cout << COLOR_RED <<
+		"ClapTrap destructor called" <<
+		COLOR_RESET << std::endl;
+	removeCT(this);
 }
 
 // Assignment Operator Overload
@@ -63,95 +89,11 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &other)
 	return (*this);
 }
 
-// Destructor
-ClapTrap::~ClapTrap()
-{
-	std::cout << COLOR_RED <<
-		"ClapTrap destructor called" <<
-		COLOR_RESET << std::endl;
-	deleteCT(this);
-}
-
-// Getter Functions
+// Public Member functions
 // =============================================================================
-const	std::string		ClapTrap::getName() const
-{
-	return (this->_name);
-}
-
-unsigned int	ClapTrap::getHitPoints() const
-{
-	return (this->_hitPoints);
-}
-
-unsigned int	ClapTrap::getEnergyPoints() const
-{
-	return (this->_energyPoints);
-}
-
-unsigned int	ClapTrap::getAttackDamage() const
-{
-	return (this->_attackDamage);
-}
-
-ClapTrap	*ClapTrap::getHead() const
-{
-	return (ClapTrap::_head);
-}
-
-ClapTrap	*ClapTrap::getNext() const
-{
-	return (this->_next);
-}
-
-// Setter Functions
-// =============================================================================
-void			ClapTrap::set_hitPoints(unsigned int hitPoints)
-{
-	_hitPoints = hitPoints;	
-}
-
-void			ClapTrap::set_energyPoints(unsigned int energyPoints)
-{
-	_energyPoints = energyPoints;	
-}
-
-void			ClapTrap::set_attackDamage(unsigned int attackDamage)
-{
-	_attackDamage = attackDamage;	
-}
-
-void		ClapTrap::setHead(ClapTrap *head)
-{
-	ClapTrap::_head = head;
-}
-
-void		ClapTrap::setNext(ClapTrap *next)
-{
-	this->_next = next;
-}
-
-// Member Functions
-// =============================================================================
-void	ClapTrap::print_status() const
-{
-	std::cout << COLOR_BLUE <<
-	"ClapTrap\t" <<
-	this->getName() << "\t" <<
-	this->getHitPoints() << "\t" <<
-	this->getEnergyPoints() << "\t" <<
-	this->getAttackDamage() << "\t" <<
-	this->getHead()->getName() << "\t";
-	if (this->getNext())
-		std::cout << this->getNext()->getName();
-	else
-		std::cout << "NULL";
-	std::cout << COLOR_RESET << std::endl;
-}
-
 void	ClapTrap::attack(const std::string &target)
 {
-	ClapTrap *targetClapTrap = getCTbyName(*this, target);
+	ClapTrap *targetClapTrap = getCTbyName(target);
 	
 	std::cout << COLOR_RED <<
 		this ->getName() << " tries to attack " << target <<
@@ -196,7 +138,7 @@ void	ClapTrap::attack(const std::string &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->getHitPoints()  == 0)
+	if (this->_hitPoints  == 0)
 	{
 		std::cout << COLOR_RED <<
 			"ClapTrap " << this->getName() <<
@@ -204,7 +146,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 			COLOR_RESET << std::endl;
 		return ;
 	}
-	if ((int)(this->getHitPoints()) - (int)amount >= 0)
+	if (this->_hitPoints >= amount)
 	{
 		std::cout << COLOR_GREEN <<
 			"ClapTrap " << this->getName() <<
@@ -218,7 +160,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << COLOR_YELLOW <<
 			"ClapTrap " << this->getName() <<
 			" takes only " << this->getHitPoints() <<
-			" of the " << amount << " points of damage!" <<
+			"of the " << amount << " points of damage!" <<
 			COLOR_RESET << std::endl;
 		this->_hitPoints = 0;
 	}
@@ -244,3 +186,63 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	this->_hitPoints += amount;
 }
 
+// Accessors (Getters)
+// =============================================================================
+std::string		ClapTrap::getName() const
+{
+	return (this->_name);
+}
+
+unsigned int	ClapTrap::getHitPoints() const
+{
+	return (this->_hitPoints);
+}
+
+unsigned int	ClapTrap::getEnergyPoints() const
+{
+	return (this->_energyPoints);
+}
+
+unsigned int	ClapTrap::getAttackDamage() const
+{
+	return (this->_attackDamage);
+}
+
+ClapTrap	*ClapTrap::getNext() const
+{
+	return (this->_next);
+}
+
+// Mutators (Setters)
+// =============================================================================
+void		ClapTrap::setHitPoints(unsigned int hitPoints)
+{
+	this->_hitPoints = hitPoints;
+}
+
+void		ClapTrap::setEnergyPoints(unsigned int energyPoints)
+{
+	this->_energyPoints = energyPoints;
+}
+
+void		ClapTrap::setAttackDamage(unsigned int attackDamage)
+{
+	this->_attackDamage = attackDamage;
+}
+	
+void		ClapTrap::setNext(ClapTrap *next)
+{
+	this->_next = next;
+}
+
+// Static functions
+// =============================================================================
+ClapTrap	*ClapTrap::getHead()
+{
+	return (_head);
+}
+
+void		ClapTrap::setHead(ClapTrap *head)
+{
+	ClapTrap::_head = head;
+}

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:40 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:22:41 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 15:16:54 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public virtual ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
+		// Constructors and Destructor
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap &other);
-		~ScavTrap();
+		virtual ~ScavTrap();
 		
-		// Overriding base class member functions
-		void	print_status() const;
-		void	attack(const std::string &target);
-		
+		// Operator overloads
+		ScavTrap			&operator=(const ScavTrap &other);
+
 		// Member functions
-		void	guardGate();
+		void				attack(const std::string &target);
+		void				guardGate();
 		
 	private:
-		ScavTrap();	// private default constructor	
+		ScavTrap();	// private default constructor
+		bool				_gateKeeperMode;
 };
 
 #endif

@@ -6,23 +6,32 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:59:01 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:21:29 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 15:21:03 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "clapTrapUtils.hpp"
 
-// Constructor
+// Private default constructor
+FragTrap::FragTrap() : ClapTrap("nameless FragTrap")
+{
+	std::cout << 
+		COLOR_GREEN <<
+		"FragTrap default constructor called..." <<
+		COLOR_RESET << std::endl;
+}
+
+// Parametric Constructor
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << 
 		COLOR_GREEN <<
 		"FragTrap constructor called..." <<
 		COLOR_RESET << std::endl;
-	this->set_hitPoints(100);
-	this->set_energyPoints(100);
-	this->set_attackDamage(30);
+	this->setHitPoints(100);
+	this->setEnergyPoints(100);
+	this->setAttackDamage(30);
 }
 
 // Copy constructor
@@ -42,24 +51,22 @@ FragTrap::~FragTrap()
 		COLOR_RESET << std::endl;
 }
 
-// Overriding base class member functions
-void		FragTrap::print_status() const
+// Assignment Operator Overload
+FragTrap	&FragTrap::operator=(const FragTrap &other)
 {
-	std::cout << COLOR_BLUE <<
-	"FragTrap\t" <<
-	this->getName() << "\t" <<
-	this->getHitPoints() << "\t" <<
-	this->getEnergyPoints() << "\t" <<
-	this->getAttackDamage() << "\t" <<
-	this->getHead()->getName() << "\t";
-	if (this->getNext())
-		std::cout << this->getNext()->getName();
-	else
-		std::cout << "NULL";
-	std::cout << COLOR_RESET << std::endl;
+	std::cout <<
+		COLOR_PURPLE <<
+		"FragTrap equal assignment operator called" <<
+		COLOR_RESET << std::endl;
+	if (this != &other)
+	{
+		ClapTrap::operator=(other);
+	}
+	return (*this);
 }
 
-void	FragTrap::attack(std::string const &target)
+// Member functions
+void	FragTrap::attack(const std::string &target)
 {
 	std::cout << COLOR_RED <<
 		"FragTrap " << this ->getName() << " tries to attack " << target <<
@@ -67,12 +74,10 @@ void	FragTrap::attack(std::string const &target)
 	ClapTrap::attack(target);
 }
 
-// Member functions
-void	FragTrap::highFivesGuys()
+void	FragTrap::highFivesGuys() const
 {
 	std::cout << COLOR_YELLOW <<
 		"FragTrap " << this->getName() <<
 		" requests a high five!" <<
 		COLOR_RESET << std::endl;
 }
-

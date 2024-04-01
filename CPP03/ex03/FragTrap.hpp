@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:59:11 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:22:29 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 15:16:56 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
+		// Constructors and Destructor
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &other);
-		~FragTrap();
+		virtual ~FragTrap();
 		
-		// Overriding base class member functions
-		void	print_status() const;
-		void	attack(const std::string &target);
+		// Operator overloads
+		FragTrap			&operator=(const FragTrap &other);
 		
 		// Member functions
-		void	highFivesGuys();
+		void				attack(const std::string &target);
+		void				highFivesGuys() const;
 		
 	private:
 		FragTrap();	// private default constructor
+		
 };
 
 #endif

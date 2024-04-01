@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:17:20 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 22:22:03 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 15:24:08 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,26 @@
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
-# include "clapTrapUtils.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
+		// Constructors and Destructor
 		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap &other);
 		~DiamondTrap();
 
-		// Overriding base class member functions
-		void				print_status() const;
-		const std::string	getName() const;		//needs an override because this class has a different name than the base class
+		// Operator overloads
+		DiamondTrap			&operator=(const DiamondTrap &other);
+		
+		// Needs an override because this class has a different name than the base class
+		const std::string	getName() const;		
 
-		// Choosing which attack to use
-		using				ScavTrap::attack;
+		// Needs an override because both ScavTrap and FragTrap have an attack function
+		void				attack(const std::string &target);
 		
 		//  Member functions
-		void				whoAmI();
+		void				whoAmI() const;
 		
 	private:
 		DiamondTrap();	// private default constructor

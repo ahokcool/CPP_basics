@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:09:36 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 14:00:38 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:47:01 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	main()
 		print_all_status();
 		std::cout << std::endl;
 
-		// Test the copy assignment operator
+		// Test the assignment Operator Overload
 		ClapTrap c4("Clappy 4");
 		print_all_status();
 		c4 = c1;
-		print_status(c4);
+		print_all_status();
 	
 		delete c2;
 		std::cout << std::endl << "End of OCCF functions test for ClapTrap" << std::endl << std::endl;

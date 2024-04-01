@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 13:33:28 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 21:05:54 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void		print_status(const ClapTrap &c);
 void		print_all_status();
 
 // Linked List Functions
+// For a good practice those functions should be private member functions
+// of the CLapTrap class!
 void		addCT(ClapTrap *c);
 void		removeCT(ClapTrap *c);
 

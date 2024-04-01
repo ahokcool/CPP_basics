@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 17:41:01 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 21:07:27 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ class ClapTrap
 		static ClapTrap		*getHead();
 		static void			setHead(ClapTrap *head);
 
+	// The member attributes should be protected instead of private so that
+	// derived classes can access their member attributes without the detour
+	// of inhherited getters and setter!
 	private:
 		ClapTrap(); 							// Private default constructor
 		std::string			_name;				// Name of the ClapTrap

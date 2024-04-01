@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:29 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 14:15:08 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 15:20:33 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
 }
 
 // Member functions
-void	ScavTrap::attack(std::string const &target)
+void	ScavTrap::attack(const std::string &target)
 {
 	std::cout << COLOR_RED <<
 		"ScavTrap " << this ->getName() << " tries to attack " << target <<

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 13:00:49 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:04:07 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 class ClapTrap
 {
-
 	public:
 		// Constructors and Destructor
 		ClapTrap(std::string name);

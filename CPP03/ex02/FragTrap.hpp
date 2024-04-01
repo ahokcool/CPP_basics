@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:59:11 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 14:24:55 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 21:29:41 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class FragTrap : public ClapTrap
 		FragTrap	&operator=(const FragTrap &other);
 		
 		// Member functions
-		void		attack(const std::string &target);
+		void		attack(const std::string &target); //Not needed by the subject
 		void		highFivesGuys() const;
 		
 	private:

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 16:04:38 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:05:53 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,36 @@
 
 class ClapTrap
 {
-
 	public:
+		// Constructors and Destructor
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);
-		ClapTrap &operator=(const ClapTrap &other);
 		~ClapTrap();
 
-		// Getter
-		const std::string	getName() const;
-		unsigned int		getHitPoints() const;
-		unsigned int		getEnergyPoints() const;
-		unsigned int		getAttackDamage() const;
-		ClapTrap			*getHead() const;
-		ClapTrap			*getNext() const;
-
-		// Setter
-		void				set_hitPoints(unsigned int hitPoints);
-		void				set_energyPoints(unsigned int energyPoints);
-		void				set_attackDamage(unsigned int attackDamage);
-		void				setHead(ClapTrap *head);
-		void				setNext(ClapTrap *next);
-
-		// Member functions
+		// Operator overloads
+		ClapTrap 			&operator=(const ClapTrap &other);
+		
+		// Public Member functions
 		void				attack(const std::string &target);
 		void				takeDamage(unsigned int amount);
 		void				beRepaired(unsigned int amount);
+		
+		// Accessors (Getters)
+		std::string			getName() const;
+		unsigned int		getHitPoints() const;
+		unsigned int		getEnergyPoints() const;
+		unsigned int		getAttackDamage() const;
+		ClapTrap			*getNext() const;
+
+		// Mutators (Setters)
+		void				setHitPoints(unsigned int hitPoints);
+		void				setEnergyPoints(unsigned int energyPoints);
+		void				setAttackDamage(unsigned int attackDamage);
+		void				setNext(ClapTrap *next);
+
+		// Static functions
+		static ClapTrap		*getHead();
+		static void			setHead(ClapTrap *head);
 
 	private:
 		ClapTrap(); 							// private default constructor

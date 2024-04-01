@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:53:57 by astein            #+#    #+#             */
-/*   Updated: 2024/03/30 15:44:40 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:02:35 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 
 // Print Functions
 void		print_status(const ClapTrap &c);
-void		print_all_status(const ClapTrap &c);
+void		print_all_status();
 
 // Linked List Functions
 void		addCT(ClapTrap *c);
-void		deleteCT(ClapTrap *c);
+void		removeCT(ClapTrap *c);
 
 // Utils
-ClapTrap	*getCTbyName(const ClapTrap &c, const std::string &name);
-int			getCTCount(ClapTrap *c);
+ClapTrap	*getCTbyName(const std::string &name);
+int			getCTCount();
 
 #endif

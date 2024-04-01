@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:18 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:39:03 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 22:52:31 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Animal::Animal() : _type("Animal")
 }
 
 // Parameterized constructor
-Animal::Animal(std::string type) : _type(type)
+Animal::Animal(const std::string &type) : _type(type)
 {
 	std::cout << "Animal parameterized constructor called" << std::endl;
 }
@@ -49,16 +49,6 @@ Animal 		&Animal::operator=(const Animal &other)
 }
 
 // Member functions
-std::string	Animal::getType() const
-{
-	return _type;
-}
-
-void 		Animal::setType(const std::string type)
-{
-	_type = type;
-}
-
 void 		Animal::makeSound() const
 {
 	std::cout << "Animal sound (type: " << _type << ")" << std::endl;

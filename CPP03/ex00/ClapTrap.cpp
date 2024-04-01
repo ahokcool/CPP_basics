@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 14:06:04 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:39:21 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 			COLOR_RESET << std::endl;
 		return ;
 	}
-	if (this->_hitPoints - amount > 0)
+	if (this->_hitPoints >= amount)
 	{
 		std::cout << COLOR_GREEN <<
 			"ClapTrap " << this->getName() <<

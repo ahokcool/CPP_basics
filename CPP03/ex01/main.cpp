@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:09:36 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 14:38:41 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:48:47 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main()
 		ScavTrap c4("Scavvy 4");
 		print_all_status();
 		c4 = c1;
-		print_status(c4);
+		print_all_status();
 	
 		delete c2;
 		std::cout << std::endl << "End of OCCF functions test for ScavTrap" << std::endl << std::endl;

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:06:44 by astein            #+#    #+#             */
-/*   Updated: 2024/03/28 22:49:21 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 22:40:45 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,39 @@
 class Animal
 {
 	public:
+		// Constructors and destructor
 		Animal();
 		Animal(std::string type);
 		Animal(const Animal &other);
-		Animal &operator=(const Animal &other);
 		virtual ~Animal();
 
-		// Member functions
-		std::string getType() const;
-		void setType(std::string type);
-		virtual void makeSound() const;
+		// Operator overloads
+		Anima// // Brain functions
+// void		Animal::setIdea(int i, std::string idea)
+// {
+// 	std::cout << "Setting idea " << i << " to " << idea << std::endl;
+// 	this->_brain->setIdea(i, idea);
+// }
 
-		// Brain functions
-		void		setIdea(int i, std::string idea);
-		std::string	getIdea(int i) const;
-		void		print_ideas() const;
+// std::string	Animal::getIdea(int i) const
+// {
+// 	return this->_brain->getIdea(i);
+// }
+
+// void		Animal::print_ideas() const
+// {
+// 	this->_brain->print_ideas();
+// }
+l &operator=(const Animal &other);
+
+		// Member functions
+		std::string		getType() const;
+		void 			setType(std::string type);
+		virtual void 	makeSound() const;
 
 	protected:
-		std::string	_type;
-
-	private:
-		Brain		*_brain;	
+		std::string		_type;
+		Brain			*_brain;	
 };
 
 #endif

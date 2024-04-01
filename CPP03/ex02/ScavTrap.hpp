@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:40 by astein            #+#    #+#             */
-/*   Updated: 2024/03/21 17:12:18 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:13:50 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,23 @@
 
 class ScavTrap : public ClapTrap
 {
+
 	public:
+		// Constructors and Destructor
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap &other);
 		~ScavTrap();
 		
+		// Operator overloads
+		ScavTrap	&operator=(const ScavTrap &other);
+
 		// Member functions
-		void	attack(const std::string &target);
-		void	guardGate();
+		void		attack(const std::string &target);
+		void		guardGate();
 		
 	private:
-		ScavTrap();	// private default constructor	
+		ScavTrap();	// private default constructor
+		bool	_gateKeeperMode;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:06:44 by astein            #+#    #+#             */
-/*   Updated: 2024/03/27 00:19:40 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 18:39:47 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@
 class Animal
 {
 	public:
+		// Constructors and destructor
 		Animal();
 		Animal(std::string type);
 		Animal(const Animal &other);
-		Animal &operator=(const Animal &other);
 		virtual ~Animal();
 
+		// Operator overloads
+		Animal &operator=(const Animal &other);
+
 		// Member functions
-		std::string getType() const;
-		void setType(std::string type);
-		virtual void makeSound() const;
+		std::string		getType() const;
+		void 			setType(const std::string type);
+		virtual void 	makeSound() const;
 
 	protected:
 		std::string _type;

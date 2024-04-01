@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:09:36 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 14:15:59 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:38:41 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int	main()
 		s2.beRepaired(10);
 		print_all_status();
 		s2.beRepaired(5);
+		print_all_status();
+		s1.attack("s2");
 		print_all_status();
 		s1.attack("s2");
 		print_all_status();

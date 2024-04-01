@@ -6,14 +6,14 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:29 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 15:21:14 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:11:38 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "clapTrapUtils.hpp"
 
-// Private default constructor
+// Proteced default constructor
 ScavTrap::ScavTrap() : ClapTrap("nameless ScavTrap"), _gateKeeperMode(false)
 {
 	std::cout << 

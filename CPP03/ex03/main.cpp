@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:09:36 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 15:00:58 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:56:59 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,44 @@
 
 int	main()
 {
-	{	
-		std::cout << std::endl << "First test the OCCF functions for DiamondTrap" << std::endl << std::endl;
-		// Test the default constructor
-		// DiamondTrap c1; // This is not allowed since the default constructor is private
-		// std::cout << "c1 = " << c1.getName() << std::endl;
+	// {	
+	// 	std::cout << std::endl << "First test the OCCF functions for DiamondTrap" << std::endl << std::endl;
+	// 	// Test the default constructor
+	// 	// DiamondTrap c1; // This is not allowed since the default constructor is private
+	// 	// std::cout << "c1 = " << c1.getName() << std::endl;
 		
-		// Create a DiamondTrap object
-		DiamondTrap c1("Diamy 1");
-		print_all_status();
-		std::cout << std::endl;
+	// 	// Create a DiamondTrap object
+	// 	DiamondTrap c1("Diamy 1");
+	// 	c1.whoAmI();
+	// 	print_all_status();
+	// 	std::cout << std::endl;
 		
-		// This is not allowed
-		// c1 = c1;
+	// 	// This is not allowed
+	// 	// c1 = c1;
 		
-		// Test the parameterized constructor
-		DiamondTrap *c2 = new DiamondTrap("Diamy 2");
-		print_all_status();
-		std::cout << std::endl;
+	// 	// Test the parameterized constructor
+	// 	DiamondTrap *c2 = new DiamondTrap("Diamy 2");
+	// 	c2->whoAmI();
+	// 	print_all_status();
+	// 	std::cout << std::endl;
 
-		// Test the copy constructor
-		DiamondTrap c3(c1);
-		print_all_status();
-		std::cout << std::endl;
+	// 	// Test the copy constructor
+	// 	DiamondTrap c3(c1);
+	// 	c3.whoAmI();
+	// 	print_all_status();
+	// 	std::cout << std::endl;
 
-		// Test the copy assignment operator
-		DiamondTrap c4("Diamy 4");
-		print_all_status();
-		c4 = c1;
-		// print_status(c4);
+	// 	// Test the copy assignment operator
+	// 	DiamondTrap c4("Diamy 4");
+	// 	c4.whoAmI();
+	// 	print_all_status();
+	// 	c4 = c1;
+	// 	c4.whoAmI();
+	// 	print_all_status();
 	
-		delete c2;
-		std::cout << std::endl << "End of OCCF functions test for DiamondTrap" << std::endl << std::endl;
-	}
+	// 	delete c2;
+	// 	std::cout << std::endl << "End of OCCF functions test for DiamondTrap" << std::endl << std::endl;
+	// }
 	{
 		std::cout << std::endl << "Test of the member functions of DiamondTrap" << std::endl << std::endl;
 		ClapTrap	c1("c1");
@@ -64,9 +69,12 @@ int	main()
 		d1.whoAmI();
 
 		c1.attack("s1");
+		print_all_status();
+
 		s1.attack("f1");
-		f1.attack("c1");
-		
+		print_all_status();
+
+		f1.attack("c1");		
 		print_all_status();
 		std::cout << std::endl << "End of member functions test for FragTrap" << std::endl << std::endl;
 	}

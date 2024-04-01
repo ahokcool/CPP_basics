@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:17:14 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 15:26:42 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:33:04 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 #include "clapTrapUtils.hpp"
 
 // Private default constructor
-DiamondTrap::DiamondTrap() : ClapTrap ("nameless DiamondTrap")
+DiamondTrap::DiamondTrap() :
+	ClapTrap ("nameless DiamondTrap"),
+	ScavTrap ("nameless DiamondTrap"),
+	FragTrap ("nameless DiamondTrap"),
+	_name("nameless DiamondTrap")
 {
 	std::cout << 
 		COLOR_GREEN <<
@@ -40,7 +44,10 @@ DiamondTrap::DiamondTrap(std::string name) :
 
 // Copy constructor
 DiamondTrap::DiamondTrap(const DiamondTrap &other) : 
-	ClapTrap(other)
+	ClapTrap(other),
+	ScavTrap(other),
+	FragTrap(other),
+	_name(other._name)
 {
 	std::cout <<
 		COLOR_PURPLE <<
@@ -66,29 +73,12 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &other)
 	if (this != &other)
 	{
 		ClapTrap::operator=(other);
+        ScavTrap::operator=(other);
+        FragTrap::operator=(other);
 		this->_name = other._name;
 	}
 	return (*this);
 }
-
-// // Overriding base class member functions
-// void		DiamondTrap::print_status() const
-// {
-// 	std::cout << COLOR_BLUE <<
-// 		"DiamondTrap\t" <<
-// 		this->getName() << "\t" <<
-// 		this->getHitPoints() << "\t" <<
-// 		this->getEnergyPoints() << "\t" <<
-// 		this->getAttackDamage() << "\t" <<
-// 		this->getHead()->getName() << "\t";
-// 	if (this->getNext())
-// 		std::cout << this->getNext()->getName();
-// 	else
-// 		std::cout << "NULL";
-// 	std::cout << "\t" <<
-// 		this->_name <<
-// 		COLOR_RESET << std::endl;
-// }
 
 // Needs an override because this class has a different name than the base class
 const std::string	DiamondTrap::getName() const
@@ -110,6 +100,9 @@ void				DiamondTrap::whoAmI() const
 {
 	std::cout << COLOR_YELLOW <<
 		"I am " << this->getName() <<
-		" and my ClapTrap name is " << this->getName() <<
+		" and my ClapTrap name is " << ClapTrap::getName() <<
 		COLOR_RESET << std::endl;
+		// Since we call the base class function within an instance of DiamondTrap
+		// The instance pointer "this" will not be changed an therefore the function
+		// call 'ClapTrap::getName()' will contain the corresponding this pointer
 }

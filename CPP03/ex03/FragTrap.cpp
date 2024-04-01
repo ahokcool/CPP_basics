@@ -6,14 +6,14 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:59:01 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 15:21:03 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:11:21 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "clapTrapUtils.hpp"
 
-// Private default constructor
+// Proteced default constructor
 FragTrap::FragTrap() : ClapTrap("nameless FragTrap")
 {
 	std::cout << 

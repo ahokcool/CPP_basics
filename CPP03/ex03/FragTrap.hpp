@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:59:11 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 15:16:56 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:11:02 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ class FragTrap : virtual public ClapTrap
 		// Member functions
 		void				attack(const std::string &target);
 		void				highFivesGuys() const;
-		
-	private:
-		FragTrap();	// private default constructor
-		
+	
+	protected:
+		FragTrap();
 };
 
 #endif

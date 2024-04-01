@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:37:40 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 15:16:54 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:11:53 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ class ScavTrap : virtual public ClapTrap
 		void				attack(const std::string &target);
 		void				guardGate();
 		
+	protected:
+		ScavTrap();
+	
 	private:
-		ScavTrap();	// private default constructor
 		bool				_gateKeeperMode;
 };
 

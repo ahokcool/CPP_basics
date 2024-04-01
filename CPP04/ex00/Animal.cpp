@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:18 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 18:39:39 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 22:39:03 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ Animal::Animal() : _type("Animal")
 }
 
 // Parameterized constructor
-Animal::Animal(std::string type)
+Animal::Animal(std::string type) : _type(type)
 {
 	std::cout << "Animal parameterized constructor called" << std::endl;
-	this->_type = type;
 }
 
 // Copy constructor

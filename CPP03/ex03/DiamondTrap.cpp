@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:17:14 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 17:33:04 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 21:21:51 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ DiamondTrap::DiamondTrap(std::string name) :
 		COLOR_GREEN <<
 		"DiamondTrap constructor called..." <<
 		COLOR_RESET << std::endl;
-	this->setHitPoints(100);
+	// this->setHitPoints(100);		//Not needed since the FragTrap already sets it	
+	// this->setAttackDamage(30);
 	this->setEnergyPoints(50);
-	this->setAttackDamage(30);
 }
 
 // Copy constructor

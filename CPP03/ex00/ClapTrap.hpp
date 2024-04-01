@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:10 by astein            #+#    #+#             */
-/*   Updated: 2024/03/30 17:38:59 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 13:00:49 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,32 @@ class ClapTrap
 {
 
 	public:
+		// Constructors and Destructor
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);
-		ClapTrap &operator=(const ClapTrap &other);
 		~ClapTrap();
 
-		// Getter
+		// Operator overloads
+		ClapTrap 			&operator=(const ClapTrap &other);
+		
+		// Public Member functions
+		void				attack(const std::string &target);
+		void				takeDamage(unsigned int amount);
+		void				beRepaired(unsigned int amount);
+		
+		// Accessors (Getters)
 		std::string			getName() const;
 		unsigned int		getHitPoints() const;
 		unsigned int		getEnergyPoints() const;
 		unsigned int		getAttackDamage() const;
-		ClapTrap			*getHead() const;
 		ClapTrap			*getNext() const;
 
-		// Setter
-		void				setHead(ClapTrap *head);
+		// Mutators (Setters)
 		void				setNext(ClapTrap *next);
 
-		// Member functions
-		void				attack(const std::string &target);
-		void				takeDamage(unsigned int amount);
-		void				beRepaired(unsigned int amount);
+		// Static functions
+		static ClapTrap		*getHead();
+		static void			setHead(ClapTrap *head);
 
 	private:
 		ClapTrap(); 							// private default constructor

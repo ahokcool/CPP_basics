@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:10:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 17:50:28 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/01 17:52:16 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap	*ClapTrap::_head = NULL;
 
 // Private default constructor
 ClapTrap::ClapTrap() :
-	_name(""),
+	_name("noname clappy"),
 	_hitPoints(0),
 	_energyPoints(0),
 	_attackDamage(0),

@@ -6,58 +6,70 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:13:32 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:32:49 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 13:25:42 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
+// Default constructor
 Brain::Brain()
 {
 	std::cout << "Brain constructor called" << std::endl;
 	// Fill the brain with ideas
 	for (int i = 0; i < 100; i++)
-		_ideas[i] = "42";
+		_ideas[i] = "Zzz...";
 }
 
+// Copy constructor
 Brain::Brain(const Brain &other)
 {
 	std::cout << "Brain copy constructor called" << std::endl;
-	for (int i = 0; i < 100; i++)
-		_ideas[i] = other._ideas[i];
+	*this = other;
 }
 
-Brain &Brain::operator=(const Brain &other)
-{
-	std::cout << "Brain assignation operator called" << std::endl;
-	if (this == &other)
-		return *this;
-	for (int i = 0; i < 100; i++)
-		_ideas[i] = other._ideas[i];
-	return *this;
-}
-
+// Destructor
 Brain::~Brain()
 {
 	std::cout << "Brain destructor called" << std::endl;
 }
 
+// Assignment operator overload
+Brain 		&Brain::operator=(const Brain &other)
+{
+	std::cout << "Brain equal operator called" << std::endl;
+	if (this != &other)
+	{
+		for (int i = 0; i < 100; i++)
+			_ideas[i] = other._ideas[i];
+	}
+	else
+		std::cout << "Self assignment" << std::endl;
+	return *this;
+}
+
 // Member functions
-std::string	Brain::getIdea(int i) const
+std::string	Brain::getIdea(const int i) const
 {
 	return _ideas[i];
 }
 
-void	Brain::setIdea(int i, std::string idea)
+void		Brain::setIdea(const int i, const std::string &idea)
 {
-	_ideas[i] = idea;
+	if (i < 0 || i >= 100)
+		std::cout << "Invalid index aka my brain is too small" << std::endl;
+	else
+		_ideas[i] = idea;
 }
 
-void	Brain::print_ideas() const
+void		Brain::print_ideas() const
 {
 	for (int i = 0; i < 100; i++)
 	{
-		 std::cout << "(" << std::setw(2) << std::setfill('0') << i << "): " << _ideas[i] << " |";
+		std::cout << 
+			"(" << std::setw(2) << std::setfill('0') << i << 
+			"): " << 
+			_ideas[i] << " |";
 		if ((i+1) % 10 == 0)
 			std::cout << std::endl;
 	}

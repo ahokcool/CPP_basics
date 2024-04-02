@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:06:47 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:41:45 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 12:55:01 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class Cat : public Animal
 		~Cat();
 
 		// Operator overloads
-		Cat 			&operator=(const Cat &other);
-		
+		Cat 	&operator=(const Cat &other);
+
 		// Member functions override
-		virtual void 	makeSound() const;	
+		void	makeSound() const;
 };
 
 #endif

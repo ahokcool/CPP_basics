@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:18 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:46:58 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 13:23:22 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Animal::Animal() :
 }
 
 // Parameterized constructor
-Animal::Animal(std::string type) :
+Animal::Animal(const std::string &type) :
 	_type(type),
 	_brain(NULL)
 {
@@ -32,11 +32,7 @@ Animal::Animal(std::string type) :
 Animal::Animal(const Animal &other)
 {
 	std::cout << "Animal copy constructor called" << std::endl;
-	this->_type = other._type;
-	if (other._brain)
-		this->_brain = new Brain(*other._brain);
-	else
-		this->_brain = NULL;
+	*this = other;
 }
 
 // Destructor
@@ -72,7 +68,7 @@ std::string	Animal::getType() const
 	return _type;
 }
 
-void 		Animal::setType(std::string type)
+void 		Animal::setType(const std::string &type)
 {
 	std::cout << "Setting type to " << type << std::endl;
 	_type = type;
@@ -80,12 +76,27 @@ void 		Animal::setType(std::string type)
 
 void 		Animal::makeSound() const
 {
-	std::cout << "*Animal Sound* (type: " << _type << ")" << std::endl;
+	std::cout <<  CLR_RED <<
+		"*Animal Noise* (type: " << _type << ")" <<
+		CLR_RESET << std::endl;
 	if (_brain)
 	{
 		std::cout << "I have so many ideas:" << std::endl;
 		_brain->print_ideas();
 	}
 	else
-		std::cout << "Can have ideas since I don't have a brain" << std::endl;
+		std::cout <<
+			"Can have ideas since I don't have a brain - so sad!" <<
+			std::endl;
+}
+
+// Brain related functions
+void 		Animal::setIdea(const int index, const std::string &idea)
+{
+	if (_brain)
+		_brain->setIdea(index, idea);
+	else
+		std::cout <<
+			"Can't memorize the idea since I don't have a brain - so sad!" <<
+			std::endl;
 }

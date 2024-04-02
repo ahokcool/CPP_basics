@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:06:49 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:43:32 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 12:55:23 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class Dog : public Animal
 		~Dog();
 
 		// Operator overloads
-		Dog				&operator=(const Dog &other);
-		
+		Dog		&operator=(const Dog &other);
+
 		// Member functions override
-		virtual void	makeSound() const;
+		void 	makeSound() const;
 };
 
 #endif

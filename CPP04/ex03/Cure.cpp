@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:15:07 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 15:02:05 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 18:06:29 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Cure &Cure::operator=(const Cure &other)
 AMateria	*Cure::clone() const
 {
 	std::cout << "Cure clone called!" << std::endl;
-	return (new Cure(*this));
+	return (new Cure());
 }
 
 void		Cure::use(const ICharacter &target)

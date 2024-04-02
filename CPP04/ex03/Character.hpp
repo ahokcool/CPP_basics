@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:37:05 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 14:55:58 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 15:36:37 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,15 @@ class Character : public ICharacter
 		// Member functions from ICharacter
 		virtual const std::string 	&getName() const;
 		virtual void 				equip(AMateria *m);
+		// Note: When calling the 'unequip' member function, the pointer
+		// to the materia is lost. This means that the materia is not
+		// deleted from memory. This is a memory leak. To avoid this, the
+		// calling code should delete the materia after calling 'unequip'.
+		// Therefore the function 'getMateria' is provided to get the
+		// pointer to the materia before calling 'unequip'.
 		virtual void				unequip(int idx);
 		virtual void 				use(int idx, ICharacter &target);
+		AMateria					*getMateria(int idx) const;
 
 	private:
 		std::string					_name;

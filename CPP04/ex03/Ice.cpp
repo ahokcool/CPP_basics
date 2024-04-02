@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:12:31 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 15:02:46 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 18:06:19 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Ice 		&Ice::operator=(const Ice &other)
 AMateria	*Ice::clone() const
 {
 	std::cout << "Ice clone called!" << std::endl;
-	return (new Ice(*this));
+	return (new Ice());
 }
 
 void		Ice::use(const ICharacter &target)

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:05:23 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 14:30:06 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 15:41:19 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define CLR_RED		"\033[0;31m"
 # define CLR_CYAN		"\033[0;36m"
 # define CLR_YELLOW		"\033[0;33m"
+# define CLR_BLUE		"\033[0;34m"
 # define CLR_RESET		"\033[0m"
 
 #endif

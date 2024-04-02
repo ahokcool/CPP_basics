@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:21:49 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 15:06:57 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 17:37:15 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 Character::Character() : _name("some random dude")
 {
 	for (int i = 0; i < 4; i++)
+	{
 		this->_materia[i] = NULL;
+		std::cout << "\tSlot " << i << " set to NULL" << std::endl;
+	}
 	std::cout << "Default Character created!" << std::endl;
 }
 
@@ -25,14 +28,23 @@ Character::Character() : _name("some random dude")
 Character::Character(const std::string &name) : _name(name)
 {
 	for (int i = 0; i < 4; i++)
+	{
 		this->_materia[i] = NULL;
-	std::cout << "Character " << this->_name << " created!" << std::endl;
+		std::cout << "\tSlot " << i << " set to NULL" << std::endl;
+	}
+	std::cout << "Character '" << this->_name << "' created!" << std::endl;
 }
 
 // Copy Constructor
 Character::Character(const Character &other)
 {
 	std::cout << "Character copy constructor called!" << std::endl;
+	_name = other._name;
+	for (int i = 0; i < 4; i++)
+	{
+		this->_materia[i] = NULL;
+		std::cout << "\tSlot " << i << " set to NULL" << std::endl;
+	}
 	*this = other;
 }
 
@@ -40,9 +52,14 @@ Character::Character(const Character &other)
 Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
+	{
 		if (this->_materia[i])
+		{
 			delete this->_materia[i];
-	std::cout << "Character " << this->_name << " destroyed!" << std::endl;
+			this->_materia[i] = NULL;
+		}
+	}
+	std::cout << "Character '" << this->_name << "' destroyed!" << std::endl;
 }
 
 // Copy Assignment Operator
@@ -54,8 +71,13 @@ Character 			&Character::operator=(const Character &other)
 		this->_name = other._name;
 		// delete existing materia
 		for (int i = 0; i < 4; i++)
+		{
 			if (this->_materia[i])
+			{
 				delete this->_materia[i];
+				this->_materia[i] = NULL;
+			}
+		}
 		// deep copy materia of other
 		for (int i = 0; i < 4; i++)
 		{
@@ -117,16 +139,16 @@ void				Character::unequip(int idx)
 	{
 		std::cout << CLR_RED <<
 			"No materia in slot: " << idx <<
-			"- can't unequip" <<
+			" - can't unequip" <<
 			CLR_RESET << std::endl;
 		return ;
 	}
-	this->_materia[idx] = NULL;
 	std::cout << CLR_YELLOW <<
 		"Materia (" << _materia[idx]->getType() <<
 		") in slot " << idx <<
-		"successfully unequipped!" <<
+		" successfully unequipped!" <<
 		CLR_RESET << std::endl;
+	this->_materia[idx] = NULL;
 }
 
 void				Character::use(int idx, ICharacter &target)
@@ -148,4 +170,27 @@ void				Character::use(int idx, ICharacter &target)
 		return ;
 	}
 	this->_materia[idx]->use(target);
+}
+
+// Getters
+AMateria			*Character::getMateria(int idx) const
+{
+	std::cout << "Getting materia at index: " << idx << std::endl;
+	if (idx < 0 || idx >= 4)
+	{
+		std::cout << CLR_RED <<
+			"Invalid index! (" << idx <<
+			") - can't get materia!" <<
+			CLR_RESET << std::endl;
+		return NULL;
+	}
+	if (!this->_materia[idx])
+	{
+		std::cout << CLR_RED <<
+			"No materia in slot: " << idx <<
+			" - can't get materia! (returning NULL)" <<
+			CLR_RESET << std::endl;
+		return NULL;
+	}
+	return this->_materia[idx];
 }

@@ -6,14 +6,14 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:17:13 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 14:12:59 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 16:33:43 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 // Private default constructor
-AMateria::AMateria() : _type("some type, let's keepit a vague...")
+AMateria::AMateria() : _type("some type, let's keep it a vague...")
 {
 	// Nothing to do here
 }

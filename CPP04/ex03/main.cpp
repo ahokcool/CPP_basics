@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:17:08 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 15:12:09 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 18:16:35 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,55 @@
 #include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include <cstdlib> // For std::atoi
 
-int main()
+void	test1();
+void	test2();
+void	test3();
+void	test4();
+
+
+int main(int argc, char **argv)
 {
-	IMateriaSource* src = new MateriaSource();
-	(void)src;
+	if (argc != 2)
+	{
+		std::cout << CLR_YELLOW << std::endl <<
+			"---------------------------------------------" << std::endl <<
+			" CPP 04 ex03" << std::endl <<
+			"---------------------------------------------" << CLR_CYAN << std::endl <<
+			" NOTE: run it with valgrind --leak-check=full" << std::endl <<
+			"---------------------------------------------" << CLR_BLUE << std::endl <<
+			" Usage: ./ex03 <test nr as string>" << std::endl << CLR_BLUE <<
+			"---------------------------------------------" << CLR_YELLOW << std::endl <<
+			" Avaliable tests:" << std::endl <<
+			"---------------------------------------------" << CLR_RESET << std::endl <<
+			" [1]:\tOCCF Character" << std::endl <<
+			" [2]:\tOCCF Cure & Ice" << std::endl <<
+			" [3]:\tOCCF MateriaSource" << std::endl <<
+			" [4]:\tUse Case aka wtf!" << std::endl <<
+			"---------------------------------------------" << CLR_RED << std::endl;
+		return 0;
+	}
 
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	int testNumber = std::atoi(argv[1]);
 
-	ICharacter* me = new Character("me");
-
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	
-	ICharacter* bob = new Character("bob");
-
-	me->use(0, *bob);
-	me->use(1, *bob);
-	
-	delete bob;
-	delete me;
-	delete src;
-	
-	// Try equipe use without materia
-	test uneqp and use with
-		wrong index
-		on empty slot
-
-
-	copy a character with Materia
-	therefore its materia will be CLONed
-	then check for memory leaks of the mareria
-	
-	create a character withour a name
-
-	test the copy if its deeps with both copy construtors
-
-	learn a MateriaSource when its full and passing a null pointer
-
-	try to create a amteria from source which wasnt learnd before
-	
-
+	switch (testNumber)
+    {
+        case 1:
+            test1();
+            break;
+        case 2:
+            test2();
+            break;
+		case 3:
+            test3();
+            break;
+		case 4:
+			test4();
+			break;
+        default:
+            std::cout << "Invalid test number!" << std::endl;
+            break;
+    }
 	return 0;
 }

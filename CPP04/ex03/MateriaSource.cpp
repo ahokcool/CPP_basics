@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 00:29:47 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 15:11:51 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 18:05:15 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ MateriaSource::MateriaSource()
 MateriaSource::MateriaSource(const MateriaSource &other)
 {
 	std::cout << "MateriaSource copy constructor called!" << std::endl;
+	for (int i = 0; i < 4; i++)
+		_materias[i] = NULL;
 	*this = other;
 }
 
@@ -34,7 +36,10 @@ MateriaSource::~MateriaSource()
 	for (int i = 0; i < 4; i++)
 	{
 		if (_materias[i])
+		{
 			delete _materias[i];
+			_materias[i] = NULL;
+		}
 	}
 }
 
@@ -48,7 +53,10 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &other)
 		for (int i = 0; i < 4; i++)
 		{
 			if (this->_materias[i])
+			{
 				delete _materias[i];
+				_materias[i] = NULL;
+			}
 			if (other._materias[i])
 				this->_materias[i] = other._materias[i]->clone();
 			else
@@ -59,7 +67,7 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &other)
 }
 
 // Member functions
-void		MateriaSource::learnMateria(AMateria *materia)
+void		MateriaSource::learnMateria (AMateria *materia)
 {
 	if (!materia)
 	{
@@ -72,9 +80,10 @@ void		MateriaSource::learnMateria(AMateria *materia)
 	{
 		if (!_materias[i])
 		{
-			_materias[i] = materia;
+			_materias[i] = materia->clone();
 			std::cout << CLR_GREEN <<
-				"Materia learned!" <<
+				"Materia (" << materia->getType() <<
+				") learned!" <<
 				CLR_RESET << std::endl;
 			return ;
 		}
@@ -99,8 +108,8 @@ AMateria	*MateriaSource::createMateria(const std::string &type)
 		}
 	}
 	std::cout << CLR_RED
-		"Materia: " << type <<
-		"couldn't be created since it wasn't learned!" <<
+		"Materia: '" << type <<
+		"' couldn't be created since it wasn't learned!" <<
 		CLR_RESET << std::endl;
 	return 0;
 }

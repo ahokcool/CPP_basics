@@ -6,47 +6,36 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:18 by astein            #+#    #+#             */
-/*   Updated: 2024/03/27 19:03:35 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 13:45:40 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 
 // Default constructor
-AAnimal::AAnimal() : _type("Animal")
+AAnimal::AAnimal() :
+	_type("Animal"),
+	_brain(NULL)
 {
 	std::cout << "AAnimal default constructor called" << std::endl;
-	this->_brain = new Brain();
 }
 
 // Parameterized constructor
-AAnimal::AAnimal(std::string type)
+AAnimal::AAnimal(const std::string &type) :
+	_type(type),
+	_brain(NULL)
 {
 	std::cout << "AAnimal parameterized constructor called" << std::endl;
-	this->_type = type;
-	this->_brain = new Brain();
 }
 
+// Copy constructor
 AAnimal::AAnimal(const AAnimal &other)
 {
 	std::cout << "AAnimal copy constructor called" << std::endl;
-	this->_type = other._type;
-	this->_brain = new Brain(*other._brain);
+	*this = other;
 }
 
-AAnimal &AAnimal::operator=(const AAnimal &other)
-{
-	std::cout << "AAnimal assignment operator called" << std::endl;
-	if (this != &other)
-	{
-        this->_type = other._type;
-		if(this->_brain)
-			delete this->_brain;
-		this->_brain = new Brain(*other._brain);	
-	}
-    return *this;
-}
-
+// Destructor
 AAnimal::~AAnimal()
 {
 	std::cout << "AAnimal destructor called" << std::endl;
@@ -54,36 +43,44 @@ AAnimal::~AAnimal()
 		delete this->_brain;
 }
 
+// Assignment operator overload
+AAnimal 	&AAnimal::operator=(const AAnimal &other)
+{
+	std::cout << "AAnimal assignment operator called" << std::endl;
+	if (this != &other)
+	{
+        this->_type = other._type;
+		if(this->_brain)
+			delete this->_brain;
+		if (other._brain)
+			this->_brain = new Brain(*other._brain);
+		else
+			this->_brain = NULL;
+	}
+	else
+		std::cout << "Self assignment" << std::endl;
+    return *this;
+}
+
+// Member functions
 std::string	AAnimal::getType() const
 {
 	return _type;
 }
 
-void 		AAnimal::setType(std::string type)
+void 		AAnimal::setType(const std::string &type)
 {
 	std::cout << "Setting type to " << type << std::endl;
 	_type = type;
 }
 
-void 		AAnimal::makeSound() const
+// Brain related functions
+void		AAnimal::setIdea(const int index, const std::string &idea)
 {
-	std::cout << "I have so many ideas:" << std::endl;
-	this->print_ideas();
-}
-
-// Brain functions
-void		AAnimal::setIdea(int i, std::string idea)
-{
-	std::cout << "Setting idea " << i << " to " << idea << std::endl;
-	this->_brain->setIdea(i, idea);
-}
-
-std::string	AAnimal::getIdea(int i) const
-{
-	return this->_brain->getIdea(i);
-}
-
-void		AAnimal::print_ideas() const
-{
-	this->_brain->print_ideas();
+	if (_brain)
+		_brain->setIdea(index, idea);
+	else
+		std::cout <<
+			"Can't memorize the idea since I don't have a brain - so sad!" <<
+			std::endl;
 }

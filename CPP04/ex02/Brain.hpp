@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:10:29 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:28:20 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 13:46:17 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@
 class Brain
 {
 	public:
+		// Constructors and destructor
 		Brain();
 		Brain(const Brain &other);
-		Brain &operator=(const Brain &other);
 		~Brain();
 
+		// Operator overloads
+		Brain &operator=(const Brain &other);
+
 		// Member functions
-		std::string	getIdea(int i) const;
-		void		setIdea(int i, std::string idea);
+		std::string	getIdea(const int i) const;
+		void		setIdea(const int i, const std::string &idea);
 		void		print_ideas() const;
 
 	private:

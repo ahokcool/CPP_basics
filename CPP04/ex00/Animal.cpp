@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:18 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 12:48:56 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 12:54:17 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ void 		Animal::setType(const std::string &type)
 
 void 		Animal::makeSound() const
 {
-	std::cout << "Animal sound (type: " << _type << ")" << std::endl;
+	std::cout << "*Animal Noise* (type: " << _type << ")" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:23:01 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:50:31 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 14:13:39 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define AMATERIA_HPP
 
 # include <iostream>
+# include "colors.hpp"
 
 // Do not include ICharacter.hpp here, because of circular dependency
 // # include "ICharacter.hpp"
@@ -23,15 +24,19 @@ class ICharacter;
 class AMateria
 {
 	public:
+		// Constructors and destructor
 		AMateria(const std::string &type);
 		AMateria(const AMateria &other);
-		AMateria &operator=(const AMateria &other);
 		virtual ~AMateria();
 		
+		// Operator overloads
+		AMateria 			&operator=(const AMateria &other);
+
 		// Member functions
 		const std::string	&getType() const;
 		virtual AMateria 	*clone() const = 0;
-		virtual void 		use(ICharacter &target);
+		virtual void 		use(const ICharacter &target);
+		// Not sure why I couldn't make 'use' pure virtual
 
 protected:
 		std::string	_type;

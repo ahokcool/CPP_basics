@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:45:34 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:39:15 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 14:57:24 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,28 @@
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 
+/* NOTE:
+	Check the NOTE in the Character.hpp file regarding the use of
+	the keyword 'virtual' in the member functions of this class.
+*/
+
 class MateriaSource : public IMateriaSource
 {
 	public:
+		// Constructors and destructor
 		MateriaSource();
 		MateriaSource(const MateriaSource &other);
-		MateriaSource &operator=(const MateriaSource &other);
 		virtual ~MateriaSource();
 
-		void		learnMateria(AMateria*);
-		AMateria	*createMateria(const std::string &type);
+		// Operator overloads
+		MateriaSource 		&operator=(const MateriaSource &other);
+
+		// Member functions from IMateriaSource
+		virtual void		learnMateria(AMateria*);
+		virtual AMateria	*createMateria(const std::string &type);
 
 	private:
-		AMateria*	_materias[4];
+		AMateria*			_materias[4];
 };
 
 #endif

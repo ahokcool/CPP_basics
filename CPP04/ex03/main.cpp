@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:17:08 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:52:39 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 15:12:09 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,24 @@ int main()
 	delete me;
 	delete src;
 	
+	// Try equipe use without materia
+	test uneqp and use with
+		wrong index
+		on empty slot
+
+
+	copy a character with Materia
+	therefore its materia will be CLONed
+	then check for memory leaks of the mareria
+	
+	create a character withour a name
+
+	test the copy if its deeps with both copy construtors
+
+	learn a MateriaSource when its full and passing a null pointer
+
+	try to create a amteria from source which wasnt learnd before
+	
+
 	return 0;
 }

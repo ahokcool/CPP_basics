@@ -6,14 +6,12 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:25:43 by astein            #+#    #+#             */
-/*   Updated: 2024/03/29 01:45:41 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 14:14:25 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
-
-# include <string>
 
 // Do not include AMateria.hpp here, because of circular dependency
 // # include "AMateria.hpp"

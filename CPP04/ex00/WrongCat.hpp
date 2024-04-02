@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 23:50:14 by astein            #+#    #+#             */
-/*   Updated: 2024/03/27 00:07:24 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 12:47:35 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,22 @@
 class WrongCat : public WrongAnimal
 {
 	public:
+		// Constructors and destructor
 		WrongCat();
 		WrongCat(const WrongCat &other);
-		WrongCat &operator=(const WrongCat &other);
 		~WrongCat();
 
+		// Operator overloads
+		WrongCat 		&operator=(const WrongCat &other);
+		
 		// Member functions override
-		virtual void makeSound() const;
+		void 			makeSound() const;
+		
+	private:
+		// Member Atributes
+		// since the destructor of the parent class is not virtual,
+		// the destructor of the child class will not be called
+		// and the memory allocated for the child class will not be freed!
 };
 
 #endif

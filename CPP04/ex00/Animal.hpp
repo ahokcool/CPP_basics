@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:06:44 by astein            #+#    #+#             */
-/*   Updated: 2024/04/01 22:50:49 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 12:42:07 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ class Animal
 		virtual ~Animal();
 
 		// Operator overloads
-		Animal &operator=(const Animal &other);
+		Animal 			&operator=(const Animal &other);
 
 		// Member functions
+		std::string 	getType() const;
+		void 			setType(const std::string &type);
 		virtual void 	makeSound() const;
 
 	protected:

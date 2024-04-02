@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:10:29 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 13:46:17 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 20:51:26 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Brain
 		void		print_ideas() const;
 
 	private:
-		std::string _ideas[100];
+		std::string _ideas[20];
 };
 
 #endif

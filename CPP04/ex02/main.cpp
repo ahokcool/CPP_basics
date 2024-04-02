@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:05:15 by astein            #+#    #+#             */
-/*   Updated: 2024/04/02 13:55:35 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/02 20:51:47 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 	AAnimal* arr[arr_size];
 
 	std::cout << std::endl << CLR_PINK <<
-		"CREATING AAnimalS" << std::endl << "---" <<
+		"CREATING AAnimals" << std::endl << "---" <<
 		CLR_RESET << std::endl;
 	for(int i = 0; i < arr_size; i++)
 	{

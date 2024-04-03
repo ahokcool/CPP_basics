@@ -33,8 +33,8 @@ The C++ module is a project-based module that will introduce you to the basics o
 | [CPP00][CPP00] | :white_check_mark:	   | Introduction to C++ syntax and structure.                                     |
 | [CPP01][CPP01] | :white_check_mark:	   | Memory allocation, pointers to members, references, switch statement.         |
 | [CPP02][CPP02] | :white_check_mark:	   | Ad-hoc polymorphism, operator overloading, and Orthodox Canonical classes.    |
-| [CPP03][CPP03] | :white_check_mark: 	   | Basics of class inheritance and virtual functions.                            |
-| [CPP04][CPP04] | :orange_circle: 		   | Subtype polymorphism, abstract classes, and interfaces. 					   |
+| [CPP03][CPP03] | :white_check_mark:   | Basics of class inheritance and virtual functions.                            |
+| [CPP04][CPP04] | :white_check_mark: 		   | Subtype polymorphism, abstract classes, and interfaces. 					   |
 | [CPP05][CPP05] | :orange_circle: 		   | Exception handling fundamentals.  											   |
 | [CPP06][CPP06] | :orange_circle: 		   | Deep dive into different types of C++ casts. 								   |
 | [CPP07][CPP07] | :orange_circle: 		   | Introduction to templates and template programming. 						   |

@@ -6,16 +6,18 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 17:42:58 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/05 18:14:50 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+// 		CONSTRUCTORS AND DESTRUCTOR
+// -----------------------------------------------------------------------------
 // Private default constructor, should not be used
 Bureaucrat::Bureaucrat()
 	throw(Bureaucrat::GradeTooHighException) :
-	_name("NULL"),
+	_name("some random guy working in an random office"),
 	_grade(150)
 {
 	std::cout << CLR_RED <<
@@ -53,6 +55,8 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
+// 		OPERATOR OVERLOADS
+// -----------------------------------------------------------------------------
 // Overload of assignment operator
 Bureaucrat 			&Bureaucrat::operator=(const Bureaucrat &other)
 {
@@ -60,15 +64,16 @@ Bureaucrat 			&Bureaucrat::operator=(const Bureaucrat &other)
 	if (this != &other)
 	{
 		_grade = other._grade;
+		// _name = other._name; // _name is const
 	}
 	return *this;
 }
 
-// Overload of increment operator
-Bureaucrat 			&Bureaucrat::operator++(int)
+// Overload of PREFIX increment operator (++b)
+Bureaucrat 			&Bureaucrat::operator++()
 	throw(Bureaucrat::GradeTooHighException)
 {
-	std::cout << "Bureaucrat increment operator called" << std::endl;
+	std::cout << "Bureaucrat PREFIX increment operator called (++b)" << std::endl;
 	if (_grade > 1)
 		_grade--;
 	else
@@ -76,11 +81,24 @@ Bureaucrat 			&Bureaucrat::operator++(int)
 	return *this;
 }
 
-// Overload of decrement operator
-Bureaucrat 			&Bureaucrat::operator--(int)
+// Overload of POSTFIX increment operator (b++)
+Bureaucrat 			Bureaucrat::operator++(int)
+	throw(Bureaucrat::GradeTooHighException)
+{
+	std::cout << "Bureaucrat POSTFIX increment operator called (b++)" << std::endl;
+	Bureaucrat tmp(*this);
+	if (_grade > 1)
+		_grade--;
+	else
+		throw Bureaucrat::GradeTooHighException();
+	return tmp;
+}
+
+// Overload of PREFIX decrement operator (--b)
+Bureaucrat 			&Bureaucrat::operator--()
 	throw(Bureaucrat::GradeTooLowException)
 {
-	std::cout << "Bureaucrat decrement operator called" << std::endl;
+	std::cout << "Bureaucrat PREFIX decrement operator called (--b)" << std::endl;
 	if (_grade < 150)
 		_grade++;
 	else
@@ -88,7 +106,21 @@ Bureaucrat 			&Bureaucrat::operator--(int)
 	return *this;
 }
 
-// Getters
+// Overload of POSTFIX decrement operator (b--)
+Bureaucrat 			Bureaucrat::operator--(int)
+	throw(Bureaucrat::GradeTooLowException)
+{
+	std::cout << "Bureaucrat POSTFIX decrement operator called (b--)" << std::endl;
+	Bureaucrat tmp(*this);
+	if (_grade < 150)
+		_grade++;
+	else
+		throw Bureaucrat::GradeTooLowException();
+	return tmp;
+}
+
+// 		GETTERS
+// -----------------------------------------------------------------------------
 const std::string 	&Bureaucrat::getName() const
 {
 	return _name;
@@ -99,17 +131,9 @@ unsigned int 		Bureaucrat::getGrade() const
 	return _grade;
 }
 
-// Overload of insertion operator
-std::ostream 		&operator<<(std::ostream &out, const Bureaucrat &b)
-{
-	out << CLR_BLU <<
-		b.getName() << ", bureaucrat grade " <<
-		b.getGrade() << "." <<
-		CLR_RST << std::endl;
-	return out;
-}
 
-// EXCEPTIONS
+// 		EXCEPTIONS
+// -----------------------------------------------------------------------------
 // GradeTooHighException
 const char 			*Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -120,4 +144,15 @@ const char 			*Bureaucrat::GradeTooHighException::what() const throw()
 const char 			*Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low";
+}
+
+// OVERLOAD OF INSERTION OPERATOR
+// -----------------------------------------------------------------------------
+std::ostream 		&operator<<(std::ostream &out, const Bureaucrat &b)
+{
+	out << CLR_BLU <<
+		b.getName() << ", bureaucrat grade " <<
+		b.getGrade() << "." <<
+		CLR_RST << std::endl;
+	return out;
 }

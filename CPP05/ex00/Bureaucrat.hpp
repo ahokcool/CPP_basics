@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 17:42:51 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/05 18:14:38 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,42 +26,48 @@ class Bureaucrat
 	public:
 		// Constructors and destructor
 		Bureaucrat(const std::string &name, unsigned int grade)
-			throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
+									throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();
 
 		// Operator overloads
-		Bureaucrat &operator=(const Bureaucrat &other);
-		Bureaucrat &operator++(int)
-			throw(Bureaucrat::GradeTooHighException);
-		Bureaucrat &operator--(int)
-			throw(Bureaucrat::GradeTooLowException);
-
+		Bureaucrat 				&operator=(const Bureaucrat &other);
+		Bureaucrat 				&operator++()
+									throw(Bureaucrat::GradeTooHighException);
+		Bureaucrat 				operator++(int)
+									throw(Bureaucrat::GradeTooHighException);
+		Bureaucrat 				&operator--()
+									throw(Bureaucrat::GradeTooLowException);
+		Bureaucrat 				operator--(int)
+									throw(Bureaucrat::GradeTooLowException);
 		// Getters
-		const std::string &getName() const;
-		unsigned int	getGrade() const;
+		const std::string 		&getName() const;
+		unsigned int			getGrade() const;
 		
 	private:
 		// Private default constructor, should not be used
 		Bureaucrat()
-			throw(Bureaucrat::GradeTooHighException);
-		const 			std::string _name;
-		unsigned 		int _grade;		
+									throw(Bureaucrat::GradeTooHighException);
+
+		// Private member attributes
+		const 					std::string _name;
+		unsigned 				int _grade;		
+
 
 	// EXCEPTIONS
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();
+			virtual const char	*what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();
+			virtual const char	*what() const throw();
 	};
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
+std::ostream 					&operator<<(std::ostream &out, const Bureaucrat &b);
 
 #endif

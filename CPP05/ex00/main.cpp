@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:52 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 17:51:50 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/05 18:17:06 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 		// std::cout << b1;
 		
 		// Create a Bureaucrat object with the parameterized constructor
-		Bureaucrat b2("Bureaucrat2", 150);
+		Bureaucrat b2("Bureaucrat 2", 150);
 		std::cout << b2;
 		
 		// This is not allowed
@@ -34,7 +34,7 @@ int main()
 		std::cout << b3;
 
 		// Test the assignment Operator Overload
-		Bureaucrat b4("Bureaucrat4", 1);
+		Bureaucrat b4("Bureaucrat 4", 1);
 		std::cout << b4;
 		b4 = b2;
 		std::cout << b4;
@@ -49,8 +49,6 @@ int main()
 			"START: MY TESTS" <<
 			std::endl << std::endl << CLR_RST;
 		
-		// Bureaucrat [22];
-
 		std::cout << CLR_GRN <<
 			"Creating valid Bureaucrats" <<
 			CLR_RST << std::endl;
@@ -110,7 +108,7 @@ int main()
 		b2++;
 		std::cout << b2;
 		std::cout << "Promoting Bureaucrat2 - again" << std::endl;
-		b2++;
+		++b2;
 		std::cout << b2;
 
 		try

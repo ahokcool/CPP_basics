@@ -6,18 +6,35 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:52 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 20:36:09 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 00:07:14 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 
+void	title(std::string str, bool newline_before, bool newline_after)
+{
+	if (newline_before)
+		std::cout << std::endl;
+	std::cout << CLR_ORN <<
+		">>> " << str << " <<<" <<
+		CLR_RST << std::endl;
+	if (newline_after)
+		std::cout << std::endl;
+}
+
+void	info(std::string str, std::string clr)
+{
+	std::cout <<
+		clr <<
+		" >> " << str <<
+		CLR_RST << std::endl;
+}
+
 int main()
 {
 	{	
-		std::cout << std::endl << CLR_YLW <<
-			"START: TEST THE OCCF FUNCTIONS FOR BUREAUCRAT CLASS" << 
-			std::endl << std::endl << CLR_RST;
+		title("START: TEST THE OCCF FUNCTIONS FOR BUREAUCRAT CLASS", 1, 0);
 		// Test the default constructor
 		// Bureaucrat b1;
 		// std::cout << b1;
@@ -38,97 +55,79 @@ int main()
 		std::cout << b4;
 		b4 = b2;
 		std::cout << b4;
-
-		std::cout << std::endl << CLR_GRN <<
-			"END: TEST THE OCCF FUNCTIONS FOR BUREAUCRAT CLASS" << 
-			std::endl << std::endl << CLR_RST;
+		title("END: TEST THE OCCF FUNCTIONS FOR BUREAUCRAT CLASS", 0, 1);
 	}
 
 	{
-		std::cout << std::endl << CLR_YLW <<
-			"START: MY TESTS" <<
-			std::endl << std::endl << CLR_RST;
-		
-		std::cout << CLR_GRN <<
-			"Creating valid Bureaucrats" <<
-			CLR_RST << std::endl;
+		title("START: MY TESTS", 1, 0);
+		info("Creating valid Bureaucrats", CLR_GRN);
 		Bureaucrat b1 = Bureaucrat("Bureaucrat1", 1);
 		Bureaucrat b2 = Bureaucrat("Bureaucrat2", 150);
-		std::cout << CLR_BLU
-			"They present themselves as: " <<
-			CLR_RST << std::endl;
+		info("They present themselves as: ", CLR_BLU);
 		std::cout << b1;
 		std::cout << b2;
 
 		try
 		{
-			std::cout << CLR_YLW <<
-				"Try creating invalid Bureaucrats (to low)" <<
-				std::endl << CLR_RST;
+			info("Try creating invalid Bureaucrats (to low)", CLR_YLW);
 			Bureaucrat b3 = Bureaucrat("Bureaucrat3", 151);
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << CLR_RED <<
-			e.what() << 
-			std::endl << CLR_RST;
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
 		}
 		
 		try
 		{
-			std::cout << CLR_YLW <<
-				"Try creating invalid Bureaucrats (to high)" <<
-				std::endl << CLR_RST;
+			info("Try creating invalid Bureaucrats (to high)", CLR_YLW);
 			Bureaucrat b4 = Bureaucrat("Bureaucrat4", 0);
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << CLR_RED <<
-			e.what() << 
-			std::endl << CLR_RST;
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
 		}
 
 		try
 		{
-			std::cout << CLR_YLW <<
-				"Try degradation of Bureaucrat2 current state of b2:" <<
-				std::endl << CLR_RST;
+			info("Try degradation of Bureaucrat1 current state of b1:", CLR_YLW);
 			std::cout << b2;
 			b2--;
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << CLR_RED <<
-				e.what() << 
-				std::endl << CLR_RST;
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
 		}
 		
 		// No need for try since I know it will work...
-		std::cout << "Promoting Bureaucrat2" << std::endl;
+		info("Promoting Bureaucrat 2", CLR_YLW);
 		b2++;
 		std::cout << b2;
-		std::cout << "Promoting Bureaucrat2 - again" << std::endl;
+		info("Promoting Bureaucrat 2 - again", CLR_YLW);
 		++b2;
 		std::cout << b2;
 
 		try
 		{
-			std::cout << CLR_YLW <<
-				"Try to promote of Bureaucrat1 current state of b1:" <<
-				std::endl << CLR_RST;
+			info("Try to promote of Bureaucrat1 current state of b1:", CLR_YLW);
 			std::cout << b1;
 			b1++;
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << CLR_RED <<
-				e.what() << 
-				std::endl << CLR_RST;
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
 		}
 		
-		std::cout << std::endl << CLR_GRN <<
-			"END: MY TESTS" <<
-			std::endl << std::endl << CLR_RST;
+		info("Testing the getters:", CLR_YLW);
+		std::cout << b1.getName() << std::endl;
+		std::cout << b1.getGrade() << std::endl;
+		std::cout << b1 << std::endl;
+		
+
+		title("END: MY TESTS", 0, 1);
 	}
 	return 0;	
 }

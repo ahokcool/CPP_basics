@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 18:14:38 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/05 19:18:50 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ class Bureaucrat
 									throw(Bureaucrat::GradeTooHighException);
 
 		// Private member attributes
-		const 					std::string _name;
-		unsigned 				int _grade;		
-
+		const std::string			_name;
+		unsigned int				_grade;		
 
 	// EXCEPTIONS
 	class GradeTooHighException : public std::exception

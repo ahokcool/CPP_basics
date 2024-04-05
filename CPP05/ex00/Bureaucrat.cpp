@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 18:14:50 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/05 19:10:42 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,14 @@ Bureaucrat::Bureaucrat()
 // Parametric constructor
 Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade)
 	throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException) :
-	_name(name)
+	_name(name),
+	_grade(grade)
 {
 	std::cout << "Bureaucrat parametric constructor called" << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	else
-		_grade = grade;
 }
 
 // Copy constructor

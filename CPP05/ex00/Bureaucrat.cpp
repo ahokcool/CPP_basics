@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 01:04:00 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 02:10:08 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // -----------------------------------------------------------------------------
 // Private default constructor, should not be used
 Bureaucrat::Bureaucrat()
-	throw(GradeTooHighException) :
+	throw(Bureaucrat::GradeTooHighException) :
 	_name("some random guy working in an random office"),
 	_grade(150)
 {
@@ -24,20 +24,20 @@ Bureaucrat::Bureaucrat()
 		"Bureaucrat default constructor called" << std::endl <<
 		"No grade given aka grade is NULL an therefore too high!" <<
 		std::endl << CLR_RST;
-	throw GradeTooHighException();
+	throw Bureaucrat::GradeTooHighException("Cannot create a Bureaucrat without a grade!");
 }
 
 // Parametric constructor
 Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade)
-	throw(GradeTooHighException, GradeTooLowException) :
+	throw(Bureaucrat::GradeTooHighException, GradeTooLowException) :
 	_name(name),
 	_grade(grade)
 {
 	std::cout << "Bureaucrat parametric constructor called" << std::endl;
 	if (grade < 1)
-		throw GradeTooHighException();
+		throw GradeTooHighException("Cannot create a Bureaucrat with a grade lower than 1!");
 	else if (grade > 150)
-		throw GradeTooLowException();
+		throw GradeTooLowException("Cannot create a Bureaucrat with a grade higher than 150!");
 }
 
 // Copy constructor
@@ -70,51 +70,51 @@ Bureaucrat 			&Bureaucrat::operator=(const Bureaucrat &other)
 
 // Overload of PREFIX increment operator (++b)
 Bureaucrat 			&Bureaucrat::operator++()
-	throw(GradeTooHighException)
+	throw(Bureaucrat::GradeTooHighException)
 {
 	std::cout << "Bureaucrat PREFIX increment operator called (++b)" << std::endl;
 	if (_grade > 1)
 		_grade--;
 	else
-		throw GradeTooHighException();
+		throw GradeTooHighException("Cannot increment bureaucrats grade, it is already at the highest level aka 1!");
 	return *this;
 }
 
 // Overload of POSTFIX increment operator (b++)
 Bureaucrat 			Bureaucrat::operator++(int)
-	throw(GradeTooHighException)
+	throw(Bureaucrat::GradeTooHighException)
 {
 	std::cout << "Bureaucrat POSTFIX increment operator called (b++)" << std::endl;
 	Bureaucrat tmp(*this);
 	if (_grade > 1)
 		_grade--;
 	else
-		throw GradeTooHighException();
+		throw GradeTooHighException("Cannot increment bureaucrats grade, it is already at the highest level aka 1!");
 	return tmp;
 }
 
 // Overload of PREFIX decrement operator (--b)
 Bureaucrat 			&Bureaucrat::operator--()
-	throw(GradeTooLowException)
+	throw(Bureaucrat::GradeTooLowException)
 {
 	std::cout << "Bureaucrat PREFIX decrement operator called (--b)" << std::endl;
 	if (_grade < 150)
 		_grade++;
 	else
-		throw GradeTooLowException();
+		throw GradeTooLowException("Cannot decrement bureaucrats grade, it is already at the lowest level aka 150!");
 	return *this;
 }
 
 // Overload of POSTFIX decrement operator (b--)
 Bureaucrat 			Bureaucrat::operator--(int)
-	throw(GradeTooLowException)
+	throw(Bureaucrat::GradeTooLowException)
 {
 	std::cout << "Bureaucrat POSTFIX decrement operator called (b--)" << std::endl;
 	Bureaucrat tmp(*this);
 	if (_grade < 150)
 		_grade++;
 	else
-		throw GradeTooLowException();
+		throw GradeTooLowException("Cannot decrement bureaucrats grade, it is already at the lowest level aka 150!");
 	return tmp;
 }
 
@@ -134,15 +134,40 @@ unsigned int 		Bureaucrat::getGrade() const
 // 		EXCEPTIONS
 // -----------------------------------------------------------------------------
 // GradeTooHighException
-const char 			*GradeTooHighException::GradeTooHighException::what() const throw()
+Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string &msg) throw()
 {
-	return "Grade is too high";
+	if (msg.empty())
+		_msg = "Grade is too high!";
+	else
+		_msg = "Grade is too high: " + msg;
+}
+ 
+const char 			*Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return _msg.c_str();
+}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw()
+{
+	// nothing to do here
 }
 
 // GradeTooLowException
-const char 			*GradeTooLowException::GradeTooLowException::what() const throw()
+Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string &msg) throw()
 {
-	return "Grade is too low";
+	if (msg.empty())
+		_msg = "Grade is too low!";
+	else
+		_msg = "Grade is too low: " + msg;
+}
+const char 			*Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return _msg.c_str();
+}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
+{
+	// nothing to do here
 }
 
 // OVERLOAD OF INSERTION OPERATOR

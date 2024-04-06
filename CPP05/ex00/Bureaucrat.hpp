@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 02:06:54 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 03:36:30 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define CLR_BLU "\033[34m"
 # define CLR_ORN "\033[38;5;202m"
 # define CLR_BLD "\033[1m"
+// I added these specific colors for Clerk, Form and Grade
+# define CLR_CLERK "\033[1m\033[35m"
+# define CLR_FORM "\033[1m\033[36m"
+# define CLR_GRADE "\033[1m\033[93m"
 # define CLR_RST "\033[0m"
 
 class Bureaucrat

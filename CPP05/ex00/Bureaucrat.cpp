@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 02:43:16 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 03:35:17 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,11 @@ Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
 // -----------------------------------------------------------------------------
 std::ostream 		&operator<<(std::ostream &out, const Bureaucrat &b)
 {
-	out << CLR_BLU <<
-		" # Hello, I am " << CLR_BLD << CLR_GRN <<
-		b.getName() << CLR_RST << CLR_BLU <<
-		", and my grade is " << CLR_BLD << CLR_GRN <<
-		b.getGrade() << CLR_RST << CLR_BLU << " #" <<
-		CLR_RST << std::endl;
+	out <<
+	" ### Hello, I am " << CLR_RST << CLR_CLERK <<
+	b.getName() << CLR_RST << 
+	", and my grade is " << CLR_RST << CLR_GRADE <<
+	b.getGrade() << CLR_RST << " ###" <<
+	std::endl;
 	return out;
 }

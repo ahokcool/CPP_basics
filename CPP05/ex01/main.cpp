@@ -6,132 +6,148 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:52 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 19:30:15 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 01:34:23 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
 
+void	title(std::string str, bool newline_before, bool newline_after)
+{
+	if (newline_before)
+		std::cout << std::endl;
+	std::cout << CLR_ORN <<
+		">>> " << str << " <<<" <<
+		CLR_RST << std::endl;
+	if (newline_after)
+		std::cout << std::endl;
+}
+
+void	info(std::string str, std::string clr)
+{
+	std::cout <<
+		clr <<
+		" >> " << str <<
+		CLR_RST << std::endl;
+}
+
 int main()
 {
 	{	
-		std::cout << std::endl << CLR_YLW <<
-			"START: TEST THE OCCF FUNCTIONS FOR FORM CLASS" << 
-			std::endl << std::endl << CLR_RST;
+		title("START: TEST THE OCCF FUNCTIONS FOR FORM CLASS", 1, 0);
 		// Test the default constructor // cant since its private
 		// Form f1;
 		// std::cout << f1;
 		
-		// Create a Form object with the parameterized constructor
+		info("Create a Form object with the parameterized constructor...", CLR_GRN);
 		Form f2("Form 2", 1, 2);
 		std::cout << f2;
 		
-		// Self assignation not allowed
+		info("Self assignation not allowed", CLR_RED);
 		// f2 = f2;
 		
-		// Test the copy constructor
+		info("Test the copy constructor", CLR_GRN);
 		Form f3(f2);
+		info("f2:", CLR_BLU);
 		std::cout << f2;
+		info("f3:", CLR_BLU);
 		std::cout << f3;
 
-		// Test the assignment Operator Overload
-		Form f4("Form 4", 249, 250);
+		info ("Test the assignment Operator Overload", CLR_GRN);
+		Form f4("Form 4", 149, 150);
+		info("f2:", CLR_BLU);
+		std::cout << f2;
+		info("f4:", CLR_BLU);
 		std::cout << f4;
 		f4 = f2;
+		info("f2:", CLR_BLU);
 		std::cout << f2;
+		info("f4:", CLR_BLU);
 		std::cout << f4;
-
-		std::cout << std::endl << CLR_GRN <<
-			"END: TEST THE OCCF FUNCTIONS FOR FORM CLASS" << 
-			std::endl << std::endl << CLR_RST;
+		title("END: TEST THE OCCF FUNCTIONS FOR FORM CLASS", 0, 1);
 	}
 
-	// {
-	// 	std::cout << std::endl << CLR_YLW <<
-	// 		"START: MY TESTS" <<
-	// 		std::endl << std::endl << CLR_RST;
-		
-	// 	std::cout << CLR_GRN <<
-	// 		"Creating valid Bureaucrats" <<
-	// 		CLR_RST << std::endl;
-	// 	Bureaucrat b1 = Bureaucrat("Bureaucrat1", 1);
-	// 	Bureaucrat b2 = Bureaucrat("Bureaucrat2", 150);
-	// 	std::cout << CLR_BLU
-	// 		"They present themselves as: " <<
-	// 		CLR_RST << std::endl;
-	// 	std::cout << b1;
-	// 	std::cout << b2;
+	{
+		title("START: MY TESTS", 1, 0);
 
-	// 	try
-	// 	{
-	// 		std::cout << CLR_YLW <<
-	// 			"Try creating invalid Bureaucrats (to low)" <<
-	// 			std::endl << CLR_RST;
-	// 		Bureaucrat b3 = Bureaucrat("Bureaucrat3", 151);
-	// 	}
-	// 	catch(const std::exception& e)
-	// 	{
-	// 		std::cerr << CLR_RED <<
-	// 		e.what() << 
-	// 		std::endl << CLR_RST;
-	// 	}
-		
-	// 	try
-	// 	{
-	// 		std::cout << CLR_YLW <<
-	// 			"Try creating invalid Bureaucrats (to high)" <<
-	// 			std::endl << CLR_RST;
-	// 		Bureaucrat b4 = Bureaucrat("Bureaucrat4", 0);
-	// 	}
-	// 	catch(const std::exception& e)
-	// 	{
-	// 		std::cerr << CLR_RED <<
-	// 		e.what() << 
-	// 		std::endl << CLR_RST;
-	// 	}
+		Form f1("Form 1", 1, 2);
+		info("f1:", CLR_BLU);
+		std::cout << f1;
+		info("Test Getters:", CLR_GRN);
+		std::cout << "Name: " << f1.getName() << std::endl;
+		std::cout << "Grade to sign: " << f1.getGradeToSign() << std::endl;
+		std::cout << "Grade to execute: " << f1.getGradeToExecute() << std::endl;
+		std::cout << "Signed: " << f1.getSigned() << std::endl;
+		info("Insertion operator overload:", CLR_GRN);
+		std::cout << f1;
 
-	// 	try
-	// 	{
-	// 		std::cout << CLR_YLW <<
-	// 			"Try degradation of Bureaucrat2 current state of b2:" <<
-	// 			std::endl << CLR_RST;
-	// 		std::cout << b2;
-	// 		b2--;
-	// 	}
-	// 	catch(const std::exception& e)
-	// 	{
-	// 		std::cerr << CLR_RED <<
-	// 			e.what() << 
-	// 			std::endl << CLR_RST;
-	// 	}
+		try
+		{
+			info("Create a Form with a grade to sign too high...", CLR_YLW);
+			Form f2("Form 2", 0, 2);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
 		
-	// 	// No need for try since I know it will work...
-	// 	std::cout << "Promoting Bureaucrat2" << std::endl;
-	// 	b2++;
-	// 	std::cout << b2;
-	// 	std::cout << "Promoting Bureaucrat2 - again" << std::endl;
-	// 	++b2;
-	// 	std::cout << b2;
+		try
+		{
+			info("Create a Form with a grade to sign too low...", CLR_YLW);
+			Form f3("Form 3", 151, 2);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
+		
+		try
+		{
+			info("Create a Form with a grade to execute too high...", CLR_YLW);
+			Form f4("Form 4", 1, 0);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
+		
+		try
+		{
+			info("Create a Form with a grade to execute too low...", CLR_YLW);
+			Form f5("Form 5", 1, 151);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
 
-	// 	try
-	// 	{
-	// 		std::cout << CLR_YLW <<
-	// 			"Try to promote of Bureaucrat1 current state of b1:" <<
-	// 			std::endl << CLR_RST;
-	// 		std::cout << b1;
-	// 		b1++;
-	// 	}
-	// 	catch(const std::exception& e)
-	// 	{
-	// 		std::cerr << CLR_RED <<
-	// 			e.what() << 
-	// 			std::endl << CLR_RST;
-	// 	}
+		title("TEST THE SIGNING PROCESS", 1, 0);
+		info("Create two Bureaucrat with a grades: 42 & 1", CLR_GRN);
+		Bureaucrat b42("Bureaucrat 42 Lisboa", 42);
+		Bureaucrat b1("Bureaucrat Numero Uno", 1);
+		std::cout << b42;
+		std::cout << b1;
+		info("Create a Form with a grade to sign of 1 and a grade to execute of 42", CLR_GRN);
+		Form f6("Form 6 - needs to be signed asap!", 1, 42);
+		std::cout << f6;
+		info("Try to sign the form with b42", CLR_GRN);
+		f6.beSigned(b42);
+		std::cout << f6;
+		info("Try to sign the form with b1", CLR_GRN);
+		f6.beSigned(b1);
+		std::cout << f6;
+		info("Try to sign the form with b1 again", CLR_GRN);
+		f6.beSigned(b1);
+		std::cout << f6;
 		
-	// 	std::cout << std::endl << CLR_GRN <<
-	// 		"END: MY TESTS" <<
-	// 		std::endl << std::endl << CLR_RST;
-	// }
+		
+		
+		title("END: MY TESTS", 0, 1);
+	}
 	return 0;	
 }

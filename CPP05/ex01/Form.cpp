@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:59 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 19:35:58 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 01:17:56 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,20 @@ Form::Form() :
 
 // Parameterized constructor
 Form::Form(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExecute)
-	throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException) :
+	throw(GradeTooHighException, GradeTooLowException) :
 	_name(name),
 	_gradeToSign(gradeToSign),
 	_gradeToExecute(gradeToExecute),
 	_signed(false)
 {
-	if (gradeToSign < 1 || gradeToExecute < 1)
-		throw Bureaucrat::GradeTooHighException();
-	if (gradeToSign > 150 || gradeToExecute > 150)
-		throw Bureaucrat::GradeTooLowException();
+	if (gradeToSign < 1)
+		throw GradeTooHighException("Cannot create a form with a 'gradeToSign' higher than 1!");
+	if (gradeToSign > 150)
+		throw GradeTooLowException("Cannot create a form with a 'gradeToSign' lower than 150!");
+	if (gradeToExecute < 1)
+		throw GradeTooHighException("Cannot create a form with a 'gradeToExecute' higher than 1!");
+	if (gradeToExecute > 150)
+		throw GradeTooLowException("Cannot create a form with a 'gradeToExecute' lower than 150!");
 }
 
 // Copy constructor

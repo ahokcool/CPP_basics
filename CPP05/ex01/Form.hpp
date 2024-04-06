@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:38 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 19:21:53 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 00:13:24 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Form
 	public:
 		// Constructors and destructor
 		Form(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExecute)
-			throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
+			throw(GradeTooHighException, GradeTooLowException);
 		Form(const Form &other);
 		~Form();
 
@@ -45,6 +45,6 @@ class Form
 };
 
 // Insertion operator overload
-std::ostream					&operator<<(std::ostream &os, const Form &form);
+std::ostream	&operator<<(std::ostream &os, const Form &form);
 
 # endif

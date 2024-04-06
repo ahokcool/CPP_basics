@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/05 19:19:25 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 01:15:44 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,29 @@
 // 		CONSTRUCTORS AND DESTRUCTOR
 // -----------------------------------------------------------------------------
 // Private default constructor, should not be used
-Bureaucrat::Bureaucrat() :
+Bureaucrat::Bureaucrat()
+	throw(GradeTooHighException) :
 	_name("some random guy working in an random office"),
 	_grade(150)
 {
 	std::cout << CLR_RED <<
 		"Bureaucrat default constructor called" << std::endl <<
-		"No name or grade given therefore the grade will be the lowest aka 150!" <<
+		"No grade given aka grade is NULL an therefore too high!" <<
 		std::endl << CLR_RST;
+	throw GradeTooHighException();
 }
 
 // Parametric constructor
 Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade)
-	throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException) :
+	throw(GradeTooHighException, GradeTooLowException) :
 	_name(name),
 	_grade(grade)
 {
 	std::cout << "Bureaucrat parametric constructor called" << std::endl;
 	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 // Copy constructor
@@ -68,51 +70,51 @@ Bureaucrat 			&Bureaucrat::operator=(const Bureaucrat &other)
 
 // Overload of PREFIX increment operator (++b)
 Bureaucrat 			&Bureaucrat::operator++()
-	throw(Bureaucrat::GradeTooHighException)
+	throw(GradeTooHighException)
 {
 	std::cout << "Bureaucrat PREFIX increment operator called (++b)" << std::endl;
 	if (_grade > 1)
 		_grade--;
 	else
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	return *this;
 }
 
 // Overload of POSTFIX increment operator (b++)
 Bureaucrat 			Bureaucrat::operator++(int)
-	throw(Bureaucrat::GradeTooHighException)
+	throw(GradeTooHighException)
 {
 	std::cout << "Bureaucrat POSTFIX increment operator called (b++)" << std::endl;
 	Bureaucrat tmp(*this);
 	if (_grade > 1)
 		_grade--;
 	else
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	return tmp;
 }
 
 // Overload of PREFIX decrement operator (--b)
 Bureaucrat 			&Bureaucrat::operator--()
-	throw(Bureaucrat::GradeTooLowException)
+	throw(GradeTooLowException)
 {
 	std::cout << "Bureaucrat PREFIX decrement operator called (--b)" << std::endl;
 	if (_grade < 150)
 		_grade++;
 	else
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	return *this;
 }
 
 // Overload of POSTFIX decrement operator (b--)
 Bureaucrat 			Bureaucrat::operator--(int)
-	throw(Bureaucrat::GradeTooLowException)
+	throw(GradeTooLowException)
 {
 	std::cout << "Bureaucrat POSTFIX decrement operator called (b--)" << std::endl;
 	Bureaucrat tmp(*this);
 	if (_grade < 150)
 		_grade++;
 	else
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	return tmp;
 }
 
@@ -132,15 +134,40 @@ unsigned int 		Bureaucrat::getGrade() const
 // 		EXCEPTIONS
 // -----------------------------------------------------------------------------
 // GradeTooHighException
-const char 			*Bureaucrat::GradeTooHighException::what() const throw()
+GradeTooHighException::GradeTooHighException(const std::string &msg) throw()
 {
-	return "Grade is too high";
+	if (msg.empty())
+		_msg = "Grade is too high!";
+	else
+		_msg = "Grade is too high: " + msg;
+}
+ 
+const char 			*GradeTooHighException::what() const throw()
+{
+	return _msg.c_str();
+}
+
+GradeTooHighException::~GradeTooHighException() throw()
+{
+	// nothing to do here
 }
 
 // GradeTooLowException
-const char 			*Bureaucrat::GradeTooLowException::what() const throw()
+GradeTooLowException::GradeTooLowException(const std::string &msg) throw()
 {
-	return "Grade is too low";
+	if (msg.empty())
+		_msg = "Grade is too low!";
+	else
+		_msg = "Grade is too low: " + msg;
+}
+const char 			*GradeTooLowException::GradeTooLowException::what() const throw()
+{
+	return _msg.c_str();
+}
+
+GradeTooLowException::~GradeTooLowException() throw()
+{
+	// nothing to do here
 }
 
 // OVERLOAD OF INSERTION OPERATOR
@@ -148,8 +175,10 @@ const char 			*Bureaucrat::GradeTooLowException::what() const throw()
 std::ostream 		&operator<<(std::ostream &out, const Bureaucrat &b)
 {
 	out << CLR_BLU <<
-		b.getName() << ", bureaucrat grade " <<
-		b.getGrade() << "." <<
+		" # Hello, I am " << CLR_BLD << CLR_GRN <<
+		b.getName() << CLR_RST << CLR_BLU <<
+		", and my grade is " << CLR_BLD << CLR_GRN <<
+		b.getGrade() << CLR_RST << CLR_BLU << " #" << std::endl <<
 		CLR_RST << std::endl;
 	return out;
 }

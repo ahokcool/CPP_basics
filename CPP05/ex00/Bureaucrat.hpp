@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 00:09:23 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 01:01:44 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include <exception>
 
 # define CLR_RED "\033[31m"
 # define CLR_GRN "\033[32m"

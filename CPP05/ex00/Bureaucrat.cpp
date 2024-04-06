@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 00:10:27 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 01:04:00 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,13 +134,13 @@ unsigned int 		Bureaucrat::getGrade() const
 // 		EXCEPTIONS
 // -----------------------------------------------------------------------------
 // GradeTooHighException
-const char 			*GradeTooHighException::what() const throw()
+const char 			*GradeTooHighException::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high";
 }
 
 // GradeTooLowException
-const char 			*GradeTooLowException::what() const throw()
+const char 			*GradeTooLowException::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low";
 }

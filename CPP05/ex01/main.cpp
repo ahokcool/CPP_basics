@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:52 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 01:34:23 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 03:20:49 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int main()
 	}
 
 	{
-		title("START: MY TESTS", 1, 0);
+		title("START: MY BASIC TESTS", 1, 0);
 
 		Form f1("Form 1", 1, 2);
 		info("f1:", CLR_BLU);
@@ -125,7 +125,9 @@ int main()
 			info("Exception caught: ", CLR_RED);
 			info(e.what(), CLR_RED);
 		}
-
+		title("END: MY BASIC TESTS", 0, 1);
+	}
+	{
 		title("TEST THE SIGNING PROCESS", 1, 0);
 		info("Create two Bureaucrat with a grades: 42 & 1", CLR_GRN);
 		Bureaucrat b42("Bureaucrat 42 Lisboa", 42);
@@ -133,21 +135,27 @@ int main()
 		std::cout << b42;
 		std::cout << b1;
 		info("Create a Form with a grade to sign of 1 and a grade to execute of 42", CLR_GRN);
-		Form f6("Form 6 - needs to be signed asap!", 1, 42);
+		Form f6("urgent form - pls sign asap!", 1, 42);
 		std::cout << f6;
-		info("Try to sign the form with b42", CLR_GRN);
-		f6.beSigned(b42);
+		try
+		{
+			info("Try to sign the form with b42", CLR_GRN);
+			f6.beSigned(b42);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
 		std::cout << f6;
-		info("Try to sign the form with b1", CLR_GRN);
+		info("Sign the form with b1", CLR_GRN);
 		f6.beSigned(b1);
 		std::cout << f6;
-		info("Try to sign the form with b1 again", CLR_GRN);
+		info("Sign the form with b1 AGAIN", CLR_GRN);
 		f6.beSigned(b1);
 		std::cout << f6;
 		
-		
-		
-		title("END: MY TESTS", 0, 1);
+		title("END: TEST THE SIGNING PROCESS", 0, 1);
 	}
 	return 0;	
 }

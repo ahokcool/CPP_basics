@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 01:14:18 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/06 03:07:00 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,47 @@
 # define CLR_BLU "\033[34m"
 # define CLR_ORN "\033[38;5;202m"
 # define CLR_BLD "\033[1m"
+# define CLR_CLERK "\033[1m\033[35m" // Bold Purple for Clerk
+# define CLR_FORM "\033[1m\033[36m"  // Bold Cyan for Form
+# define CLR_GRADE "\033[1m\033[93m" // Bold Bright Yellow for Grade
 # define CLR_RST "\033[0m"
 
 
-// EXCEPTIONS
-class GradeTooHighException : public std::exception
-{
-	public:
-		// default value of msg is an empty string
-	    GradeTooHighException(const std::string& msg = "") 	throw();
-		virtual const char	*what() const 					throw();
-		virtual 			~GradeTooHighException() 		throw();
-
-	private:
-		std::string			_msg;
-};
-
-class GradeTooLowException : public std::exception
-{
-	public:
-		// default value of msg is an empty string
-		GradeTooLowException(const std::string &msg = "") 	throw();
-		virtual const char	*what() const					throw();
-		~GradeTooLowException() 							throw();
-	
-	private:
-		std::string			_msg;
-};
 
 class Bureaucrat
 {
 	public:
+		// EXCEPTIONS
+		// It looks shitty that they are at the top but it is the only way to
+		// avoid the "incomplete type" error and still have them as inner classes
+		// which is a requirement of the subject...
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				// default value of msg is an empty string
+			    GradeTooHighException(const std::string& msg = "") 	throw();
+				virtual const char	*what() const 					throw();
+				virtual 			~GradeTooHighException() 		throw();
+		
+			private:
+				std::string			_msg;
+		};
+		
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				// default value of msg is an empty string
+				GradeTooLowException(const std::string &msg = "") 	throw();
+				virtual const char	*what() const					throw();
+				virtual				~GradeTooLowException() 		throw();
+			
+			private:
+				std::string			_msg;
+		};
+
 		// Constructors and destructor
 		Bureaucrat(const std::string &name, unsigned int grade)
-			throw(GradeTooHighException, GradeTooLowException);
+			throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
 			
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();
@@ -64,10 +71,10 @@ class Bureaucrat
 		Bureaucrat	&operator=(const Bureaucrat &other);
 
 		// Increment and decrement operators for grade
-		Bureaucrat	&operator++()	throw(GradeTooHighException);
-		Bureaucrat	operator++(int)	throw(GradeTooHighException);
-		Bureaucrat	&operator--()	throw(GradeTooLowException);
-		Bureaucrat	operator--(int)	throw(GradeTooLowException);
+		Bureaucrat	&operator++()	throw(Bureaucrat::GradeTooHighException);
+		Bureaucrat	operator++(int)	throw(Bureaucrat::GradeTooHighException);
+		Bureaucrat	&operator--()	throw(Bureaucrat::GradeTooLowException);
+		Bureaucrat	operator--(int)	throw(Bureaucrat::GradeTooLowException);
 		
 		// Getters
 		const std::string 			&getName() const;
@@ -75,7 +82,7 @@ class Bureaucrat
 		
 	private:
 		// Private default constructor, should not be used
-		Bureaucrat()				throw(GradeTooHighException);
+		Bureaucrat()				throw(Bureaucrat::GradeTooHighException);
 
 		const std::string			_name;
 		unsigned int				_grade;		

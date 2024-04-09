@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 03:02:53 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/09 12:48:51 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string &msg) t
 	else
 		_msg = "Grade is too low: " + msg;
 }
+
 const char 			*Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return _msg.c_str();

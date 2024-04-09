@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:17:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 17:45:02 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/09 18:27:46 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,31 +46,11 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-// Member functions
-void					ShrubberyCreationForm::createShrubbery() const
-{
-	// TODO:
-
-	// AForm::execute(executor);
-	// std::ofstream file(getName() + "_shrubbery");
-	// if (!file.is_open())
-	// 	throw std::runtime_error("Could not open file");
-	// file << "      /\\      " << std::endl;
-	// file << "     /\\*\\     " << std::endl;
-	// file << "    /\\O\\*\\    " << std::endl;
-	// file << "   /*/\\/\\/\\   " << std::endl;
-	// file << "  /\\O\\/\\*\\/\\  " << std::endl;
-	// file << " /\\*\\/\\*\\/\\/\\ " << std::endl;
-	// file << "/\\O\\/\\/*/\\/O/\\" << std::endl;
-	// file << "      ||      " << std::endl;
-	// file << "      ||      " << std::endl;
-	// file << "      ||      " << std::endl;
-	// file << std::endl;
-	// file.close();
-}
-
+// Base class pure virtual function override
 void					ShrubberyCreationForm::execute(Bureaucrat const &executor) const
-	throw (AForm::GradeTooLowException, AForm::FormNotSignedException)
+	throw (	AForm::GradeTooLowException,
+			AForm::FormNotSignedException,
+			std::runtime_error)
 {
 	// check if it is executable
 	if (!isExecutable(executor))
@@ -82,7 +62,31 @@ void					ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	else
 	{
 		// execute
-		std::cout << "ShrubberyCreationForm is being executed" << std::endl;
-		createShrubbery();
+		std::string filename = this->_target + "_shrubbery";
+
+		std::ofstream file(filename.c_str());
+		if (!file.is_open())
+			throw std::runtime_error("Could not open file");
+		file << "      /\\"			 	<< std::endl;
+		file << "     /\\*\\" 			<< std::endl;
+		file << "    /\\O\\*\\" 		<< std::endl;
+		file << "   /*/\\/\\/\\" 		<< std::endl;
+		file << "  /\\O\\/\\*\\/\\" 	<< std::endl;
+		file << " /\\*\\/\\*\\/\\/\\"	<< std::endl;
+		file << "/\\O\\/\\/*/\\/O/\\" 	<< std::endl;
+		file << "      ||"				<< std::endl;
+		file << "      ||"				<< std::endl;
+		file << "      ||"				<< std::endl;
+		file << std::endl;
+		file.close();
+
+		// print success message
+		std::cout <<
+			"The AForm " << CLR_FORM <<
+			this->getName() << CLR_RST <<
+			" was successfully executed by " << CLR_CLERK <<
+			executor.getName() << CLR_RST <<
+			" which created the file: " << CLR_YLW <<
+			filename << CLR_RST << "!" << std::endl;
 	}
 }

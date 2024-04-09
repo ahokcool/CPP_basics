@@ -50,8 +50,8 @@ clean:
 fclean: clean
 	@$(RM) $(NAME)
 	@echo $(RED) $(NAME) "removed program" $(RESET)
-	# TODO:
-	# REMOVE THE ShrubberyCreationForm FILES
+	@$(RM) *_shrubbery
+	@echo $(RED) $(NAME) "removed the *_shrubbery files" $(RESET)
 
 re: fclean all
 

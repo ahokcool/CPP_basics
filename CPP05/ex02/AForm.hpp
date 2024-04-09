@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:38 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 17:35:41 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/09 18:16:29 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ class AForm
 		
 		// Pure virtual function
 		virtual void			execute(Bureaucrat const &executor) const
-			throw (AForm::GradeTooLowException, AForm::FormNotSignedException) = 0;
+			throw (	AForm::GradeTooLowException,
+					AForm::FormNotSignedException,
+					std::runtime_error) = 0;
 
 	private:
 		// Private default constructor, should not be used

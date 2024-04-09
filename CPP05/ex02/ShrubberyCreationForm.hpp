@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:15:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 17:45:08 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/09 18:20:47 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
@@ -26,12 +27,9 @@ class ShrubberyCreationForm : public AForm
 		// Operator overloads
 		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &other);
 
-		// Member functions
-		void					createShrubbery() const;
-
-		// Base class pure virtual function
+		// Base class pure virtual function override
 		void					execute(Bureaucrat const &executor) const
-			throw (AForm::GradeTooLowException, AForm::FormNotSignedException);
+			throw (AForm::GradeTooLowException, AForm::FormNotSignedException, std::runtime_error);
 
 	private:
 		ShrubberyCreationForm();	// private, should not be used

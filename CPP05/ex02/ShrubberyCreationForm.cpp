@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:17:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 18:27:46 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/11 13:03:51 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,42 @@ void					ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		std::ofstream file(filename.c_str());
 		if (!file.is_open())
 			throw std::runtime_error("Could not open file");
-		file << "      /\\"			 	<< std::endl;
-		file << "     /\\*\\" 			<< std::endl;
-		file << "    /\\O\\*\\" 		<< std::endl;
-		file << "   /*/\\/\\/\\" 		<< std::endl;
-		file << "  /\\O\\/\\*\\/\\" 	<< std::endl;
-		file << " /\\*\\/\\*\\/\\/\\"	<< std::endl;
-		file << "/\\O\\/\\/*/\\/O/\\" 	<< std::endl;
-		file << "      ||"				<< std::endl;
-		file << "      ||"				<< std::endl;
-		file << "      ||"				<< std::endl;
+
+		// NOTE: 	THE LAYOUT LOOKS WRONG BECAUSE OF THE TABS AND THE "\"
+		// 			BUT IT IS CORRECT
+		file << "                        /\\"                              		<< std::endl;
+		file << "                       /\\*\\"                             	<< std::endl;
+		file << "                      /\\O\\*\\"                           	<< std::endl;
+		file << "                     /*/\\/\\/\\"                          	<< std::endl;
+		file << "                    /\\O\\/\\*\\/\\"                       	<< std::endl;
+		file << "                   /\\*\\/\\*\\/\\/\\"                      	<< std::endl;
+		file << "                  /\\O\\/\\/*/\\/O/\\"                     	<< std::endl;
+		file << "                 /*/\\/\\/\\/*/\\/\\/\\"                    	<< std::endl;
+		file << "                /\\O\\/\\/*/\\/O/\\/\\*\\"                		<< std::endl;
+		file << "               /\\*\\/\\*\\/\\/\\/*/\\/*/\\"              		<< std::endl;
+		file << "              /\\O\\/\\/*/\\/O/\\/\\*\\/\\/\\"           		<< std::endl;
+		file << "             /*/\\/\\/\\/*/\\/\\/\\/*/\\/\\/\\"        		<< std::endl;
+		file << "            /\\O\\/\\/*/\\/O/\\/\\*\\/\\O/\\/\\\\"     		<< std::endl;
+		file << "   /\\                   ||"                           	    << std::endl;
+		file << "  /\\*\\                  ||"                          	    << std::endl;
+		file << " /\\* /\\                 ||"                          	    << std::endl;
+		file << "/\\O/ \\*\\                ||"                         	    << std::endl;
+		file << "   ||                   ||"                                	<< std::endl;
+		file << "   ||                   ||"                                	<< std::endl;
+		file << "   ||"          												<< std::endl;
+		file << "   ||"          												<< std::endl;
+		file << "               &&& &&  & &&"									<< std::endl;
+     	file << "         && &\\/&\\|& ()|/ @, &&"								<< std::endl;
+     	file << "         &\\/(/&/&||/& /_/)_&/_&                /\\"			<< std::endl;
+		file << "        &() &\\/&|()|/&\\/ '%\" & ()             /\\*\\"		<< std::endl;
+		file << "       &_\\_&&_\\ |& |&&/&__%_/_& &&           /\\||/\\"		<< std::endl;
+		file << "      &&   && & &| &| /& & % ()& /&&        /\\O/\\\\/\\"		<< std::endl;
+		file << "       ()&_---()&\\&\\|&&-&&--%---()~            ||"			<< std::endl;
+		file << "           &&     \\|||                         ||"			<< std::endl;
+		file << "                   |||                         ||"				<< std::endl;
+		file << "                   |||                         ||"				<< std::endl;
+		file << "                   |||"										<< std::endl;			
+		file << "             , -=-~  .-^- _"									<< std::endl;
 		file << std::endl;
 		file.close();
 

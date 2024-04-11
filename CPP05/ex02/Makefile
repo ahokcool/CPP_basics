@@ -22,8 +22,8 @@ SRCS = 								\
 	Bureaucrat.cpp					\
 	AForm.cpp						\
 	ShrubberyCreationForm.cpp		\
+	RobotomyRequestForm.cpp			\
 	# PresidentialPardonForm.cpp		
-	# RobotomyRequestForm.cpp			\
 
 # Object files
 OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)

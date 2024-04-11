@@ -6,12 +6,13 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:52 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 18:30:31 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/11 14:06:19 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 # include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
 
 void	title(std::string str, bool newline_before, bool newline_after)
 {
@@ -34,7 +35,8 @@ void	info(std::string str, std::string clr)
 
 int main()
 {
-	{	
+	// TEST THE OCCF FUNCTIONS FOR ShrubberyCreationForm CLASS
+	/* {	
 		title("START: TEST THE OCCF FUNCTIONS FOR ShrubberyCreationForm CLASS", 1, 0);
 		// Test the default constructor // cant since its private
 		// ShrubberyCreationForm scf1;
@@ -70,10 +72,50 @@ int main()
 		AForm *scf5 = new ShrubberyCreationForm("forest");
 		std::cout << *scf5;
 		title("END: TEST THE OCCF FUNCTIONS FOR ShrubberyCreationForm CLASS", 0, 1);
+	} */
+	
+	// TEST THE OCCF FUNCTIONS FOR RobotomyRequestForm CLASS
+	{	
+		title("START: TEST THE OCCF FUNCTIONS FOR RobotomyRequestForm CLASS", 1, 0);
+		// Test the default constructor // cant since its private
+		// RobotomyRequestForm rrf1;
+		// std::cout << rrf1;
+		
+		info("Create a RobotomyRequestForm object with the parameterized constructor...", CLR_GRN);
+		RobotomyRequestForm rrf2("dessert");
+		std::cout << rrf2;
+		
+		info("Self assignation not allowed", CLR_RED);
+		// rrf2 = rrf2;
+		
+		info("Test the copy constructor", CLR_GRN);
+		RobotomyRequestForm rrf3(rrf2);
+		info("rrf2:", CLR_BLU);
+		std::cout << rrf2;
+		info("rrf3:", CLR_BLU);
+		std::cout << rrf3;
+
+		info ("Test the assignment Operator Overload", CLR_GRN);
+		RobotomyRequestForm rrf4("garden");
+		info("rrf2:", CLR_BLU);
+		std::cout << rrf2;
+		info("rrf4:", CLR_BLU);
+		std::cout << rrf4;
+		rrf4 = rrf2;
+		info("rrf2:", CLR_BLU);
+		std::cout << rrf2;
+		info("rrf4:", CLR_BLU);
+		std::cout << rrf4;
+
+		info("Create a RobotomyRequestForm as a AForm pointer...", CLR_GRN);
+		AForm *rrf5 = new RobotomyRequestForm("forest");
+		std::cout << *rrf5;
+		title("END: TEST THE OCCF FUNCTIONS FOR RobotomyRequestForm CLASS", 0, 1);
 	}
 
-	{
-		title("START: MY BASIC TESTS", 1, 0);
+	// START: MY BASIC TESTS for ShrubberyCreationForm
+/* 	{
+		title("START: MY BASIC TESTS for ShrubberyCreationForm", 1, 0);
 		info("Create a Bureaucrat with a grade of 145", CLR_GRN);
 		Bureaucrat b145("145 boy", 145);
 
@@ -120,37 +162,64 @@ int main()
 		info("Try to execute the ShrubberyCreationForm with high enough grade bureaucrat, should work...", CLR_GRN);
 		scf6.execute(b137);
 
-		title("END: MY BASIC TESTS", 0, 1);
-	}
+		title("END: MY BASIC TESTS for ShrubberyCreationForm", 0, 1);
+	} */
+
+	// START: MY BASIC TESTS for RobotomyRequestForm
 	{
-		title("TEST THE SIGNING PROCESS", 1, 0);
-		// info("Create two Bureaucrat with a grades: 42 & 1", CLR_GRN);
-		// Bureaucrat b42("Bureaucrat 42 Lisboa", 42);
-		// Bureaucrat b1("Bureaucrat Numero Uno", 1);
-		// std::cout << b42;
-		// std::cout << b1;
-		// info("Create a AForm with a grade to sign of 1 and a grade to execute of 42", CLR_GRN);
-		// AForm f6("urgent AForm - pls sign asap!", 1, 42);
-		// std::cout << f6;
-		// try
-		// {
-		// 	info("Try to sign the AForm with b42", CLR_GRN);
-		// 	f6.beSigned(b42);
-		// }
-		// catch(const std::exception& e)
-		// {
-		// 	info("Exception caught: ", CLR_RED);
-		// 	info(e.what(), CLR_RED);
-		// }
-		// std::cout << f6;
-		// info("Sign the AForm with b1", CLR_GRN);
-		// f6.beSigned(b1);
-		// std::cout << f6;
-		// info("Sign the AForm with b1 AGAIN", CLR_GRN);
-		// f6.beSigned(b1);
-		// std::cout << f6;
+		title("START: MY BASIC TESTS for RobotomyRequestForm", 1, 0);
+		info("Create a Bureaucrat with a grade of 72", CLR_GRN);
+		Bureaucrat b72("72 boy", 72);
+
+		info("Create a Bureaucrat with a grade of 45", CLR_GRN);
+		Bureaucrat b45("45 girl", 45);
+
+		info("Create a RobotomyRequestForm", CLR_GRN);
+		RobotomyRequestForm rrf6("somewhere");
+		std::cout << rrf6;
 		
-		title("END: TEST THE SIGNING PROCESS", 0, 1);
+		info("Try to execute the AForm with both bureaucrats, shouldn't work since the form isn't signed yet...", CLR_GRN);
+		try
+		{
+			rrf6.execute(b72);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
+		try
+		{
+			rrf6.execute(b45);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
+		info("Sign the RobotomyRequestForm", CLR_GRN);
+		rrf6.beSigned(b72);
+		std::cout << rrf6;
+
+		info("Try to execute the RobotomyRequestForm with too low grade bureaucrat, shouldn't work...", CLR_GRN);
+		try
+		{
+			rrf6.execute(b72);
+		}
+		catch(const std::exception& e)
+		{
+			info("Exception caught: ", CLR_RED);
+			info(e.what(), CLR_RED);
+		}
+		info("Try to execute the RobotomyRequestForm with high enough grade bureaucrat, should work...", CLR_GRN);
+		rrf6.execute(b45);
+
+		title("END: MY BASIC TESTS for RobotomyRequestForm", 0, 1);
 	}
+
+	// Add a test that creates the tree forms and tries to execute them with 
+	//  the "executeForm" funxtion from clerk!
+	
+	
 	return 0;	
 }

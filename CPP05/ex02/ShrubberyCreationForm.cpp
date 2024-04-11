@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:17:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/11 13:03:51 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/11 14:00:44 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void					ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 			this->getName() << CLR_RST <<
 			" was successfully executed by " << CLR_CLERK <<
 			executor.getName() << CLR_RST <<
-			" which created the file: " << CLR_YLW <<
+			" which created the file: " << CLR_TARGET <<
 			filename << CLR_RST << "!" << std::endl;
 	}
 }

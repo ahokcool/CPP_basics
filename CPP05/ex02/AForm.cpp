@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:59 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 17:48:59 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/11 14:00:09 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ AForm::AForm() :
 {
 	std::cout << CLR_RED <<
 		"AForm default constructor called" << std::endl <<
-		"No grade so it was set to the highest possible grade!" <<
+		"No grade provided, so it was set to the highest possible grade!" <<
 		std::endl << CLR_RST;
 }
 
@@ -149,7 +149,7 @@ std::ostream		&AForm::print(std::ostream& os) const
        os << " # Signed:             " << CLR_GRN << std::setw(columnWidth-24) << std::left << "X" << CLR_RST << " # " << std::endl;
 	else
 		os << " # Signed:             " << CLR_RED << std::setw(columnWidth-24) << std::left << "O" << CLR_RST << " # " << std::endl;
-	os << " # Target:             " << CLR_TRGT << std::setw(columnWidth-24) << std::left << _target << CLR_RST << " # " << std::endl << border << std::endl;
+	os << " # Target:             " << CLR_TARGET << std::setw(columnWidth-24) << std::left << _target << CLR_RST << " # " << std::endl << border << std::endl;
     return os;
 }
 

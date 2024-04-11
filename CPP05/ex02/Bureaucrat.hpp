@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 17:48:31 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/11 13:59:04 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
 # define CLR_CLERK "\033[1m\033[35m"
 # define CLR_FORM "\033[1m\033[36m"
 # define CLR_GRADE "\033[1m\033[93m"
+# define CLR_TARGET "\033[1m\033[96m"
+// RESET
 # define CLR_RST "\033[0m"
-# define CLR_TRGT "\033[1m\033[96m"
 
 
 

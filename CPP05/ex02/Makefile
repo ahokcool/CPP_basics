@@ -19,11 +19,11 @@ OBJ_FOLDER     	= ./obj/
 GITPUSH = ../../git_push.sh
 SRCS = 								\
 	main.cpp						\
-	Bureaucrat.cpp					\
 	AForm.cpp						\
+	Bureaucrat.cpp					\
 	ShrubberyCreationForm.cpp		\
 	RobotomyRequestForm.cpp			\
-	# PresidentialPardonForm.cpp		
+	PresidentialPardonForm.cpp		
 
 # Object files
 OBJS = $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)

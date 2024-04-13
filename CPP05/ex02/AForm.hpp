@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:38 by astein            #+#    #+#             */
-/*   Updated: 2024/04/11 13:35:41 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/13 20:32:16 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class AForm
 		AForm(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExecute, const std::string &target)
 			throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
 		AForm(const AForm &other);
-		~AForm();
+		virtual ~AForm();
 
 		// Operator overloads
 		AForm					&operator=(const AForm &other);

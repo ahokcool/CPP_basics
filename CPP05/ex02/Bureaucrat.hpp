@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/11 13:59:04 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/13 19:59:37 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <exception>
+
+class AForm;
 
 # define CLR_RED "\033[31m"
 # define CLR_GRN "\033[32m"
@@ -66,7 +68,6 @@ class Bureaucrat
 		// Constructors and destructor
 		Bureaucrat(const std::string &name, unsigned int grade)
 			throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
-			
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();
 
@@ -82,6 +83,10 @@ class Bureaucrat
 		// Getters
 		const std::string 			&getName() const;
 		unsigned int				getGrade() const;
+
+		// Member functions
+		void						executeForm(const AForm &form) const
+			throw(std::exception);
 		
 	private:
 		// Private default constructor, should not be used

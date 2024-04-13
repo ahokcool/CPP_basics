@@ -6,10 +6,11 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 16:38:30 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/13 20:09:56 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 // 		CONSTRUCTORS AND DESTRUCTOR
@@ -128,6 +129,29 @@ const std::string 	&Bureaucrat::getName() const
 unsigned int 		Bureaucrat::getGrade() const
 {
 	return _grade;
+}
+
+// 		MEMBER FUNCTIONS
+// -----------------------------------------------------------------------------
+void				Bureaucrat::executeForm(const AForm &form) const
+	throw(std::exception)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << CLR_CLERK <<
+			_name << CLR_RST <<
+			" has executed the AForm " << CLR_FORM <<
+			form.getName() << CLR_RST <<
+			" successfully!" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << CLR_RED <<
+			"Exception caught: " << 
+			e.what() <<
+			CLR_RST << std::endl;
+	}
 }
 
 // 		EXCEPTIONS

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:59 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 03:33:13 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/11 13:58:15 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void				Form::beSigned(const Bureaucrat &bureaucrat)
 		std::cout <<
 			"The grade of the bureaucrat " << CLR_CLERK <<
 			bureaucrat.getName() << CLR_RST <<
-			" is too low to sign this form " << CLR_FORM <<
+			" is too low to sign this form " << CLR_FRM <<
 			_name << CLR_RST << 
 			"(" << CLR_GRADE <<
 			bureaucrat.getGrade() << CLR_RST <<
@@ -124,7 +124,7 @@ void				Form::beSigned(const Bureaucrat &bureaucrat)
 	}
 	if (_signed)
 		std::cout <<
-			"The form " << CLR_FORM <<
+			"The form " << CLR_FRM <<
 			_name << CLR_RST <<
 			" cannot be signed by " <<  CLR_CLERK <<
 			bureaucrat.getName() << CLR_RST <<
@@ -134,7 +134,7 @@ void				Form::beSigned(const Bureaucrat &bureaucrat)
 	{
 		_signed = true;
 		std::cout <<
-			"The form " << CLR_FORM <<
+			"The form " << CLR_FRM <<
 			_name << CLR_RST <<
 			" was signed by " <<  CLR_CLERK <<
 			bureaucrat.getName() << CLR_RST << "!" << std::endl;
@@ -163,7 +163,7 @@ std::ostream					&operator<<(std::ostream &os, const Form &form)
     std::string 	border = " # " + std::string(columnWidth - 4, '=') + " #";
 
     os << border << std::endl
-       << " # " << CLR_FORM << std::setw(nameWidth) << std::left << name << CLR_RST << std::right << " # " << std::endl
+       << " # " << CLR_FRM << std::setw(nameWidth) << std::left << name << CLR_RST << std::right << " # " << std::endl
        << border << std::endl
        << " # Grade to sign:      " << CLR_GRADE << std::setw(columnWidth-24) << std::left << form.getGradeToSign() << CLR_RST << " # " << std::endl
        << " # Grade to execute:   " << CLR_GRADE << std::setw(columnWidth-24) << std::left << form.getGradeToExecute() << CLR_RST << " # " << std::endl;

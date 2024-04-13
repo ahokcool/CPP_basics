@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 20:36:55 by astein            #+#    #+#             */
-/*   Updated: 2024/04/13 21:36:46 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/13 21:38:42 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ AForm		*Intern::createP(std::string target) const
 
 AForm		*Intern::makeForm(const std::string &formName, const std::string &target) const
 {
+	// Creating two arrays to store the 'form names' and the 'functions' isn't
+	// the best way to do this, but we haven't learned about the better ways yet
 	std::string form_names[3] =
 	{
 		"ShrubberyCreationForm",

@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 20:36:55 by astein            #+#    #+#             */
-/*   Updated: 2024/04/13 21:17:52 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/13 21:36:46 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,52 @@ Intern		&Intern::operator=(const Intern &other)
 }
 
 // Member functions
+AForm		*Intern::createS(std::string target) const
+{
+	return new ShrubberyCreationForm(target);
+}
+
+AForm		*Intern::createR(std::string target) const
+{
+	return new RobotomyRequestForm(target);
+}
+
+AForm		*Intern::createP(std::string target) const
+{
+	return new PresidentialPardonForm(target);
+}
+
+
+
 AForm		*Intern::makeForm(const std::string &formName, const std::string &target) const
 {
-	if (formName == "ShrubberyCreationForm")
+	std::string form_names[3] =
 	{
-		std::cout << "Intern creates " << CLR_FORM <<
+		"ShrubberyCreationForm",
+		"RobotomyRequestForm",
+		"PresidentialPardonForm"
+	};
+
+	AForm	*(Intern::*form_funcs[3])(const std::string target) const =
+	{
+		&Intern::createS,
+		&Intern::createR,
+		&Intern::createP
+	};
+	
+	for (int i = 0; i < 3; i++)
+	{
+		if (formName == form_names[i])
+		{
+			std::cout <<
+				"Intern creates " << CLR_FORM <<
+				formName << 
+				"..." CLR_RST << std::endl;
+			return (this->*form_funcs[i])(target);
+		}
+	}
+	std::cout << CLR_RED <<
+		"The intern is overwhelmed and doesn't know how to create this form: " <<
 		formName << CLR_RST << std::endl;
-		return (new ShrubberyCreationForm(target));
-	}
-	else if (formName == "RobotomyRequestForm")
-	{
-		std::cout << "Intern creates " << CLR_FORM <<
-		formName << CLR_RST << std::endl;
-		return (new RobotomyRequestForm(target));
-	}
-	else if (formName == "PresidentialPardonForm")
-	{
-		std::cout << "Intern creates " << CLR_FORM <<
-		formName << CLR_RST << std::endl;
-		return (new PresidentialPardonForm(target));
-	}
-	else
-	{
-		std::cout << CLR_RED <<
-			"The intern is overwhelmed and doesn't know how to create this form: " <<
-			formName << CLR_RST << std::endl;
-		return (NULL);
-	}
+	return (NULL);
 }

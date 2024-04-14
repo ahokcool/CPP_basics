@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 03:36:11 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:13:25 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define CLR_GRADE "\033[1m\033[93m"
 # define CLR_RST "\033[0m"
 
-
+class Form;
 
 class Bureaucrat
 {
@@ -80,6 +80,9 @@ class Bureaucrat
 		// Getters
 		const std::string 			&getName() const;
 		unsigned int				getGrade() const;
+
+		// Member functions
+		void						signForm(Form &form) const;
 		
 	private:
 		// Private default constructor, should not be used

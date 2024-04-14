@@ -6,11 +6,12 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/09 12:48:51 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:18:42 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // 		CONSTRUCTORS AND DESTRUCTOR
 // -----------------------------------------------------------------------------
@@ -128,6 +129,30 @@ const std::string 	&Bureaucrat::getName() const
 unsigned int 		Bureaucrat::getGrade() const
 {
 	return _grade;
+}
+
+// 		MEMBER FUNCTIONS
+// -----------------------------------------------------------------------------
+void				Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << CLR_CLERK <<
+			_name << CLR_RST <<
+			" signs " << CLR_FORM <<
+			form.getName() << CLR_RST << std::endl;
+	}
+	catch (const Form::GradeTooLowException &e)
+	{
+		std::cout << CLR_CLERK << 
+			_name << CLR_RED <<
+			" cannot sign " << CLR_FORM <<
+			form.getName() << CLR_RST <<
+			" because: " << CLR_RED <<
+			e.what() <<
+			CLR_RST << std::endl;
+	}
 }
 
 // 		EXCEPTIONS

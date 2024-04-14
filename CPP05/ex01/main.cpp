@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:52 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 03:20:49 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:17:40 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ int main()
 		Bureaucrat b1("Bureaucrat Numero Uno", 1);
 		std::cout << b42;
 		std::cout << b1;
+		info ("USE CASE: form.beSigned function...", CLR_ORN);
 		info("Create a Form with a grade to sign of 1 and a grade to execute of 42", CLR_GRN);
 		Form f6("urgent form - pls sign asap!", 1, 42);
 		std::cout << f6;
@@ -155,6 +156,16 @@ int main()
 		f6.beSigned(b1);
 		std::cout << f6;
 		
+		info("USE CASE: Bureaucrat.signForm function...", CLR_ORN);
+		info("Create a Form with a grade to sign of 1 and a grade to execute of 42", CLR_GRN);
+		Form f7("urgent form - pls sign asap!", 1, 42);
+		std::cout << f7;
+		info("Try to sign the form with b42", CLR_GRN);
+		b42.signForm(f7);
+		std::cout << f7;
+		info("Sign the form with b1", CLR_GRN);
+		b1.signForm(f7);
+		std::cout << f7;
 		title("END: TEST THE SIGNING PROCESS", 0, 1);
 	}
 	return 0;	

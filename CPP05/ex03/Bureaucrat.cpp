@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:54 by astein            #+#    #+#             */
-/*   Updated: 2024/04/13 20:09:56 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:33:11 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,30 @@ unsigned int 		Bureaucrat::getGrade() const
 
 // 		MEMBER FUNCTIONS
 // -----------------------------------------------------------------------------
+void				Bureaucrat::signForm(AForm &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << CLR_CLERK <<
+			_name << CLR_RST <<
+			" signs " << CLR_FORM <<
+			form.getName() << CLR_RST << std::endl;
+	}
+	catch (const AForm::GradeTooLowException &e)
+	{
+		std::cout << CLR_CLERK << 
+			_name << CLR_RED <<
+			"Exception caught: " << 
+			" cannot sign " << CLR_FORM <<
+			form.getName() << CLR_RST <<
+			" because: " << CLR_RED <<
+			e.what() <<
+			CLR_RST << std::endl;
+	}
+}
+
 void				Bureaucrat::executeForm(const AForm &form) const
-	throw(std::exception)
 {
 	try
 	{

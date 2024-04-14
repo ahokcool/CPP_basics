@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/13 19:59:37 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:31:34 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ class Bureaucrat
 		unsigned int				getGrade() const;
 
 		// Member functions
-		void						executeForm(const AForm &form) const
-			throw(std::exception);
+		void						signForm(AForm &form) const;
+		void						executeForm(const AForm &form) const;
 		
 	private:
 		// Private default constructor, should not be used

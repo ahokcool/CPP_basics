@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:52 by astein            #+#    #+#             */
-/*   Updated: 2024/04/13 20:32:30 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:31:19 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,41 +171,17 @@ int main()
 		std::cout << scf6;
 		
 		info("Try to execute the AForm with both bureaucrats, shouldn't work since the form isn't signed yet...", CLR_GRN);
-		try
-		{
-			scf6.execute(b145);
-		}
-		catch(const std::exception& e)
-		{
-			info("Exception caught: ", CLR_RED);
-			info(e.what(), CLR_RED);
-		}
-		try
-		{
-			scf6.execute(b137);
-		}
-		catch(const std::exception& e)
-		{
-			info("Exception caught: ", CLR_RED);
-			info(e.what(), CLR_RED);
-		}
+		b145.executeForm(scf6);
+		b137.executeForm(scf6);
+	
 		info("Sign the ShrubberyCreationForm", CLR_GRN);
-		scf6.beSigned(b145);
+		b145.signForm(scf6);
 		std::cout << scf6;
 
 		info("Try to execute the ShrubberyCreationForm with too low grade bureaucrat, shouldn't work...", CLR_GRN);
-		try
-		{
-			scf6.execute(b145);
-		}
-		catch(const std::exception& e)
-		{
-			info("Exception caught: ", CLR_RED);
-			info(e.what(), CLR_RED);
-		}
+		b145.executeForm(scf6);
 		info("Try to execute the ShrubberyCreationForm with high enough grade bureaucrat, should work...", CLR_GRN);
-		scf6.execute(b137);
-
+		b137.executeForm(scf6);
 		title("END: MY BASIC TESTS for ShrubberyCreationForm", 0, 1);
 	}
 
@@ -223,70 +199,46 @@ int main()
 		std::cout << rrf6;
 		
 		info("Try to execute the AForm with both bureaucrats, shouldn't work since the form isn't signed yet...", CLR_GRN);
-		try
-		{
-			rrf6.execute(b72);
-		}
-		catch(const std::exception& e)
-		{
-			info("Exception caught: ", CLR_RED);
-			info(e.what(), CLR_RED);
-		}
-		try
-		{
-			rrf6.execute(b45);
-		}
-		catch(const std::exception& e)
-		{
-			info("Exception caught: ", CLR_RED);
-			info(e.what(), CLR_RED);
-		}
+		b72.executeForm(rrf6);
+		b45.executeForm(rrf6);
 		info("Sign the RobotomyRequestForm", CLR_GRN);
-		rrf6.beSigned(b72);
+		b72.signForm(rrf6);
 		std::cout << rrf6;
 
 		info("Try to execute the RobotomyRequestForm with too low grade bureaucrat, shouldn't work...", CLR_GRN);
-		try
-		{
-			rrf6.execute(b72);
-		}
-		catch(const std::exception& e)
-		{
-			info("Exception caught: ", CLR_RED);
-			info(e.what(), CLR_RED);
-		}
+		b72.executeForm(rrf6);
+
 		info("Try to execute the RobotomyRequestForm with high enough grade bureaucrat, should work...", CLR_GRN);
-		rrf6.execute(b45);
+		b45.executeForm(rrf6);
 
 		title("END: MY BASIC TESTS for RobotomyRequestForm", 0, 1);
 	}
 
 	{
 		title("START: MY CLERK EXECUTE TEST", 1, 0);
-		// NOTE: To keep it simple I don't catch the exceptions here which could
-		// be thrown by the executeForm() function
 		
 		Bureaucrat b1("The BOSS", 1);
 
 		info("Test for the ShrubberyCreationForm...", CLR_GRN);
 		ShrubberyCreationForm scf1("target Shrubbery");
 		AForm &a1 = scf1;
+		
 		b1.executeForm(a1);
-		scf1.beSigned(b1);
+		b1.signForm(a1);
 		b1.executeForm(a1);
 
 		info("Test for the RobotomyRequestForm...", CLR_GRN);
 		RobotomyRequestForm rrf1("target Robotomy");
 		AForm &a2 = rrf1;
 		b1.executeForm(a2);
-		rrf1.beSigned(b1);
+		b1.signForm(a2);
 		b1.executeForm(a2);
 
 		info("Test for the PresidentialPardonForm...", CLR_GRN);
 		PresidentialPardonForm ppf1("target Presidential");
 		AForm &a3 = ppf1;
 		b1.executeForm(a3);
-		ppf1.beSigned(b1);
+		b1.signForm(a3);
 		b1.executeForm(a3);
 
 		title("END: MY CLERK EXECUTE TEST", 0, 1);

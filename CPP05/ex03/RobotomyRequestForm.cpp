@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:17:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/11 14:03:31 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:37:54 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 }
 
 // Base class pure virtual function override
-void					RobotomyRequestForm::execute(Bureaucrat const &executor) const
+void					RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	throw (	AForm::GradeTooLowException,
 			AForm::FormNotSignedException)
 {

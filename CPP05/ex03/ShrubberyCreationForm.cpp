@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:17:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/11 14:00:44 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:38:07 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 // Base class pure virtual function override
-void					ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void					ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	throw (	AForm::GradeTooLowException,
 			AForm::FormNotSignedException,
 			std::runtime_error)

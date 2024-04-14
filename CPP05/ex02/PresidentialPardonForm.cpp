@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 20:20:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/13 20:33:42 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:36:26 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 // Base class pure virtual function override
-void					PresidentialPardonForm::execute(Bureaucrat const &executor) const
+void					PresidentialPardonForm::execute(const Bureaucrat &executor) const
 	throw (	AForm::GradeTooLowException,
 			AForm::FormNotSignedException)
 {

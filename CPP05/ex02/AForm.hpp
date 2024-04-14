@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:38 by astein            #+#    #+#             */
-/*   Updated: 2024/04/13 20:32:16 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/14 23:35:58 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ class AForm
 			throw (AForm::GradeTooLowException, AForm::FormNotSignedException);
 		
 		// Pure virtual function
-		virtual void			execute(Bureaucrat const &executor) const
+		virtual void			execute(const Bureaucrat &executor) const
 			throw (std::exception) = 0;
 		// Since the different derived classes have different execute functions,
 		// and therefore throw different exceptions, I am not specific about the

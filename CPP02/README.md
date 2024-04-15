@@ -21,7 +21,7 @@
 <!-- PROJECT HEADER START -->
 <br />
 <div align="center">
-  <a href="https://github.com/o-reo/push_swap_visualizer">
+  <a href="../images/">
     <img src="../images/CPP02.png" alt="project_logo" width="400">
   </a><br>
   <h1 align="center">CPP02</h1>

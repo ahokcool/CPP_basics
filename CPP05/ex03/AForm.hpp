@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:38 by astein            #+#    #+#             */
-/*   Updated: 2024/04/14 23:36:40 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/16 11:11:57 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class AForm
 		{
 			public:
 			    GradeTooLowException(const std::string& msg = "") 	throw();
-				virtual const char	*what() const 					throw();
-				virtual 			~GradeTooLowException() 		throw();
+				~GradeTooLowException()						 		throw();
+				const char *what() const 							throw();
 			
 			private:
 				std::string			_msg;
@@ -40,8 +40,8 @@ class AForm
 		{
 			public:
 			    FormNotSignedException(const std::string& msg = "")	throw();
-				virtual const char	*what() const 					throw();
-				virtual 			~FormNotSignedException() 		throw();
+				~FormNotSignedException()					 		throw();
+				const char *what() const 							throw();
 			
 			private:
 				std::string			_msg;

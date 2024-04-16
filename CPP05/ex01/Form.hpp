@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:56:38 by astein            #+#    #+#             */
-/*   Updated: 2024/04/06 03:15:51 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/16 11:07:46 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Form
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char	*what() const 					throw();
+				const char *what() const throw();
 		};
 
 		// Constructors and destructor

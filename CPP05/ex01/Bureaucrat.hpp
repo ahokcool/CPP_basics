@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:28:57 by astein            #+#    #+#             */
-/*   Updated: 2024/04/14 23:13:25 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/16 11:07:27 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ class Bureaucrat
 			public:
 				// default value of msg is an empty string
 			    GradeTooHighException(const std::string& msg = "") 	throw();
-				virtual const char	*what() const 					throw();
-				virtual 			~GradeTooHighException() 		throw();
+				~GradeTooHighException() 							throw();
+				const char *what() const 							throw();
 		
 			private:
 				std::string			_msg;
@@ -54,8 +54,8 @@ class Bureaucrat
 			public:
 				// default value of msg is an empty string
 				GradeTooLowException(const std::string &msg = "") 	throw();
-				virtual const char	*what() const					throw();
-				virtual				~GradeTooLowException() 		throw();
+				~GradeTooLowException()					 			throw();
+				const char *what() const							throw();
 			
 			private:
 				std::string			_msg;

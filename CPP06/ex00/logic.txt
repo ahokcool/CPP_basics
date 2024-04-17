@@ -1,0 +1,12 @@
+														char				int			float		double
+
+check if length is 1					
+	check if printable									x					?			?			?
+		else											Non displayable		o			o			o
+	check if is numeric									x					x			x			x
+else check if only:
+	- max one sign is present
+	- the sign is at the beginning
+
+else
+	invalid												impossible			impossible	impossible	impossible

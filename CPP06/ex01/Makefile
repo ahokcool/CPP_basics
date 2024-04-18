@@ -1,4 +1,4 @@
-NAME=convert
+NAME=ex01
 
 # Compiler options
 CC 			= c++

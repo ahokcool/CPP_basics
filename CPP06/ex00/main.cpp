@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:33:02 by astein            #+#    #+#             */
-/*   Updated: 2024/04/17 18:05:45 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/18 12:38:14 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define CLR_RST "\033[0m"
 
 // Prints a simple title to the console
-void	title(std::string str, bool newline_before, bool newline_after)
+void	title(const std::string &str, bool newline_before, bool newline_after)
 {
 	if (newline_before)
 		std::cout << std::endl;
@@ -39,12 +39,21 @@ void	title(std::string str, bool newline_before, bool newline_after)
 }
 
 // Prints a simple info to the console
-void	info(std::string str, std::string clr)
+void	info(const std::string &str,const std::string &clr)
 {
 	std::cout <<
 		clr <<
 		" >> " << str <<
 		CLR_RST << std::endl;
+}
+
+// Prints a simple banner and waits for return key
+void	wait_banner(const std::string &str,const std::string &clr)
+{
+	title("------------------------------------", true, false);
+	info(str, clr);
+	title("------------------------------------", false, true);
+	std::cin.get();	
 }
 
 void test_42()
@@ -53,7 +62,7 @@ void test_42()
 	info ("Test: ./convert 0", CLR_BLU);
 	ScalarConverter::convert("0");
 	info ("Expected:", CLR_GRN);
-	info ("\tchar:\tNon displayable", CLR_GRN);
+	info ("\tchar:\tnon displayable", CLR_GRN);
 	info ("\tint:\t0", CLR_GRN);
 	info ("\tfloat:\t0.0f", CLR_GRN);
 	info ("\tdouble:\t0.0", CLR_GRN);
@@ -76,13 +85,13 @@ void test_42()
 	info ("\t--------------", CLR_BLU);
 
 	title("SCALAR CONVERTER SUBJECT TESTS END", false, true);
+	std::cin.get();
 }
 
 // All my tests
 void 	myTests()
 {
 	test_42();
-	return;
 
 	title("SCALAR CONVERTER MY TESTS START", true, false);
 	info("Creating a ScalarConverter object doesn't work!", CLR_RED);
@@ -91,7 +100,7 @@ void 	myTests()
 	
 	// TEST CHARS
 	{
-		info("TESTING VALID CHARS:", CLR_GRN);
+		wait_banner("TESTING VALID CHARS:", CLR_GRN);
 		ScalarConverter::convert("F");	
 		ScalarConverter::convert("M");	
 		ScalarConverter::convert("L");	
@@ -103,7 +112,8 @@ void 	myTests()
 		ScalarConverter::convert("-");
 		ScalarConverter::convert(".");
 		ScalarConverter::convert(",");
-		info("TESTING INVALID CHARS:", CLR_RED);
+
+		wait_banner("TESTING INVALID CHARS:", CLR_RED);
 		ScalarConverter::convert(std::string (1, char(1)));
 		ScalarConverter::convert(std::string (1, char(2)));
 		ScalarConverter::convert(std::string (1, char(3)));
@@ -114,8 +124,7 @@ void 	myTests()
 
 	// TEST INTS
 	{
-		info("TESTING VALID INTS:", CLR_GRN);
-
+		wait_banner("TESTING VALID INTS:", CLR_GRN);
 		// Creating the min and max int strings
 		std::stringstream ss;
 		ss << std::numeric_limits<int>::min();
@@ -135,7 +144,7 @@ void 	myTests()
 		ScalarConverter::convert("+1234");
 		ScalarConverter::convert(maxIntString);
 		
-		info("TESTING INVALID INTS:", CLR_RED);
+		wait_banner("TESTING INVALID INTS:", CLR_RED);
 		ScalarConverter::convert("--42");
 		ScalarConverter::convert("++42");
 		ScalarConverter::convert("123456789123456789");
@@ -144,16 +153,19 @@ void 	myTests()
 
 	// TEST FLOATS
 	{
-		info("TESTING VALID FLOATS:", CLR_GRN);
+		wait_banner("TESTING VALID FLOATS:", CLR_GRN);
 		
 		// Creating the min and max int strings
 		std::stringstream ss;
-		ss << std::numeric_limits<float>::min();
+		ss << std::fixed << -std::numeric_limits<float>::max();
     	std::string minFloatString = ss.str();
     	ss.str("");
     	ss.clear();
-    	ss << std::numeric_limits<float>::max();
+    	ss << std::fixed << std::numeric_limits<float>::max();
     	std::string maxFloatString = ss.str();
+		std::cout << "minFloatString: " << minFloatString << std::endl;
+		std::cout << "maxFloatString: " << maxFloatString << std::endl;
+
 		
 		ScalarConverter::convert("-inff");
 		ScalarConverter::convert(minFloatString);
@@ -168,28 +180,29 @@ void 	myTests()
 		ScalarConverter::convert("+inff");
 		ScalarConverter::convert("nanf");
 
-		info("TESTING INVALID FLOATS:", CLR_RED);
+		wait_banner("TESTING INVALID FLOATS:", CLR_RED);
 		ScalarConverter::convert("--42.42f");
 		ScalarConverter::convert("++42.42f");
 		ScalarConverter::convert("123.123ff");
 		ScalarConverter::convert("123.123.123f");
-		ScalarConverter::convert("123456789123456789.123456789123456789f");
-		ScalarConverter::convert("-123456789123456789.123456789123456789f");
+		ScalarConverter::convert("10000000000000000000000000000000000000000");
+		ScalarConverter::convert("-10000000000000000000000000000000000000000");
 	}
 	
 // TEST DOUBLES
 	{
-		info("TESTING VALID DOUBLES:", CLR_GRN);
-
+		wait_banner("TESTING VALID DOUBLES:", CLR_GRN);
 		// Creating the min and max int strings
 		std::stringstream ss;
-		 ss << std::numeric_limits<double>::min();
+		 ss << std::fixed << -std::numeric_limits<double>::max();
     	std::string minDoubleString = ss.str();
     	ss.str("");
     	ss.clear();
-    	ss << std::numeric_limits<double>::max();
+    	ss << std::fixed << std::numeric_limits<double>::max();
     	std::string maxDoubleString = ss.str();
-		
+		std::cout << "minDoubleString: " << minDoubleString << std::endl;
+		std::cout << "maxDoubleString: " << maxDoubleString << std::endl;
+
 		ScalarConverter::convert("-inf");
 		ScalarConverter::convert(minDoubleString);
 		ScalarConverter::convert("-1234.1234");
@@ -203,17 +216,17 @@ void 	myTests()
 		ScalarConverter::convert("+inf");
 		ScalarConverter::convert("nan");
 
-		info("TESTING INVALID DOUBLES:", CLR_RED);
+		wait_banner("TESTING INVALID DOUBLES:", CLR_RED);
 		ScalarConverter::convert("--42.42");
 		ScalarConverter::convert("++42.42");
 		ScalarConverter::convert("123.123.123");
-		ScalarConverter::convert("123456789123456789.123456789123456789");
-		ScalarConverter::convert("-123456789123456789.123456789123456789");
+		ScalarConverter::convert("90000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+		ScalarConverter::convert("-90000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
 	}
 	
 // TEST STRINGS
 	{
-		info("TESTING RANDOM INVALID STRINGS:", CLR_RED);
+		wait_banner("TESTING RANDOM INVALID STRINGS:", CLR_RED);
 		ScalarConverter::convert("\0");
 		// The following doesn't work because it's a NULL pointer
 		// and the function is expecting a string reference
@@ -256,7 +269,7 @@ int main(int argc, char **argv)
 		{
 			info("SPECIAL CASE NULL", CLR_BLU);
 			std::cout <<
-				"\tchar: Non displayable" << std::endl <<
+				"\tchar: non displayable" << std::endl <<
 				"\tint: 0" << std::endl <<
 				"\tfloat: 0.0f" << std::endl <<
 				"\tdouble: 0.0" << std::endl;

@@ -59,7 +59,7 @@ int		ScalarConverter::check_char(const std::string &str)
 // Returns ERROR if the string is not a number
 int		ScalarConverter::check_number(const std::string &str)
 {
-	int i = 0;
+	size_t i = 0;
 	// Trim whitespaces
 	while (str[i] && isspace(str[i]))
 		i++;

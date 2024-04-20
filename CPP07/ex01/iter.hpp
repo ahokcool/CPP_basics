@@ -6,12 +6,12 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 15:13:59 by astein            #+#    #+#             */
-/*   Updated: 2024/04/20 16:02:15 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/20 18:50:56 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_TPP
-#define ITER_TPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
 #include <iostream>
 

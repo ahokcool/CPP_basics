@@ -6,11 +6,11 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:27:16 by astein            #+#    #+#             */
-/*   Updated: 2024/04/19 18:49:37 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/20 18:51:30 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.tpp"
+#include "whatever.hpp"
 
 int	main( void )
 {

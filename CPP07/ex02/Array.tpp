@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 18:52:32 by astein            #+#    #+#             */
-/*   Updated: 2024/04/20 20:41:17 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/20 20:51:22 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ Array<T>		&Array<T>::operator=(const Array<T> &other)
 template<class T>
 T				&Array<T>::operator[](const size_t i) throw(std::exception)
 {
-	if (i > _size)
+	if (i >= _size)
 		throw std::out_of_range("index is out of array range!");
 	return _arr[i];
 }

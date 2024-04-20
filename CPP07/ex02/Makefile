@@ -2,7 +2,7 @@ NAME=ex01
 
 # Compiler options
 CC 			= c++
-CXXFLAGS	= -g -Wall -Wextra -Werror -Wconversion -std=c++98
+CXXFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 # Colors

@@ -6,12 +6,12 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:32:03 by astein            #+#    #+#             */
-/*   Updated: 2024/04/19 18:51:37 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/20 15:14:20 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef WHATEVER_TPP
+# define WHATEVER_TPP
 
 #include <iostream>
 

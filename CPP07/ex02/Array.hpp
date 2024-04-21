@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 18:52:34 by astein            #+#    #+#             */
-/*   Updated: 2024/04/20 20:36:36 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/21 14:28:55 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Array
 		// Member functions
 		Array<T>		&operator=(const Array<T> &other);
 		T				&operator[](const size_t i)	throw(std::exception);
+		const T			&operator[](const size_t i)	const throw(std::exception);
 		unsigned int 	size() const;
 
 	private:

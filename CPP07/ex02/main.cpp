@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 19:40:24 by astein            #+#    #+#             */
-/*   Updated: 2024/04/20 20:43:32 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/21 14:32:22 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,19 @@ int main(int, char**)
 		std::cout << "VALUE of d[11]: " << d[11] << std::endl;
 
 
-		title("END: Basic test with int array", true, false);
+		title("END: Basic test with int array", false, true);
 	}
-
 	{
-		std::cout << "TEST WITH DATA CLASS" << std::endl;
+		title("START: Test with const value", true, false);
+		const Array<int> a(42);
+		info("I CAN read the value...", CLR_GRN);
+		std::cout << "a[0]= " << a[0] << std::endl;
+		info("but I can't change the value!", CLR_RED);
+		// a[0] = 42;
+		title("END: Test with const value", false, true);
+	}
+	{
+		title("START: TEST WITH DATA CLASS", true, false);
 		Array<Data> dArr1(5);
 		info("Try copy constructor", CLR_GRN);
 		Array<Data> dArr2(dArr1);
@@ -123,6 +131,6 @@ int main(int, char**)
 		dArr2[0].printData();
 		std::cout << "VALUE of dArr3[0]:\t";
 		dArr3[0].printData();
-		std::cout << std::endl;		
+		title("END: TEST WITH DATA CLASS", false, true);
 	}
 }

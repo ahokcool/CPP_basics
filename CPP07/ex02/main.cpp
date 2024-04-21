@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 19:40:24 by astein            #+#    #+#             */
-/*   Updated: 2024/04/21 14:32:22 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/21 14:42:45 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,49 +51,62 @@ int main(int, char**)
 		std::cout << "SIZE of a: " << a.size() << std::endl;
 		std::cout << "SIZE of b: " << b.size() << std::endl;
 	
+		info("Try to read b[11] in the array...", CLR_GRN);
+		std::cout << "VALUE of b[11]: " << b[11] << std::endl;
+
 		try
 		{
-			std::cout << "VALUE of a[11]: ";
+			info("Try to read a[11]...", CLR_ORN);
+			info("(Since the array is empty, this should throw an exception...)", CLR_ORN);
 			std::cout << a[11] << std::endl;
 		}
 		catch (std::exception &e)
 		{
-			std::cout << "Exception caught!" << std::endl;
+			std::cout << CLR_RED << "Exception caught!" << CLR_RST << std::endl;
 		}
-		std::cout << "VALUE of b[11]: " << b[11] << std::endl;
+		try
+		{
+			info("Try to read b[42]...", CLR_ORN);
+			info("(Since the array has a size of 42, this should throw an exception...)", CLR_ORN);
+			std::cout << b[42] << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << CLR_RED << "Exception caught!" << CLR_RST << std::endl;
+		}
 
-		info("Try to change value at index 11 in the array b...", CLR_GRN);
+		info("Try to change b[11]...", CLR_GRN);
 		b[11] = 11;
 		std::cout << b[11] << std::endl;
-		info("Try to set value at index 12 to value at index 11...", CLR_GRN);
-		std::cout << b[11] << std::endl;
-		std::cout << b[12] << std::endl;
+		info("Try to set b[12] = b[11]...", CLR_GRN);
+		std::cout << "b[11]= " << b[11] << std::endl;
+		std::cout << "b[12]= " << b[12] << std::endl;
 		b[12] = b[11];
-		std::cout << b[11] << std::endl;
-		std::cout << b[12] << std::endl;
+		std::cout << "b[11]= " << b[11] << std::endl;
+		std::cout << "b[12]= " << b[12] << std::endl;
 
 		info("Try equal constructor", CLR_GRN);
 		Array<int> c(12); //So the equal operator has to delete the array of 12...
 		c = b;
-		std::cout << "VALUE of b[5]: " << b[5] << std::endl;
-		std::cout << "VALUE of c[5]: " << c[5] << std::endl;
+		std::cout << "b[5]: " << b[5] << std::endl;
+		std::cout << "c[5]: " << c[5] << std::endl;
 				
-		std::cout << "VALUE of b[11]: " << b[11] << std::endl;
-		std::cout << "VALUE of c[11]: " << c[11] << std::endl;
+		std::cout << "b[11]: " << b[11] << std::endl;
+		std::cout << "c[11]: " << c[11] << std::endl;
 		
-		std::cout << "VALUE of b[21]: " << b[21] << std::endl;
-		std::cout << "VALUE of c[21]: " << c[21] << std::endl;
+		std::cout << "b[21]: " << b[21] << std::endl;
+		std::cout << "c[21]: " << c[21] << std::endl;
 
 		info("Try copy constructor", CLR_GRN);
 		Array<int> d(b);
-		std::cout << "VALUE of b[5]: " << b[5] << std::endl;
-		std::cout << "VALUE of d[5]: " << d[5] << std::endl;
+		std::cout << "b[5]: " << b[5] << std::endl;
+		std::cout << "d[5]: " << d[5] << std::endl;
 		
-		std::cout << "VALUE of b[11]: " << b[11] << std::endl;
-		std::cout << "VALUE of d[11]: " << d[11] << std::endl;
+		std::cout << "b[11]: " << b[11] << std::endl;
+		std::cout << "d[11]: " << d[11] << std::endl;
 
-		std::cout << "VALUE of b[21]: " << b[21] << std::endl;
-		std::cout << "VALUE of d[21]: " << d[21] << std::endl;
+		std::cout << "b[21]: " << b[21] << std::endl;
+		std::cout << "d[21]: " << d[21] << std::endl;
 
 		info("Change values in b to 42 - shouldn't affect c and d...", CLR_GRN);
 		b[11] = 42;
@@ -109,7 +122,7 @@ int main(int, char**)
 		const Array<int> a(42);
 		info("I CAN read the value...", CLR_GRN);
 		std::cout << "a[0]= " << a[0] << std::endl;
-		info("but I can't change the value!", CLR_RED);
+		info("but I CAN NOT change the value!", CLR_RED);
 		// a[0] = 42;
 		title("END: Test with const value", false, true);
 	}

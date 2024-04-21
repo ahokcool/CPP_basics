@@ -17,7 +17,7 @@ OBJ_FOLDER	= ./obj/
 
 # Files
 GITPUSH 	= ../../git_push.sh
-SRCS 		= main.cpp
+SRCS 		= main.cpp Data.cpp
 
 # Object files
 OBJS 		= $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)

@@ -2,7 +2,7 @@ NAME=ex01
 
 # Compiler options
 CC 			= c++
-CXXFLAGS	= -g -Wall -Wextra -Werror -Wconversion -std=c++98
+CXXFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 # Colors
@@ -17,7 +17,7 @@ OBJ_FOLDER	= ./obj/
 
 # Files
 GITPUSH 	= ../../git_push.sh
-SRCS 		= main.cpp
+SRCS 		= main.cpp Span.cpp
 
 # Object files
 OBJS 		= $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)

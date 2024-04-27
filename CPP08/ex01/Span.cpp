@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 18:49:40 by astein            #+#    #+#             */
-/*   Updated: 2024/04/25 15:26:49 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/27 16:27:17 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	Span::print() const
 	std::cout << std::endl;
 }
 
-void	Span::addRange(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end) throw (std::overflow_error)
+void	Span::addRange(const std::vector<int>::const_iterator &begin, const std::vector<int>::const_iterator &end) throw (std::overflow_error)
 {
 	if (_v.size() + std::distance(begin, end) > _N)
 		throw std::overflow_error("Can't add range; span would overflow.");

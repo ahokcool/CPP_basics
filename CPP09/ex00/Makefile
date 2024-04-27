@@ -4,6 +4,7 @@ NAME=btc
 CC 			= c++
 CXXFLAGS	= -g -Wall -Wextra -Werror -Wconversion -std=c++98
 RM			= rm -rf
+PRINT_INFO	= -info
 
 # Colors
 RED    		= "\033[0;31m"
@@ -18,12 +19,13 @@ OBJ_FOLDER	= ./obj/
 # Files
 GITPUSH 	= ../../git_push.sh
 SRCS 		= main.cpp BitcoinExchange.cpp
+TEST_FILE	= alexInput.txt
 
 # Object files
 OBJS 		= $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)
 
 # Targets
-.PHONY: all clean fclean re MSG_START MSG_DONE gp run val lol
+.PHONY: all clean fclean re MSG_START MSG_DONE gp run runinfo val lol
 
 all: MSG_START $(NAME) MSG_DONE
 
@@ -48,11 +50,15 @@ re: fclean all
 
 run: re
 	@echo $(BLUE) $(NAME) "starting..." $(RESET)
-	@./$(NAME) alexinput.txt
+	@./$(NAME) $(TEST_FILE)
+
+runinfo: re
+	@echo $(BLUE) $(NAME) "starting..." $(RESET)
+	@./$(NAME) $(TEST_FILE) $(PRINT_INFO)
 
 val: re
 	@echo $(BLUE) $(NAME) "starting with valgrind..." $(RESET)
-	@valgrind --leak-check=full ./$(NAME) alexinput.txt
+	@valgrind --leak-check=full ./$(NAME) $(TEST_FILE) $(PRINT_INFO)
 
 MSG_START:
 	@echo $(ORANGE) $(NAME) "compiling" $(RESET)

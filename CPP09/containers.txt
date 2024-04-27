@@ -1,0 +1,14 @@
+CPP09
+-----
+
+So, for this subject, we need to choose a different container for each exercise:
+
+As Exercise 00 contains key-value pairs (date/value), which also need to be in
+chronological order, the container MAP is perfect.
+
+Exercise 01 is about reverse Polish notation, which reads one "word" after
+another. So a STACK is a good way to go.
+
+Exercise 02 needs containers to compare the sorting time of ints. Therefore
+LIST and VECTOR can be used, since they behave similarly and are something
+like advanced arrays...

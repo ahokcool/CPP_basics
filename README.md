@@ -37,8 +37,8 @@ The C++ module is a project-based module that will introduce you to the basics o
 | [CPP04][CPP04] | :white_check_mark: 	   | Subtype polymorphism, abstract classes, and interfaces. 					   |
 | [CPP05][CPP05] | :white_check_mark: 	   | Exception handling fundamentals.  											   |
 | [CPP06][CPP06] | :white_check_mark: 	   | Deep dive into different types of C++ casts. 								   |
-| [CPP07][CPP07] | :orange_circle: 		   | Introduction to templates and template programming. 						   |
-| [CPP08][CPP08] | :orange_circle: 		   | Exploring STL containers, iterators, and algorithms.  						   |
+| [CPP07][CPP07] | :white_check_mark:      | Introduction to templates and template programming. 						   |
+| [CPP08][CPP08] | :white_check_mark:      | Exploring STL containers, iterators, and algorithms.  						   |
 | [CPP09][CPP09] | :orange_circle: 		   | Advanced namespaces, exception handling, and STL usage. 					   |
 
 <!-- Links -->

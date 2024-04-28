@@ -9,6 +9,7 @@
 # This file contains all the test cases!
 
 # INTS with random whitespaces
+date | value
 2012-11-30 		 |  100   
 2013-10-29 		|    101
 2014-09-28  |   102

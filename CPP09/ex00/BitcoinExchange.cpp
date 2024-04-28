@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 18:56:08 by astein            #+#    #+#             */
-/*   Updated: 2024/04/27 22:34:01 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/28 16:12:04 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,11 @@ void			BitcoinExchange::loadFile(const std::string &filename, int type, std::map
 	while (std::getline(file, cur_line))
 	{
 		cur_line_nr++;
+		// Check for the header
+		// date,exchange_rate or date | value
+		if (!_print_info && (cur_line == "date | value" || cur_line == "date,exchange_rate"))
+			continue;
+			
 		if (cur_line.empty())
 		{
 			msgLine(filename, cur_line_nr, "<empty line>", CLR_YLW, false);

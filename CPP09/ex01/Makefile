@@ -48,11 +48,11 @@ re: fclean all
 
 run: re
 	@echo $(BLUE) $(NAME) "starting..." $(RESET)
-	@./$(NAME) alexinput.txt
+	@./$(NAME)
 
 val: re
 	@echo $(BLUE) $(NAME) "starting with valgrind..." $(RESET)
-	@valgrind --leak-check=full ./$(NAME) alexinput.txt
+	@valgrind --leak-check=full ./$(NAME)
 
 MSG_START:
 	@echo $(ORANGE) $(NAME) "compiling" $(RESET)

@@ -2,7 +2,7 @@ NAME=PmergeMe
 
 # Compiler options
 CC 			= c++
-CXXFLAGS	= -g -Wall -Wextra -Werror -Wconversion -std=c++98
+CXXFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 # Colors
@@ -23,7 +23,7 @@ SRCS 		= main.cpp PmergeMe.cpp
 OBJS 		= $(SRCS:%.cpp=$(OBJ_FOLDER)%.o)
 
 # Targets
-.PHONY: all clean fclean re MSG_START MSG_DONE gp run val lol
+.PHONY: all clean fclean re MSG_START MSG_DONE gp run val lol t1 t2 t3
 
 all: MSG_START $(NAME) MSG_DONE
 
@@ -48,11 +48,23 @@ re: fclean all
 
 run: re
 	@echo $(BLUE) $(NAME) "starting..." $(RESET)
-	@./$(NAME) alexinput.txt
+	@./$(NAME)
 
 val: re
 	@echo $(BLUE) $(NAME) "starting with valgrind..." $(RESET)
-	@valgrind --leak-check=full ./$(NAME) alexinput.txt
+	@valgrind --leak-check=full ./$(NAME) `shuf -i 1-100000 -n 10 | tr "\n" " "`
+
+t1: re
+	@echo $(BLUE) $(NAME) "starting with test" $(RESET)
+	@./$(NAME) `shuf -i 1-100000 -n 10 | tr "\n" " "`
+
+t2: re
+	@echo $(BLUE) $(NAME) "starting with test" $(RESET)
+	@./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+
+t3: re
+	@echo $(BLUE) $(NAME) "starting with test" $(RESET)
+	@./$(NAME) `shuf -i 1-100000 -n 10000 | tr "\n" " "`
 
 MSG_START:
 	@echo $(ORANGE) $(NAME) "compiling" $(RESET)

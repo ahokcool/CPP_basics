@@ -52,7 +52,7 @@ run: re
 
 val: re
 	@echo $(BLUE) $(NAME) "starting with valgrind..." $(RESET)
-	@valgrind --leak-check=full ./$(NAME) `shuf -i 1-100000 -n 10 | tr "\n" " "`
+	@valgrind --leak-check=full ./$(NAME) `shuf -i 1-100000 -n 4321 | tr "\n" " "`
 
 t1: re
 	@echo $(BLUE) $(NAME) "starting with test" $(RESET)

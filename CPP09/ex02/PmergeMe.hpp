@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:25:59 by astein            #+#    #+#             */
-/*   Updated: 2024/04/30 00:25:25 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/30 00:57:41 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,78 +18,15 @@
 # include <ctime>
 # include <climits>
 # include <vector>
-# include <list>
+# include <deque>
 # include <algorithm>
 # include <exception>
 
 
 class PmergeMe
 {
-	// This is the abstract base class for the Merge Insertion Sort
-	// -------------------------------------------------------------------------
-	class Mis
-	{
-		public:
-			Mis();
-			virtual ~Mis();
-
-			// Pure virtual functions
-			virtual void				sort() = 0;
-			virtual std::string			getSorted() const = 0;
-
-		protected:
-			Mis(const Mis &other);
-			
-			// Member functions
-			// binary insert for list
-			// binary insert for vector
-
-			// Attributes
-			double						_ts_start;
-			double						_ts_end;
-		
-		private:
-			Mis							&operator=(const Mis &other);
-	};
-
-	// This is the derived class for the Merge Insertion Sort using a vector
-	// -------------------------------------------------------------------------
-	class MisVector : public Mis
-	{
-		public:
-			MisVector();
-			~MisVector();
-		
-			// override
-			void		sort();
-			std::string	getSorted() const;
-			
-		private:
-			MisVector(const MisVector &other);
-			MisVector	&operator=(const MisVector &other);
-	};
-
-	// This is the derived class for the Merge Insertion Sort using a list
-	// -------------------------------------------------------------------------
-	class MisList : public Mis
-	{
-		public:
-			MisList();
-			~MisList();
-
-			// override
-			void		sort();
-			std::string	getSorted() const;
-
-		private:
-			MisList(const MisList &other);
-			MisList	&operator=(const MisList &other);
-	};
-
-	// This is the main class for the Merge Insertion Sort aka "PmergeMe"
-	// -------------------------------------------------------------------------
 	public:
-		PmergeMe(const char **argv) throw (std::exception);
+		PmergeMe(const char **argv, bool p) throw (std::exception);
 		~PmergeMe();
 		
 		// This starts the process
@@ -102,7 +39,7 @@ class PmergeMe
 
 
 		// Member functions
-		bool		parseInput(const char **argv) throw (std::exception);
+		void		parseInput(const char **argv) throw (std::exception);
 		void		populateJacob();
 		void		printResult() const;
 
@@ -111,10 +48,14 @@ class PmergeMe
 		std::vector<unsigned int>							_unsorted;
 		std::vector<unsigned int> 							_v;
         std::vector<std::pair<unsigned int,unsigned int> >	_pv;
+		std::deque<unsigned int> 							_d;
+        std::deque<std::pair<unsigned int,unsigned int> >	_pd;
 		long												_timeVector;
 		long												_timeDeque;
+		bool												_print;
 
-		// Template functions
+// Template functions
+// -----------------------------------------------------------------------------
 		template<typename T>
 		void		populateContainer(T &container)
 		{
@@ -143,18 +84,24 @@ class PmergeMe
 		template<typename P>
 		void		printPairs(P &p)
 		{
-			std::cout << "\nPairs:\n";
-			for (typename P::iterator it = p.begin(); it != p.end(); it++)
-				std::cout << "(" << it->first << "\t| " << it->second << ") " << std::endl;
+			if (_print)
+			{	
+				std::cout << "\nPairs:\n";
+				for (typename P::iterator it = p.begin(); it != p.end(); it++)
+					std::cout << "(" << it->first << "\t| " << it->second << ") " << std::endl;
+			}	
 		}
 		
 		template<typename C>
 		void		printContainer(C &c)
 		{
-			std::cout << "\nContainer:\n";
-			for (typename C::iterator it = c.begin(); it != c.end(); it++)
-				std::cout << *it << " ";
-			std::cout << std::endl;
+			if (_print)
+			{	
+				std::cout << "\nContainer:\n";
+				for (typename C::iterator it = c.begin(); it != c.end(); it++)
+					std::cout << *it << " ";
+				std::cout << std::endl;
+			}
 		}
 
 		// Recursive function to insert
@@ -202,7 +149,7 @@ class PmergeMe
 		{
 			long ts_start = clock();
 			
-			// Group by pairs
+			// 1. Group by pairs
 			unsigned int a = 0;
 			unsigned int b = 0;
 			long		 leftover = -1;
@@ -218,11 +165,9 @@ class PmergeMe
 				b = *it;
 				p.push_back(std::make_pair(a, b));
 			}
-
-			// Print the pairs
 			printPairs(p);
 				
-			// Sort the pairs in place
+			// 2. Sort the pairs in place
 			for (typename P::iterator it = p.begin(); it != p.end(); it++)
 			{
 				if (it->first > it->second)
@@ -232,29 +177,24 @@ class PmergeMe
 					it->second = tmp;
 				}
 			}
-
-			// Print the pairs
 			printPairs(p);
 
-			// Sort all the pairs by the lager element of the pair
+			// 3. Sort all the pairs by the lager element of the pair
 			sortPairs(p, 0);
-
-			// add the leftover
-			if (leftover != -1)
-				p.push_back(std::make_pair(leftover, 0));
-
-			// Print the pairs
 			printPairs(p);
 
-			// Add the lowest pair member to the container
+			// 4. Add the lowest pair member to the container
 			c.clear();
 			c.push_back(p.begin()->first);
 			
-			// Add the bigger (second) values of the pairs to the container
+			// 5. Add the bigger (second) values of the pairs to the container
 			for (typename P::iterator it = p.begin(); it != p.end(); it++)
 				c.push_back(it->second);
 
-			// Print the container
+			// 6. add the leftover to the pairs
+			if (leftover != -1)
+				p.push_back(std::make_pair(leftover, 0));
+			printPairs(p);
 			printContainer(c);
 
 			// insert the paried values in the container
@@ -264,7 +204,8 @@ class PmergeMe
 			size_t 	k;
 			while (!done)
 			{
-				std::cout << "Next Jacobsthal number: " << _jacobsthal[jIndex] << "\n";
+				if (_print)
+					std::cout << "Next Jacobsthal number: " << _jacobsthal[jIndex] << "\n";
 				// Insert the next paired number following the
 				// Jaconsthal numberindex
 				k = _jacobsthal[jIndex];
@@ -286,11 +227,9 @@ class PmergeMe
 				jIndex++;
 			}
 
+			// Save the calculation time
 			*time = clock() - ts_start;
 		}
-
-		// MisVector					_misVector;
-		// MisList						_misList;
 };
 
 #endif

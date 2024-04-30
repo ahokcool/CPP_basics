@@ -6,7 +6,7 @@
 /*   By: astein <astein@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:42:34 by astein            #+#    #+#             */
-/*   Updated: 2024/04/29 18:15:31 by astein           ###   ########.fr       */
+/*   Updated: 2024/04/30 19:05:23 by astein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 // Helper Functions in this file
 std::string	toString(int i);
-bool		calculate(std::stack<int> &stack, char c);
-std::string deliverResult(std::stack<int> &stack);
+bool		calculate(std::stack<int, std::list<int> > &stack, char c);
+std::string deliverResult(std::stack<int, std::list<int> > &stack);
 std::string deliverResult();
 
 
@@ -80,7 +80,7 @@ std::string	toString(int i)
 
 // Operators will pop the last two numbers from the stack,
 // apply the operation and push the result back to the stack
-bool		calculate(std::stack<int> &stack, char c)
+bool		calculate(std::stack<int, std::list<int> > &stack, char c)
 {
 	int op1;
 	int op2;
@@ -107,7 +107,7 @@ bool		calculate(std::stack<int> &stack, char c)
 }
 
 // This function will be used to deliver the result in the correct format
-std::string deliverResult(std::stack<int> &stack)
+std::string deliverResult(std::stack<int, std::list<int> > &stack)
 {
 	if(stack.size() == 1)
 	{

@@ -34,7 +34,11 @@ RPN		&RPN::operator=(const RPN &other)
 // Member functions
 std::string		RPN::rpn(const std::string &str)
 {
-	std::stack<int> stack;	
+	//So in the ex02 I use deque which is the same as the default stack.
+	//In ex02 my template wouldn't work with a list so thats why I use it
+	//here instead. So I won't have the same container twice (see subject)
+	//Stack is a container adapter not a container!
+	std::stack<int, std::list<int> > stack;	
 
 	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
 	{

@@ -39,7 +39,7 @@ The C++ module is a project-based module that will introduce you to the basics o
 | [CPP06][CPP06] | :white_check_mark: 	   | Deep dive into different types of C++ casts. 								   |
 | [CPP07][CPP07] | :white_check_mark:      | Introduction to templates and template programming. 						   |
 | [CPP08][CPP08] | :white_check_mark:      | Exploring STL containers, iterators, and algorithms.  						   |
-| [CPP09][CPP09] | :orange_circle: 		   | Advanced namespaces, exception handling, and STL usage. 					   |
+| [CPP09][CPP09] | :white_check_mark: 	   | Advanced namespaces, exception handling, and STL usage. 					   |
 
 <!-- Links -->
 [CPP00]:./CPP00/

@@ -10,5 +10,5 @@ Exercise 01 is about reverse Polish notation, which reads one "word" after
 another. So a STACK is a good way to go.
 
 Exercise 02 needs containers to compare the sorting time of ints. Therefore
-LIST and VECTOR can be used, since they behave similarly and are something
+DEQUE and VECTOR can be used, since they behave similarly and are something
 like advanced arrays...

@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <stack>
+# include <list>
 # include <sstream>
 # include <string>
 
